@@ -1,50 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\V1\ApikeyController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\V1\ProvinceController;
-use App\Http\Controllers\Api\V1\MainController;
-use App\Http\Controllers\Api\V1\UserController;
-use App\Http\Controllers\Api\V1\ProductController;
-use App\Http\Controllers\Api\V1\BrandController;
-use App\Http\Controllers\Api\V1\FilterController;
-use App\Http\Controllers\Api\V1\AttributeGroupController;
-use App\Http\Controllers\Api\V1\AttributeController;
-use App\Http\Controllers\Api\V1\BackupController;
-use App\Http\Controllers\Api\V1\SpecTypeController;
-use App\Http\Controllers\Api\V1\PostController;
-use App\Http\Controllers\Api\V1\CategoryController;
-use App\Http\Controllers\Api\V1\PageController;
-use App\Http\Controllers\Api\V1\MenuController;
-use App\Http\Controllers\Api\V1\OrderController;
-use App\Http\Controllers\Api\V1\TransactionController;
-use App\Http\Controllers\Api\V1\SliderController;
-use App\Http\Controllers\Api\V1\BannerController;
-use App\Http\Controllers\Api\V1\CarrierController;
-use App\Http\Controllers\Api\V1\CityController;
-use App\Http\Controllers\Api\V1\LinkController;
-use App\Http\Controllers\Api\V1\ContactController;
-use App\Http\Controllers\Api\V1\StockNotifyController;
-use App\Http\Controllers\Api\V1\CommentController;
-use App\Http\Controllers\Api\V1\CurrencyController;
-use App\Http\Controllers\Api\V1\DeveloperController;
-use App\Http\Controllers\Api\V1\DiscountController;
-use App\Http\Controllers\Api\V1\InstallController;
-use App\Http\Controllers\Api\V1\RoleController;
-use App\Http\Controllers\Api\V1\PermissionController;
-use App\Http\Controllers\Api\V1\ReviewController;
-use App\Http\Controllers\Api\V1\SettingController;
-use App\Http\Controllers\Api\V1\SizeTypeController;
-use App\Http\Controllers\Api\V1\SmsController;
-use App\Http\Controllers\Api\V1\StatisticsController;
-use App\Http\Controllers\Api\V1\TariffController;
-use App\Http\Controllers\Api\V1\ThemeController;
-use App\Http\Controllers\Api\V1\TicketController;
-use App\Http\Controllers\Api\V1\WalletController;
-use App\Http\Controllers\Api\V1\WalletHistoryController;
-use App\Http\Controllers\Api\V1\WidgetController;
-use App\Http\Controllers\PushSubscriptionController;
-use Rap2hpoutre\LaravelLogViewer\LogViewerController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +12,52 @@ use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Controllers\Back\ApikeyController;
+use App\Http\Controllers\Back\AttributeController;
+use App\Http\Controllers\Back\AttributeGroupController;
+use App\Http\Controllers\Back\BackupController;
+use App\Http\Controllers\Back\BannerController;
+use App\Http\Controllers\Back\BrandController;
+use App\Http\Controllers\Back\CarrierController;
+use App\Http\Controllers\Back\CategoryController;
+use App\Http\Controllers\Back\CityController;
+use App\Http\Controllers\Back\CommentController;
+use App\Http\Controllers\Back\ContactController;
+use App\Http\Controllers\Back\CurrencyController;
+use App\Http\Controllers\Back\DeveloperController;
+use App\Http\Controllers\Back\DiscountController;
+use App\Http\Controllers\Back\FilterController;
+use App\Http\Controllers\Back\InstallController;
+use App\Http\Controllers\Back\LinkController;
+use App\Http\Controllers\Back\MainController;
+use App\Http\Controllers\Back\MenuController;
+use App\Http\Controllers\Back\OrderController;
+use App\Http\Controllers\Back\PageController;
+use App\Http\Controllers\Back\PermissionController;
+use App\Http\Controllers\Back\PostController;
+use App\Http\Controllers\Back\ProductController;
+use App\Http\Controllers\Back\ProvinceController;
+use App\Http\Controllers\Back\ReviewController;
+use App\Http\Controllers\Back\RoleController;
+use App\Http\Controllers\Back\SettingController;
+use App\Http\Controllers\Back\SizeTypeController;
+use App\Http\Controllers\Back\SliderController;
+use App\Http\Controllers\Back\SmsController;
+use App\Http\Controllers\Back\SpecTypeController;
+use App\Http\Controllers\Back\StatisticsController;
+use App\Http\Controllers\Back\StockNotifyController;
+use App\Http\Controllers\Back\TariffController;
+use App\Http\Controllers\Back\ThemeController;
+use App\Http\Controllers\Back\TicketController;
+use App\Http\Controllers\Back\TransactionController;
+use App\Http\Controllers\Back\UserController;
+use App\Http\Controllers\Back\WalletController;
+use App\Http\Controllers\Back\WalletHistoryController;
+use App\Http\Controllers\Back\WidgetController;
+use App\Http\Controllers\PushSubscriptionController;
+use Illuminate\Support\Facades\Route;
+use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
 require __DIR__ . '/auth.php';
 

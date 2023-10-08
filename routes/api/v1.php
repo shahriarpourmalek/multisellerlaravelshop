@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\AppController;
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\V1\BannerController;
 use App\Http\Controllers\Api\V1\CartController;
 use App\Http\Controllers\Api\V1\CategoryController;
 use App\Http\Controllers\Api\V1\FavoriteController;
@@ -85,4 +86,10 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('cart', [CartController::class, 'index']);
     Route::post('cart', [CartController::class, 'store']);
     Route::delete('cart/{price}', [CartController::class, 'destroy']);
+    //------------------- Banner
+    Route::post('banners/{id}', [BannerController::class, 'updateBanner']);
+    Route::apiResource('banners', BannerController::class)->except(['show','update']);
+
+
+
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Resources\Api\V1\Banners\BannerCollection;
 use App\Models\Banner;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,58 +10,43 @@ use Illuminate\Support\Facades\Storage;
 
 class BannerController extends Controller
 {
-    public function __construct()
-    {
-        $this->authorizeResource(Banner::class, 'banner');
-    }
+
 
     public function index()
     {
-        $banners = Banner::detectLang()->orderBy('ordering')->get();
-
-        return view('back.banners.index', compact('banners'));
-    }
-
-    public function create()
-    {
-        return view('back.banners.create');
+        $banners = Banner::all();
+        return $this->respondWithResourceCollection(BannerCollection::collection($banners));
     }
 
     public function store(Request $request)
     {
+
         $this->validate($request, [
-            'image'       => 'image|required|max:2048',
-            'group'       => 'required',
-            'title'       => 'nullable',
+            'image' => 'image|required|max:2048',
+            'group' => 'required',
+            'title' => 'nullable',
             'description' => 'nullable',
         ]);
 
         $file = $request->image;
         $name = uniqid() . '_' . time() . '.' . $file->getClientOriginalExtension();
         $request->image->storeAs('banners', $name);
-
-        Banner::create([
-            'link'        => $request->link,
-            'lang'        => app()->getLocale(),
-            'group'       => $request->group,
-            'published'   => $request->published ? true : false,
-            'image'       => '/uploads/banners/' . $name,
-            'title'       => $request->title,
+        $banner = Banner::create([
+            'link' => $request->link,
+            'lang' => app()->getLocale(),
+            'group' => $request->group,
+            'published' => $request->published ? true : false,
+            'image' => '/uploads/banners/' . $name,
+            'title' => $request->title,
             'description' => $request->description,
         ]);
-
-        toastr()->success('بنر با موفقیت ایجاد شد.');
-
-        return response("success");
+        return $this->respondSuccess('با موفقیت بنر  اضافه شد.');
     }
 
-    public function edit(Banner $banner)
-    {
-        return view('back.banners.edit', compact('banner'));
-    }
 
-    public function update(Banner $banner, Request $request)
+    public function updateBanner($id, Request $request)
     {
+        $banner = Banner::find($id);
         $this->validate($request, [
             'image' => 'image|max:2048',
             'group' => 'required'
@@ -69,6 +55,7 @@ class BannerController extends Controller
         if ($request->hasFile('image')) {
 
             if ($banner->image) {
+
                 Storage::disk('public')->delete($banner->image);
             }
 
@@ -81,20 +68,20 @@ class BannerController extends Controller
         }
 
         $banner->update([
-            'link'        => $request->link,
-            'group'       => $request->group,
-            'published'   => $request->published ? true : false,
-            'title'       => $request->title,
+            'link' => $request->link,
+            'group' => $request->group,
+            'published' => $request->published ? true : false,
+            'title' => $request->title,
             'description' => $request->description,
         ]);
 
-        toastr()->success('بنر با موفقیت ویرایش شد.');
 
-        return response("success");
+        return $this->respondSuccess('با موفقیت بنر آپدیت  شد.');
     }
 
-    public function destroy(Banner $banner)
+    public function destroy($id)
     {
+        $banner = Banner::find($id);
         if ($banner->image) {
             Storage::disk('public')->delete($banner->image);
         }

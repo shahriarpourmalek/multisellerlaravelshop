@@ -113,7 +113,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin/' . admin_route_prefix(), 'mi
     Route::post('product/slug', [ProductController::class, 'generate_slug']);
 
     Route::get('products/export/create', [ProductController::class, 'export'])->name('products.export');
-
+    Route::get('product/discount', [ProductController::class, 'discount']);
     Route::get('product/prices', [ProductController::class, 'indexPrices'])->name('product.prices.index');
     Route::put('product/prices', [ProductController::class, 'updatePrices'])->name('product.prices.update');
 

@@ -75,4 +75,14 @@ class ProductController extends Controller
 
         return $this->respondCreated(['message' => 'دیدگاه با موفقیت ثبت شد']);
     }
+    public function discount()
+    {
+        $products = Product::detectLang()
+            ->published()
+            ->available()
+            ->discount()
+            ->latest()
+            ->paginate(20);
+        return $this->respondWithResourceCollection(new ProductCollection($products));
+    }
 }

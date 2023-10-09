@@ -70,18 +70,15 @@ Route::group(['prefix' => 'v1'], function () {
     Route::apiResource('products', ProductController::class)->only(['index', 'show']);
     Route::get('products/{product}/comments', [ProductController::class, 'comments']);
     Route::get('products/{product}/relatedProducts', [ProductController::class, 'relatedProducts']);
-
+    Route::get('product/discount', [ProductController::class, 'discount']);
     // ------------------ Posts
     Route::apiResource('posts', PostController::class)->only(['index', 'show']);
     Route::get('posts/{post}/comments', [PostController::class, 'comments']);
-
     // ------------------ Pages
     Route::apiResource('pages', PageController::class)->only(['show']);
-
     // ------------------ MainController
     Route::get('provinces', [ProvinceController::class, 'index']);
     Route::get('provinces/{province}/cities', [ProvinceController::class, 'cities']);
-
     // ------------------ Cart
     Route::get('cart', [CartController::class, 'index']);
     Route::post('cart', [CartController::class, 'store']);
@@ -89,7 +86,5 @@ Route::group(['prefix' => 'v1'], function () {
     //------------------- Banner
     Route::post('banners/{id}', [BannerController::class, 'updateBanner']);
     Route::apiResource('banners', BannerController::class)->except(['show','update']);
-
-
 
 });

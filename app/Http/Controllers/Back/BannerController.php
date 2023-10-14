@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Back;
 
-use App\Models\Banner;
 use App\Http\Controllers\Controller;
+use App\Interfaces\Repositories\BannerRepositoryInterface;
+use App\Models\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 

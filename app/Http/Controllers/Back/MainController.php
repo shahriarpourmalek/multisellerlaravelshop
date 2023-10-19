@@ -18,11 +18,9 @@ class MainController extends Controller
         $users_count = Cache::rememberForever('admin.users_count', function () {
             return User::where('level', '!=', 'creator')->count();
         });
-
         $products_count = Cache::rememberForever('admin.products_count', function () {
             return Product::count();
         });
-
         $orders_count = Cache::rememberForever('admin.orders_count', function () {
             return Order::count();
         });

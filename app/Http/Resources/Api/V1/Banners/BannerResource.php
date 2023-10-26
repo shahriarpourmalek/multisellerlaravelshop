@@ -14,6 +14,15 @@ class BannerResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            "image"=> $this->image,
+            "published"=>$this->published,
+            "link" => $this->link,
+            "ordering"=>$this->ordering,
+            "lang" => $this->lang,
+            "group" => $this->group,
+            "title"=>$this->title,
+            "description" => $this->description
+        ];
     }
 }

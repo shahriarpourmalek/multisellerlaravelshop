@@ -2,29 +2,24 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Resources\Api\V1\Banners\BannerResource;
 use App\Models\Banner;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use function MongoDB\BSON\toJSON;
 
 class BannerController extends Controller
 {
-    public function __construct()
-    {
-        $this->authorizeResource(Banner::class, 'banner');
-    }
+
 
     public function index()
     {
         $banners = Banner::detectLang()->orderBy('ordering')->get();
-
-        return view('back.banners.index', compact('banners'));
+        return BannerResource::collection($banners);
     }
 
-    public function create()
-    {
-        return view('back.banners.create');
-    }
+
 
     public function store(Request $request)
     {
@@ -54,10 +49,7 @@ class BannerController extends Controller
         return response("success");
     }
 
-    public function edit(Banner $banner)
-    {
-        return view('back.banners.edit', compact('banner'));
-    }
+
 
     public function update(Banner $banner, Request $request)
     {

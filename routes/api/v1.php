@@ -70,6 +70,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::apiResource('products', ProductController::class)->only(['index', 'show']);
     Route::get('products/{product}/comments', [ProductController::class, 'comments']);
     Route::get('products/{product}/relatedProducts', [ProductController::class, 'relatedProducts']);
+    Route::get('product/discount', [ProductController::class, 'discount']);
 
     // ------------------ Posts
     Route::apiResource('posts', PostController::class)->only(['index', 'show']);

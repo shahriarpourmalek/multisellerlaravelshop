@@ -94,17 +94,7 @@ class ProductController extends Controller
         return view('front::products.specials', compact('products'));
     }
 
-    public function discount()
-    {
-        $products = Product::detectLang()
-            ->published()
-            ->available()
-            ->discount()
-            ->latest()
-            ->paginate(20);
 
-        return view('front::products.discounts', compact('products'));
-    }
 
     public function ajax_search(Request $request)
     {

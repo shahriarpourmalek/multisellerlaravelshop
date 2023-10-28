@@ -1,0 +1,12 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use App\interfaces\repositories\{{ class }}Interface;
+
+class {{ class }} extends BaseRepository implements {{ class }}Interface
+{
+
+}

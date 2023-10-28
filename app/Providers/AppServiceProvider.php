@@ -2,11 +2,12 @@
 
 namespace App\Providers;
 
+use App\Interfaces\Repositories\BannerRepositoryInterface;
+use App\Interfaces\Repositories\BaseRepositoryInterface;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Filter;
 use App\Models\Order;
-use App\Observers\ProductObserver;
 use App\Models\Page;
 use App\Models\Post;
 use App\Models\Product;
@@ -16,12 +17,15 @@ use App\Observers\BannerObserver;
 use App\Observers\CategoryObserver;
 use App\Observers\OrderObserver;
 use App\Observers\PostObserver;
+use App\Observers\ProductObserver;
 use App\Observers\SliderObserver;
 use App\Observers\UserObserver;
+use App\Repositories\BannerRepository;
+use App\Repositories\BaseRepository;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use RachidLaasri\LaravelInstaller\Helpers\EnvironmentManager;
-use Illuminate\Support\Facades\Request;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,7 +36,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 
     /**
@@ -42,6 +45,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         Schema::defaultStringLength(191);
 
         $this->loadTheme();
@@ -65,6 +69,9 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $this->observers();
+
+
+
     }
 
     private function viewComposer()

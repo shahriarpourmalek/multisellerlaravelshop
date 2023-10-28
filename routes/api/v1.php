@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\V1\PageController;
 use App\Http\Controllers\Api\V1\PostController;
 use App\Http\Controllers\Api\V1\ProductController;
 use App\Http\Controllers\Api\V1\ProvinceController;
+use App\Http\Controllers\Api\V1\SliderController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\BannerController;
 use Illuminate\Support\Facades\Route;
@@ -90,5 +91,8 @@ Route::group(['prefix' => 'v1'], function () {
     //------------------  Banner
     Route::apiResource('banners',BannerController::class)->except(['update']);
     Route::post('banners/{banner}',[BannerController::class,'update']);
+    //-----------------   Slider
 
+    Route::apiResource('sliders', SliderController::class)->except('show');
+    Route::post('sliders/sort', [SliderController::class, 'sort']);
 });

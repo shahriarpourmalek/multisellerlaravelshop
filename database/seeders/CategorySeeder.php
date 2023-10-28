@@ -21,7 +21,7 @@ class CategorySeeder extends Seeder
         $faker = Factory::create();
         Storage::disk('public')->makeDirectory('uploads/categories');
 
-        for ($i = 0; $i < 3; $i++) {
+        for ($i = 0; $i < 40; $i++) {
             $image = $faker->image(Storage::disk('public')->path('uploads/categories'), 100, 100);
             $image = substr($image, strpos($image, 'uploads'));
 

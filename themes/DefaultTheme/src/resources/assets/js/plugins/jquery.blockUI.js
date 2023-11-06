@@ -170,7 +170,7 @@
 				'border-radius':		'10px'
 			},
 
-			// IE issues: 'about:blank' fails on HTTPS and javascript:false is s-l-o-w
+			// IE issues: 'about:blank' fails on HTTPS and javascript:false is Seller-l-o-w
 			// (hat tip to Jorge H. N. de Vasconcelos)
 			/*jshint scripturl:true */
 			iframeSrc: /^https/i.test(window.location.href || '') ? 'javascript:false' : 'about:blank',

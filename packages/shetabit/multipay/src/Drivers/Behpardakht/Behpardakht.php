@@ -84,7 +84,7 @@ class Behpardakht extends Driver
 
         $this->invoice->transactionId($data[1]);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -178,7 +178,7 @@ class Behpardakht extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *

@@ -86,7 +86,7 @@ class Saman extends Driver
         // set transaction id
         $this->invoice->transactionId($response);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -154,7 +154,7 @@ class Saman extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *

@@ -15,7 +15,7 @@ return [
 
     /*
      * Google Cloud Messaging.
-     * Deprecated and optional. It's here only for compatibility reasons.
+     * Deprecated and optional. It'Seller here only for compatibility reasons.
      */
     'gcm' => [
         'key' => env('GCM_KEY'),

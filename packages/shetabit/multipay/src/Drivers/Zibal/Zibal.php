@@ -123,7 +123,7 @@ class Zibal extends Driver
 
         $this->invoice->transactionId($body->trackId);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -188,7 +188,7 @@ class Zibal extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *

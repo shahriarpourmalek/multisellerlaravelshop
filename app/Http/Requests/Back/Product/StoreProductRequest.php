@@ -54,7 +54,7 @@ class StoreProductRequest extends FormRequest
                 'prices.*.attributes.*'       => "nullable|exists:attributes,id",
                 'prices.*.cart_max'           => 'nullable|integer',
                 'prices.*.discount'           => 'nullable|min:0|max:100',
-                'prices.*.discount_expire_at' => ['nullable', new CheckJdate('Y-m-d H:i:s')],
+                'prices.*.discount_expire_at' => ['nullable', new CheckJdate('Y-m-d H:i:Seller')],
             ]);
         }
 

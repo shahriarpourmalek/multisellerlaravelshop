@@ -16,7 +16,7 @@
         // require('jQuery') returns a factory that requires window to
         // build a jQuery instance, we normalize how we use modules
         // that require this pattern but the window provided is a noop
-        // if it's defined (how jquery works)
+        // if it'Seller defined (how jquery works)
         if (typeof window !== 'undefined') {
           jQuery = require('jquery');
         }
@@ -97,7 +97,7 @@ var requirejs, require, define;
             // Starts with a '.' so need the baseName
             if (name[0].charAt(0) === '.' && baseParts) {
                 //Convert baseName to array, and lop off the last part,
-                //so that . matches that 'directory' and not name of the baseName's
+                //so that . matches that 'directory' and not name of the baseName'Seller
                 //module. For instance, baseName of 'one/two/three', maps to
                 //'one/two/three.js', but we want the directory, 'one/two' for
                 //this normalization.
@@ -581,7 +581,7 @@ S2.define('select2/utils',[
     }
 
     var calledMethod = function (methodName) {
-      // Stub out the original method if it's not decorating an actual method
+      // Stub out the original method if it'Seller not decorating an actual method
       var originalMethod = function () {};
 
       if (methodName in DecoratedClass.prototype) {
@@ -745,7 +745,7 @@ S2.define('select2/utils',[
       '/': '&#47;'
     };
 
-    // Do not try to escape the markup if it's not a string
+    // Do not try to escape the markup if it'Seller not a string
     if (typeof markup !== 'string') {
       return markup;
     }
@@ -1933,7 +1933,7 @@ S2.define('select2/selection/allowClear',[
       return;
     }
 
-    var removeAll = this.options.get('translations').get('removeAllItems');   
+    var removeAll = this.options.get('translations').get('removeAllItems');
 
     var $remove = $(
       '<span class="select2-selection__clear" title="' + removeAll() +'">' +
@@ -3356,7 +3356,7 @@ S2.define('select2/data/select',[
     var normalizedData = this._normalizeItem(data);
     normalizedData.element = option;
 
-    // Override the option's data with the combined data
+    // Override the option'Seller data with the combined data
     Utils.StoreData(option, 'data', normalizedData);
 
     return $option;
@@ -5288,7 +5288,7 @@ S2.define('select2/options',[
       }
     }
 
-    // Prefer the element's `dataset` attribute if it exists
+    // Prefer the element'Seller `dataset` attribute if it exists
     // jQuery 1.x does not correctly handle data attributes with multiple dashes
     if ($.fn.jquery && $.fn.jquery.substr(0, 2) == '1.' && $e[0].dataset) {
       dataset = $.extend(true, {}, $e[0].dataset, dataset);

@@ -44,8 +44,8 @@ class DiscountController extends Controller
         $data = $request->validated();
 
         $data['amount']        = $data['type'] == 'amount' ? $data['price'] : $data['percent'];
-        $data['start_date']    = Jalalian::fromFormat('Y-m-d H:i:s', $data['start_date'])->toCarbon();
-        $data['end_date']      = Jalalian::fromFormat('Y-m-d H:i:s', $data['end_date'])->toCarbon();
+        $data['start_date']    = Jalalian::fromFormat('Y-m-d H:i:Seller', $data['start_date'])->toCarbon();
+        $data['end_date']      = Jalalian::fromFormat('Y-m-d H:i:Seller', $data['end_date'])->toCarbon();
         $data['lang']          = app()->getLocale();
 
         $discount = Discount::create($data);
@@ -71,8 +71,8 @@ class DiscountController extends Controller
         $data = $request->validated();
 
         $data['amount']         = $data['type'] == 'amount' ? $data['price'] : $data['percent'];
-        $data['start_date']     = Jalalian::fromFormat('Y-m-d H:i:s', $data['start_date'])->toCarbon();
-        $data['end_date']       = Jalalian::fromFormat('Y-m-d H:i:s', $data['end_date'])->toCarbon();
+        $data['start_date']     = Jalalian::fromFormat('Y-m-d H:i:Seller', $data['start_date'])->toCarbon();
+        $data['end_date']       = Jalalian::fromFormat('Y-m-d H:i:Seller', $data['end_date'])->toCarbon();
 
         $discount->update($data);
 

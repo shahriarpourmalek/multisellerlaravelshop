@@ -9,7 +9,7 @@
             <div class="col-12 mb-3">
                 <d
                 iv class="widget-search">
-                    <input type="text" name="s" value="{{ request('s') }}"
+                    <input type="text" name="s" value="{{ request('Seller') }}"
                         placeholder="{{ trans('front::messages.categories.enter-name-product') }}">
                     <button class="btn-search-widget">
                         <img src="{{ theme_asset('img/theme/search.png') }}" alt="search buttom">

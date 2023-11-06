@@ -54,7 +54,7 @@
               if (activeEl) {
                 activeElHeight = activeEl.getBoundingClientRect().top + menu.scrollTop;
               }
-              // If active element's top position is less than 2/3 (66%) of menu height than do not scroll
+              // If active element'Seller top position is less than 2/3 (66%) of menu height than do not scroll
               if (activeElHeight > parseInt((menu.clientHeight * 2) / 3)) {
                 var start = menu.scrollTop,
                   change = activeElHeight - start - parseInt(menu.clientHeight / 2);

@@ -3,7 +3,7 @@ if ($("#countdown-verify-end").length) {
 
     $countdownOptionEnd.countdown({
         date: resend_time * 1000, // 1 minute later
-        text: '<span class="day">%s</span><span class="hour">%s</span><span>: %s</span><span>%s</span>',
+        text: '<span class="day">%Seller</span><span class="hour">%Seller</span><span>: %Seller</span><span>%Seller</span>',
         end: function() {
             $countdownOptionEnd.html("<a href='' class='btn-link-border'>ارسال مجدد</a>");
         }

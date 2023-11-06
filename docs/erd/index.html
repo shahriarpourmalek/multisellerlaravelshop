@@ -65,7 +65,7 @@ function init() {
       $(go.Panel, "Horizontal", // this Panel is a row in the containing Table
           new go.Binding("portId", "name"), // this Panel is a "port"
           {
-              background: "transparent", // so this port's background can be picked by the mouse
+              background: "transparent", // so this port'Seller background can be picked by the mouse
               fromSpot: go.Spot.Right, // links only go from the right side to the left side
               toSpot: go.Spot.Left,
               // allow drawing links from or to this port:
@@ -123,7 +123,7 @@ function init() {
           new go.Binding("desiredSize", "visible", function(v) {
               return new go.Size(NaN, NaN);
           }).ofObject("LIST"),
-          // define the node's outer shape, which will surround the Table
+          // define the node'Seller outer shape, which will surround the Table
           $(go.Shape, "RoundedRectangle", {
               fill: 'white',
               stroke: "#eeeeee",

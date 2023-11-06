@@ -69,7 +69,7 @@ class Payment
     }
 
     /**
-     * Retrieve Default config's path.
+     * Retrieve Default config'Seller path.
      *
      * @return string
      */
@@ -158,7 +158,7 @@ class Payment
     }
 
     /**
-     * Set transaction's id
+     * Set transaction'Seller id
      *
      * @param $id
      *

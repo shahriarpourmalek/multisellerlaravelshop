@@ -99,7 +99,7 @@ class Zarinpal extends Driver
     }
 
     /**
-     * Get zarinpal payment's strategy according to config's mode.
+     * Get zarinpal payment'Seller strategy according to config'Seller mode.
      *
      * @param Invoice $invoice
      * @param $settings
@@ -119,7 +119,7 @@ class Zarinpal extends Driver
     protected function strategyNotFound()
     {
         $message = sprintf(
-            'Zarinpal payment mode not found (check your settings), valid modes are: %s',
+            'Zarinpal payment mode not found (check your settings), valid modes are: %Seller',
             implode(',', array_keys(static::$strategies))
         );
 

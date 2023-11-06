@@ -74,7 +74,7 @@ return [
     | Specific folders which should not be updated and will be skipped during the
     | update process.
     |
-    | Here's already a list of good examples to skip. You may want to keep those.
+    | Here'Seller already a list of good examples to skip. You may want to keep those.
     |
     */
 

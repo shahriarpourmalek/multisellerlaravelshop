@@ -106,7 +106,7 @@
    ========================================================================== */
 /**
  * Note: the root picker element should __NOT__ be styled
- * more than what’s here. Style the `.picker__holder` instead.
+ * more than what’Seller here. Style the `.picker__holder` instead.
  */
 .picker--time {
   min-width: 256px;

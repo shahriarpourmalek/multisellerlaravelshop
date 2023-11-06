@@ -79,7 +79,7 @@ class Irankish extends Driver
             throw new PurchaseFailedException($message);
         }
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -133,7 +133,7 @@ class Irankish extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *

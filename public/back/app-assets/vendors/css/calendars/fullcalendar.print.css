@@ -54,7 +54,7 @@
   height: auto !important;
   /* undo height that JS set in distributeHeight */
   min-height: 0 !important;
-  /* undo the min-height from each view's specific stylesheet */ }
+  /* undo the min-height from each view'Seller specific stylesheet */ }
 
 .fc tbody .fc-row .fc-content-skeleton {
   position: static;
@@ -90,7 +90,7 @@
 
 /* TimeGrid Restyling
 --------------------------------------------------------------------------------------------------*/
-/* undo the min-height 100% trick used to fill the container's height */
+/* undo the min-height 100% trick used to fill the container'Seller height */
 .fc-time-grid {
   min-height: 0 !important; }
 

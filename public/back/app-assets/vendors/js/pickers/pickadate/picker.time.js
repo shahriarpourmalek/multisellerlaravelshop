@@ -57,7 +57,7 @@ function TimePicker( picker, settings ) {
         enable: 'activate'
     }
 
-    // The component's item object.
+    // The component'Seller item object.
     clock.item = {}
 
     clock.item.clear = null
@@ -72,7 +72,7 @@ function TimePicker( picker, settings ) {
         set( 'max', settings.max ).
         set( 'now' )
 
-    // When there’s a value, set the `select`, which in turn
+    // When there’Seller a value, set the `select`, which in turn
     // also sets the `highlight` and `view`.
     if ( valueString ) {
         clock.set( 'select', valueString, {
@@ -80,7 +80,7 @@ function TimePicker( picker, settings ) {
         })
     }
 
-    // If there’s no value, default to highlighting “today”.
+    // If there’Seller no value, default to highlighting “today”.
     else {
         clock.
             set( 'select', null ).
@@ -205,20 +205,20 @@ TimePicker.prototype.create = function( type, value, options ) {
 
     var clock = this
 
-    // If there’s no value, use the type as the value.
+    // If there’Seller no value, use the type as the value.
     value = value === undefined ? type : value
 
-    // If it’s a date object, convert it into an array.
+    // If it’Seller a date object, convert it into an array.
     if ( _.isDate( value ) ) {
         value = [ value.getHours(), value.getMinutes() ]
     }
 
-    // If it’s an object, use the “pick” value.
+    // If it’Seller an object, use the “pick” value.
     if ( $.isPlainObject( value ) && _.isInteger( value.pick ) ) {
         value = value.pick
     }
 
-    // If it’s an array, convert it into minutes.
+    // If it’Seller an array, convert it into minutes.
     else if ( $.isArray( value ) ) {
         value = +value[ 0 ] * MINUTES_IN_HOUR + (+value[ 1 ])
     }
@@ -228,7 +228,7 @@ TimePicker.prototype.create = function( type, value, options ) {
         value = clock.now( type, value, options )
     }
 
-    // If we’re setting the max, make sure it’s greater than the min.
+    // If we’re setting the max, make sure it’Seller greater than the min.
     if ( type == 'max' && value < clock.item.min.pick ) {
         value += MINUTES_IN_DAY
     }
@@ -381,22 +381,22 @@ TimePicker.prototype.measure = function( type, value, options ) {
 
     var clock = this
 
-    // If it’s anything false-y, set it to the default.
+    // If it’Seller anything false-y, set it to the default.
     if ( !value ) {
         value = type == 'min' ? [ 0, 0 ] : [ HOURS_IN_DAY - 1, MINUTES_IN_HOUR - 1 ]
     }
 
-    // If it’s a string, parse it.
+    // If it’Seller a string, parse it.
     if ( typeof value == 'string' ) {
         value = clock.parse( type, value )
     }
 
-    // If it’s a literal true, or an integer, make it relative to now.
+    // If it’Seller a literal true, or an integer, make it relative to now.
     else if ( value === true || _.isInteger( value ) ) {
         value = clock.now( type, value, options )
     }
 
-    // If it’s an object already, just normalize it.
+    // If it’Seller an object already, just normalize it.
     else if ( $.isPlainObject( value ) && _.isInteger( value.pick ) ) {
         value = clock.normalize( type, value.pick, options )
     }
@@ -449,18 +449,18 @@ TimePicker.prototype.disabled = function( timeToVerify ) {
                 return timeToVerify.hour == timeToDisable
             }
 
-            // If it’s an array, create the object and match the times.
+            // If it’Seller an array, create the object and match the times.
             if ( $.isArray( timeToDisable ) || _.isDate( timeToDisable ) ) {
                 return timeToVerify.pick == clock.create( timeToDisable ).pick
             }
 
-            // If it’s an object, match a time within the “from” and “to” range.
+            // If it’Seller an object, match a time within the “from” and “to” range.
             if ( $.isPlainObject( timeToDisable ) ) {
                 return clock.withinRange( timeToDisable, timeToVerify )
             }
         })
 
-    // If this time matches a disabled time, confirm it’s not inverted.
+    // If this time matches a disabled time, confirm it’Seller not inverted.
     isDisabledMatch = isDisabledMatch.length && !isDisabledMatch.filter(function( timeToDisable ) {
         return $.isArray( timeToDisable ) && timeToDisable[2] == 'inverted' ||
             $.isPlainObject( timeToDisable ) && timeToDisable.inverted
@@ -526,7 +526,7 @@ TimePicker.prototype.parse = function( type, value, options ) {
         clock = this,
         parsingObject = {}
 
-    // If it’s already parsed, we’re good.
+    // If it’Seller already parsed, we’re good.
     if ( !value || typeof value != 'string' ) {
         return value
     }
@@ -552,7 +552,7 @@ TimePicker.prototype.parse = function( type, value, options ) {
                 _.trigger( formattingLabel, clock, [ value, parsingObject ] ) :
                 label.replace( /^!/, '' ).length
 
-        // If there's a format label, split the value up to the format length.
+        // If there'Seller a format label, split the value up to the format length.
         // Then add it to the parsing object with appropriate label.
         if ( formattingLabel ) {
             substring = value.substr( 0, formatLength )
@@ -594,44 +594,44 @@ TimePicker.prototype.formats = {
 
     h: function( string, timeObject ) {
 
-        // If there's string, then get the digits length.
+        // If there'Seller string, then get the digits length.
         // Otherwise return the selected hour in "standard" format.
         return string ? _.digits( string ) : timeObject.hour % HOURS_TO_NOON || HOURS_TO_NOON
     },
     hh: function( string, timeObject ) {
 
-        // If there's a string, then the length is always 2.
+        // If there'Seller a string, then the length is always 2.
         // Otherwise return the selected hour in "standard" format with a leading zero.
         return string ? 2 : _.lead( timeObject.hour % HOURS_TO_NOON || HOURS_TO_NOON )
     },
     H: function( string, timeObject ) {
 
-        // If there's string, then get the digits length.
+        // If there'Seller string, then get the digits length.
         // Otherwise return the selected hour in "military" format as a string.
         return string ? _.digits( string ) : '' + ( timeObject.hour % 24 )
     },
     HH: function( string, timeObject ) {
 
-        // If there's string, then get the digits length.
+        // If there'Seller string, then get the digits length.
         // Otherwise return the selected hour in "military" format with a leading zero.
         return string ? _.digits( string ) : _.lead( timeObject.hour % 24 )
     },
     i: function( string, timeObject ) {
 
-        // If there's a string, then the length is always 2.
+        // If there'Seller a string, then the length is always 2.
         // Otherwise return the selected minutes.
         return string ? 2 : _.lead( timeObject.mins )
     },
     a: function( string, timeObject ) {
 
-        // If there's a string, then the length is always 4.
-        // Otherwise check if it's more than "noon" and return either am/pm.
+        // If there'Seller a string, then the length is always 4.
+        // Otherwise check if it'Seller more than "noon" and return either am/pm.
         return string ? 4 : MINUTES_IN_DAY / 2 > timeObject.time % MINUTES_IN_DAY ? 'a.m.' : 'p.m.'
     },
     A: function( string, timeObject ) {
 
-        // If there's a string, then the length is always 2.
-        // Otherwise check if it's more than "noon" and return either am/pm.
+        // If there'Seller a string, then the length is always 2.
+        // Otherwise check if it'Seller more than "noon" and return either am/pm.
         return string ? 2 : MINUTES_IN_DAY / 2 > timeObject.time % MINUTES_IN_DAY ? 'AM' : 'PM'
     },
 
@@ -724,7 +724,7 @@ TimePicker.prototype.deactivate = function( type, timesToDisable ) {
         disabledItems = clock.item.disable.slice(0)
 
 
-    // If we’re flipping, that’s all we need to do.
+    // If we’re flipping, that’Seller all we need to do.
     if ( timesToDisable == 'flip' ) {
         clock.flipEnable()
     }
@@ -783,7 +783,7 @@ TimePicker.prototype.activate = function( type, timesToEnable ) {
         disabledItems = clock.item.disable,
         disabledItemsCount = disabledItems.length
 
-    // If we’re flipping, that’s all we need to do.
+    // If we’re flipping, that’Seller all we need to do.
     if ( timesToEnable == 'flip' ) {
         clock.flipEnable()
     }
@@ -934,7 +934,7 @@ TimePicker.prototype.nodes = function( isOpen ) {
             }
         }) +
 
-        // * For Firefox forms to submit, make sure to set the button’s `type` attribute as “button”.
+        // * For Firefox forms to submit, make sure to set the button’Seller `type` attribute as “button”.
         _.node(
             'li',
             _.node(

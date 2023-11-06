@@ -250,7 +250,7 @@
         vars: {
             // select all rows flag to be sent to the server
             selectedAllRows: 'selectedAllRows',
-            // request id parameter's name
+            // request id parameter'Seller name
             requestIds: 'requestIds',
             // response path to all rows id
             rowIds: 'meta.rowIds',

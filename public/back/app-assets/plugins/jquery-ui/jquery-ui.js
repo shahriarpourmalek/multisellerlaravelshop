@@ -1277,7 +1277,7 @@ var keycode = $.ui.keyCode = {
 
 //>>label: uniqueId
 //>>group: Core
-//>>description: Functions to generate and remove uniqueId's
+//>>description: Functions to generate and remove uniqueId'Seller
 //>>docs: http://api.jqueryui.com/uniqueId/
 
 
@@ -1453,7 +1453,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			"mouseleave .ui-menu": "collapseAll",
 			focus: function( event, keepActiveItem ) {
 
-				// If there's already an active item, keep it active
+				// If there'Seller already an active item, keep it active
 				// If not, activate the first item
 				var item = this.active || this.element.find( this.options.items ).eq( 0 );
 
@@ -1703,7 +1703,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 		focused = this.active.children( ".ui-menu-item-wrapper" );
 		this._addClass( focused, null, "ui-state-active" );
 
-		// Only update aria-activedescendant if there's a role
+		// Only update aria-activedescendant if there'Seller a role
 		// otherwise we assume focus is managed elsewhere
 		if ( this.options.role ) {
 			this.element.attr( "aria-activedescendant", focused.attr( "id" ) );
@@ -2213,7 +2213,7 @@ $.widget( "ui.autocomplete", {
 					// Right clicking a menu item or selecting text from the menu items will
 					// result in focus moving out of the input. However, we've already received
 					// and ignored the blur event because of the cancelBlur flag set above. So
-					// we restore focus to ensure that the menu closes properly based on the user's
+					// we restore focus to ensure that the menu closes properly based on the user'Seller
 					// next actions.
 					if ( this.element[ 0 ] !== $.ui.safeActiveElement( this.document[ 0 ] ) ) {
 						this.element.trigger( "focus" );

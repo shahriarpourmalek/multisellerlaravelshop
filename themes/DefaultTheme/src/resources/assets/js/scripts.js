@@ -392,7 +392,7 @@ $('.product-special-end-date').each(function (index, el) {
 
     // Update the count down every 1 second
     let x = setInterval(function () {
-        // Get today's date and time
+        // Get today'Seller date and time
         var now = new Date().getTime();
 
         // Find the distance between now and the count down date

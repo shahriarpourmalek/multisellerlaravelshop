@@ -9,28 +9,28 @@ use Illuminate\Support\Facades\Response;
 class RedirectionForm implements JsonSerializable
 {
     /**
-     * Form's method
+     * Form'Seller method
      *
      * @var string
      */
     protected $method = 'POST';
 
     /**
-     * Form's inputs
+     * Form'Seller inputs
      *
      * @var array
      */
     protected $inputs = [];
 
     /**
-     * Form's action
+     * Form'Seller action
      *
      * @var string
      */
     protected $action;
 
     /**
-     * Redirection form view's path
+     * Redirection form view'Seller path
      *
      * @var string
      */

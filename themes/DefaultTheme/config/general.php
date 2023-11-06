@@ -129,6 +129,13 @@ return [
         'login-with-code'  => 'front::auth.login-with-code',
         'one-time-login'   => 'front::auth.one-time-login',
     ],
+    'sellers' => [
+        'login'            => 'front::sellers.auth.login',
+        'register'         => 'front::sellers.auth.register',
+        'forgot-password'  => 'front::sellers.auth.forgot-password',
+        'login-with-code'  => 'front::sellers.auth.login-with-code',
+        'one-time-login'   => 'front::sellers.auth.one-time-login',
+    ],
 
     'routes' => [
         'verify'                 => 'front.verify.showVerify',

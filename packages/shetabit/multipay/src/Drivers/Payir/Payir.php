@@ -100,7 +100,7 @@ class Payir extends Driver
 
         $this->invoice->transactionId($body['token']);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -153,7 +153,7 @@ class Payir extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *

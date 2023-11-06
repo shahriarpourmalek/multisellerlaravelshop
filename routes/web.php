@@ -1,7 +1,6 @@
 <?php
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +59,7 @@ use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/sellers.php';
 
 Route::get('province/get-cities', [ProvinceController::class, 'getCities'])->name('provinces.get-cities');
 
@@ -195,8 +195,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin/' . admin_route_prefix(), 'mi
     Route::get('order/not-completed/products', [OrderController::class, 'notCompleted'])->name('orders.notCompleted');
     Route::get('orders/api/userInfo', [OrderController::class, 'userInfo'])->name('orders.userInfo');
     Route::get('orders/api/productsList', [OrderController::class, 'productsList'])->name('orders.productsList');
-    Route::get('orders/api/printAllShippingForms',[OrderController::class, 'printAllShippingForms'])->name('orders.printAllShippingForms');
-    Route::get('orders/api/printAll',[OrderController::class, 'printAll'])->name('orders.printAll');
+    Route::get('orders/api/printAllShippingForms', [OrderController::class, 'printAllShippingForms'])->name('orders.printAllShippingForms');
+    Route::get('orders/api/printAll', [OrderController::class, 'printAll'])->name('orders.printAll');
 
     Route::get('orders/export/create', [OrderController::class, 'export'])->name('orders.export');
 

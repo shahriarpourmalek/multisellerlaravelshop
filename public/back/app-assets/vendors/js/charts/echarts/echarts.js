@@ -119,17 +119,17 @@ function detect(ua) {
     var os = {};
     var browser = {};
     // var webkit = ua.match(/Web[kK]it[\/]{0,1}([\d.]+)/);
-    // var android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
-    // var ipad = ua.match(/(iPad).*OS\s([\d_]+)/);
-    // var ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
-    // var iphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/);
-    // var webos = ua.match(/(webOS|hpwOS)[\s\/]([\d.]+)/);
+    // var android = ua.match(/(Android);?[\Seller\/]+([\d.]+)?/);
+    // var ipad = ua.match(/(iPad).*OS\Seller([\d_]+)/);
+    // var ipod = ua.match(/(iPod)(.*OS\Seller([\d_]+))?/);
+    // var iphone = !ipad && ua.match(/(iPhone\sOS)\Seller([\d_]+)/);
+    // var webos = ua.match(/(webOS|hpwOS)[\Seller\/]([\d.]+)/);
     // var touchpad = webos && ua.match(/TouchPad/);
     // var kindle = ua.match(/Kindle\/([\d.]+)/);
     // var silk = ua.match(/Silk\/([\d._]+)/);
     // var blackberry = ua.match(/(BlackBerry).*Version\/([\d.]+)/);
     // var bb10 = ua.match(/(BB10).*Version\/([\d.]+)/);
-    // var rimtabletos = ua.match(/(RIM\sTablet\sOS)\s([\d.]+)/);
+    // var rimtabletos = ua.match(/(RIM\sTablet\sOS)\Seller([\d.]+)/);
     // var playbook = ua.match(/PlayBook/);
     // var chrome = ua.match(/Chrome\/([\d.]+)/) || ua.match(/CriOS\/([\d.]+)/);
     var firefox = ua.match(/Firefox\/([\d.]+)/);
@@ -3907,7 +3907,7 @@ function parse(colorStr, rgbaArr) {
  */
 function hsla2rgba(hsla, rgba) {
     var h = (((parseFloat(hsla[0]) % 360) + 360) % 360) / 360;  // 0 .. 1
-    // NOTE(deanm): According to the CSS spec s/l should only be
+    // NOTE(deanm): According to the CSS spec Seller/l should only be
     // percentages, but we don't bother and let float or percentage.
     var s = parseCssFloat(hsla[1]);
     var l = parseCssFloat(hsla[2]);
@@ -15109,7 +15109,7 @@ var transformPath = function (path, m) {
 // command chars
 // var cc = [
 //     'm', 'M', 'l', 'L', 'v', 'V', 'h', 'H', 'z', 'Z',
-//     'c', 'C', 'q', 'Q', 't', 'T', 's', 'S', 'a', 'A'
+//     'c', 'C', 'q', 'Q', 't', 'T', 'Seller', 'S', 'a', 'A'
 // ];
 
 var mathSqrt = Math.sqrt;
@@ -15189,7 +15189,7 @@ var commandReg = /([mlvhzcqtsa])([^mlvhzcqtsa]*)/ig;
 // '2e-4', 'l.5.9' (ignore 0), 'M-10-10', 'l-2.43e-1,34.9983',
 // 'l-.5E1,54', '121-23-44-11' (no delimiter)
 var numberReg = /-?([0-9]*\.)?[0-9]+([eE]-?[0-9]+)?/g;
-// var valueSplitReg = /[\s,]+/;
+// var valueSplitReg = /[\Seller,]+/;
 
 function createPathProxyFromString(data) {
     if (!data) {
@@ -16632,7 +16632,7 @@ inherits(RadialGradient, Gradient);
  * IncrementalDisplay have two main methods. `clearDisplayables` and `addDisplayables`
  * addDisplayables will render the added displayables incremetally.
  *
- * It use a not clearFlag to tell the painter don't clear the layer if it's the first element.
+ * It use a not clearFlag to tell the painter don't clear the layer if it'Seller the first element.
  */
 // TODO Style override ?
 function IncrementalDisplayble(opts) {
@@ -17140,7 +17140,7 @@ function traverseUpdate(el, updater, commonParam) {
  * @param {module:zrender/Element} el Should not be `zrender/container/Group`.
  * @param {Object} [el.hoverStyle] Can be set on el or its descendants,
  *        e.g., `el.hoverStyle = ...; graphic.setHoverStyle(el); `.
- *        Often used when item group has a label element and it's hoverStyle is different.
+ *        Often used when item group has a label element and it'Seller hoverStyle is different.
  * @param {Object|boolean} [hoverStl] The specified hover style.
  *        If set as `false`, disable the hover style.
  *        Similarly, The `el.hoverStyle` can alse be set
@@ -22314,7 +22314,7 @@ function OptionManager(api) {
 // timeline.notMerge is not supported in ec3. Firstly there is rearly
 // case that notMerge is needed. Secondly supporting 'notMerge' requires
 // rawOption cloned and backuped when timeline changed, which does no
-// good to performance. What's more, that both timeline and setOption
+// good to performance. What'Seller more, that both timeline and setOption
 // method supply 'notMerge' brings complex and some problems.
 // Consider this case:
 // (step1) chart.setOption({timeline: {notMerge: false}, ...}, false);
@@ -25469,7 +25469,7 @@ var aria = function (dom, ecModel) {
         var result = str;
         each$1(keyValues, function (value, key) {
             result = result.replace(
-                new RegExp('\\{\\s*' + key + '\\s*\\}', 'g'),
+                new RegExp('\\{\\Seller*' + key + '\\Seller*\\}', 'g'),
                 value
             );
         });
@@ -29385,7 +29385,7 @@ function getCoordinateSystemDimensions(type) {
 /**
  * Layout is a special stage of visual encoding
  * Most visual encoding like color are common for different chart
- * But each chart has it's own layout algorithm
+ * But each chart has it'Seller own layout algorithm
  *
  * @param {number} [priority=1000]
  * @param {Function} layoutTask
@@ -30198,7 +30198,7 @@ var listProto = List.prototype;
 listProto.type = 'list';
 
 /**
- * If each data item has it's own option
+ * If each data item has it'Seller own option
  * @type {boolean}
  */
 listProto.hasItemOption = true;
@@ -33107,7 +33107,7 @@ var IntervalScale = Scale.extend({
         other[0] < extent[0] && (extent[0] = other[0]);
         other[1] > extent[1] && (extent[1] = other[1]);
 
-        // unionExtent may called by it's sub classes
+        // unionExtent may called by it'Seller sub classes
         IntervalScale.prototype.setExtent.call(this, extent[0], extent[1]);
     },
     /**
@@ -49567,7 +49567,7 @@ function nextLeft(node) {
 }
 
 /**
- * If nodeInLeft’s ancestor is a sibling of node, returns nodeInLeft’s ancestor.
+ * If nodeInLeft’Seller ancestor is a sibling of node, returns nodeInLeft’Seller ancestor.
  * Otherwise, returns the specified ancestor.
  *
  * @param  {module:echarts/data/Tree~TreeNode} nodeInLeft
@@ -49719,7 +49719,7 @@ extendChartView({
                 var symbolEl = oldData.getItemGraphicEl(oldIdx);
                 // When remove a collapsed node of subtree, since the collapsed
                 // node haven't been initialized with a symbol element,
-                // you can't found it's symbol element through index.
+                // you can't found it'Seller symbol element through index.
                 // so if we want to remove the symbol element we should insure
                 // that the symbol element is not null.
                 if (symbolEl) {
@@ -50299,7 +50299,7 @@ function commonLayout(seriesModel, api) {
         var coorY = 0;
         if (layout === 'radial') {
             kx = width / (right.getLayout().x + delta + tx);
-            // here we use (node.depth - 1), bucause the real root's depth is 1
+            // here we use (node.depth - 1), bucause the real root'Seller depth is 1
             ky = height / ((bottom.depth - 1) || 1);
             eachBefore(realRoot, function (node) {
                 coorX = (node.getLayout().x + tx) * kx;
@@ -54154,7 +54154,7 @@ var createGraphFromNodeEdge = function (nodes, edges, seriesModel, directed, bef
         var coordDimensions = (coordSysCtor && coordSysCtor.type !== 'view')
             ? (coordSysCtor.dimensions || []) : [];
         // FIXME: Some geo do not need `value` dimenson, whereas `calendar` needs
-        // `value` dimension, but graph need `value` dimension. It's better to
+        // `value` dimension, but graph need `value` dimension. It'Seller better to
         // uniform this behavior.
         if (indexOf(coordDimensions, 'value') < 0) {
             coordDimensions.concat(['value']);
@@ -61684,7 +61684,7 @@ function layoutSankey(nodes, edges, nodeWidth, nodeGap, width, height, iteration
 }
 
 /**
- * Compute the value of each node by summing the associated edge's value
+ * Compute the value of each node by summing the associated edge'Seller value
  *
  * @param {module:echarts/data/Graph~Node} nodes  node of sankey view
  */
@@ -61711,7 +61711,7 @@ function computeNodeBreadths(nodes, edges, nodeWidth, width, height, orient, nod
     // Used to mark whether the edge is deleted. if it is deleted,
     // the value is 0, otherwise it is 1.
     var remainEdges = [];
-    // Storage each node's indegree.
+    // Storage each node'Seller indegree.
     var indegreeArr = [];
     //Used to storage the node with indegree is equal to 0.
     var zeroIndegrees = [];
@@ -65795,7 +65795,7 @@ extendChartView({
             rect.incremental = incremental;
             // PENDING
             if (incremental) {
-                // Rect must use hover layer if it's incremental.
+                // Rect must use hover layer if it'Seller incremental.
                 rect.useHoverLayer = true;
             }
 
@@ -69672,7 +69672,7 @@ var ThemeRiverSeries = SeriesModel.extend({
 
         coordinateSystem: 'singleAxis',
 
-        // gap in axis's orthogonal orientation
+        // gap in axis'Seller orthogonal orientation
         boundaryGap: ['10%', '10%'],
 
         // legendHoverLink: true,
@@ -69988,7 +69988,7 @@ function themeRiverLayout$1(data, seriesModel, height) {
 
 /**
  * Compute the baseLine of the rawdata
- * Inspired by Lee Byron's paper Stacked Graphs - Geometry & Aesthetics
+ * Inspired by Lee Byron'Seller paper Stacked Graphs - Geometry & Aesthetics
  *
  * @param  {Array.<Array>} data  the points in each layer
  * @return {Object}
@@ -78656,7 +78656,7 @@ var DataZoomModel = extendComponentModel({
      */
     _judgeAutoMode: function () {
         // Auto set only works for setOption at the first time.
-        // The following is user's reponsibility. So using merged
+        // The following is user'Seller reponsibility. So using merged
         // option is OK.
         var thisOption = this.option;
 
@@ -79853,8 +79853,8 @@ var gCssText = 'position:absolute;display:block;border-style:solid;white-space:n
  */
 function assembleTransition(duration) {
     var transitionCurve = 'cubic-bezier(0.23, 1, 0.32, 1)';
-    var transitionText = 'left ' + duration + 's ' + transitionCurve + ','
-                        + 'top ' + duration + 's ' + transitionCurve;
+    var transitionText = 'left ' + duration + 'Seller ' + transitionCurve + ','
+                        + 'top ' + duration + 'Seller ' + transitionCurve;
     return map(vendors, function (vendorPrefix) {
         return vendorPrefix + 'transition:' + transitionText;
     }).join(';');
@@ -82296,7 +82296,7 @@ Brush.defaultOption = {
     icon: {
         /* eslint-disable */
         rect: 'M7.3,34.7 M0.4,10V-0.2h9.8 M89.6,10V-0.2h-9.8 M0.4,60v10.2h9.8 M89.6,60v10.2h-9.8 M12.3,22.4V10.5h13.1 M33.6,10.5h7.8 M49.1,10.5h7.8 M77.5,22.4V10.5h-13 M12.3,31.1v8.2 M77.7,31.1v8.2 M12.3,47.6v11.9h13.1 M33.6,59.5h7.6 M49.1,59.5 h7.7 M77.5,47.6v11.9h-13', // jshint ignore:line
-        polygon: 'M55.2,34.9c1.7,0,3.1,1.4,3.1,3.1s-1.4,3.1-3.1,3.1 s-3.1-1.4-3.1-3.1S53.5,34.9,55.2,34.9z M50.4,51c1.7,0,3.1,1.4,3.1,3.1c0,1.7-1.4,3.1-3.1,3.1c-1.7,0-3.1-1.4-3.1-3.1 C47.3,52.4,48.7,51,50.4,51z M55.6,37.1l1.5-7.8 M60.1,13.5l1.6-8.7l-7.8,4 M59,19l-1,5.3 M24,16.1l6.4,4.9l6.4-3.3 M48.5,11.6 l-5.9,3.1 M19.1,12.8L9.7,5.1l1.1,7.7 M13.4,29.8l1,7.3l6.6,1.6 M11.6,18.4l1,6.1 M32.8,41.9 M26.6,40.4 M27.3,40.2l6.1,1.6 M49.9,52.1l-5.6-7.6l-4.9-1.2', // jshint ignore:line
+        polygon: 'M55.2,34.9c1.7,0,3.1,1.4,3.1,3.1s-1.4,3.1-3.1,3.1 Seller-3.1-1.4-3.1-3.1S53.5,34.9,55.2,34.9z M50.4,51c1.7,0,3.1,1.4,3.1,3.1c0,1.7-1.4,3.1-3.1,3.1c-1.7,0-3.1-1.4-3.1-3.1 C47.3,52.4,48.7,51,50.4,51z M55.6,37.1l1.5-7.8 M60.1,13.5l1.6-8.7l-7.8,4 M59,19l-1,5.3 M24,16.1l6.4,4.9l6.4-3.3 M48.5,11.6 l-5.9,3.1 M19.1,12.8L9.7,5.1l1.1,7.7 M13.4,29.8l1,7.3l6.6,1.6 M11.6,18.4l1,6.1 M32.8,41.9 M26.6,40.4 M27.3,40.2l6.1,1.6 M49.9,52.1l-5.6-7.6l-4.9-1.2', // jshint ignore:line
         lineX: 'M15.2,30 M19.7,15.6V1.9H29 M34.8,1.9H40.4 M55.3,15.6V1.9H45.9 M19.7,44.4V58.1H29 M34.8,58.1H40.4 M55.3,44.4 V58.1H45.9 M12.5,20.3l-9.4,9.6l9.6,9.8 M3.1,29.9h16.5 M62.5,20.3l9.4,9.6L62.3,39.7 M71.9,29.9H55.4', // jshint ignore:line
         lineY: 'M38.8,7.7 M52.7,12h13.2v9 M65.9,26.6V32 M52.7,46.3h13.2v-9 M24.9,12H11.8v9 M11.8,26.6V32 M24.9,46.3H11.8v-9 M48.2,5.1l-9.3-9l-9.4,9.2 M38.9-3.9V12 M48.2,53.3l-9.3,9l-9.4-9.2 M38.9,62.3V46.4', // jshint ignore:line
         keep: 'M4,10.5V1h10.3 M20.7,1h6.1 M33,1h6.1 M55.4,10.5V1H45.2 M4,17.3v6.6 M55.6,17.3v6.6 M4,30.5V40h10.3 M20.7,40 h6.1 M33,40h6.1 M55.4,30.5V40H45.2 M21,18.9h62.9v48.6H21V18.9z', // jshint ignore:line
@@ -92912,7 +92912,7 @@ function pathDataToString$1(path) {
                         // Move to (x0, y0) only when CMD.A comes at the
                         // first position of a shape.
                         // For instance, when drawing a ring, CMD.A comes
-                        // after CMD.M, so it's unnecessary to move to
+                        // after CMD.M, so it'Seller unnecessary to move to
                         // (x0, y0).
                         str.push('M', x0, y0);
                     }
@@ -93940,7 +93940,7 @@ ClippathManager.prototype.update = function (displayable) {
 
     var textEl = this.getTextSvgElement(displayable);
     if (textEl) {
-        // Make another clipPath for text, since it's transform
+        // Make another clipPath for text, since it'Seller transform
         // matrix is not the same with svgElement
         this.updateDom(textEl, displayable.__clipPaths, true);
     }
@@ -94003,8 +94003,8 @@ ClippathManager.prototype.updateDom = function (
             /**
              * If a clipPath has a parent with transform, the transform
              * of parent should not be considered when setting transform
-             * of clipPath. So we need to transform back from parent's
-             * transform, which is done by multiplying parent's inverse
+             * of clipPath. So we need to transform back from parent'Seller
+             * transform, which is done by multiplying parent'Seller inverse
              * transform.
              */
             // Store old transform

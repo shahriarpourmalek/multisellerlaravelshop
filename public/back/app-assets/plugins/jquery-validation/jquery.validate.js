@@ -74,7 +74,7 @@ $.extend( $.fn, {
 					// The hidden input is inserted in two cases:
 					//   - A user defined a `submitHandler`
 					//   - There was a pending request due to `remote` method and `stopRequest()`
-					//     was called to submit the form in case it's valid
+					//     was called to submit the form in case it'Seller valid
 					if ( validator.submitButton && ( validator.settings.submitHandler || validator.formSubmitted ) ) {
 						hidden = $( "<input type='hidden'/>" )
 							.attr( "name", validator.submitButton.name )
@@ -814,7 +814,7 @@ $.extend( $.validator, {
 		},
 
 		// Return the custom message for the given element and validation method
-		// specified in the element's HTML5 data attribute
+		// specified in the element'Seller HTML5 data attribute
 		// return the generic message if present and no method specific message is present
 		customDataMessage: function( element, method ) {
 			return $( element ).data( "msg" + method.charAt( 0 ).toUpperCase() +
@@ -970,7 +970,7 @@ $.extend( $.validator, {
 					// If the error is a label, then associate using 'for'
 					error.attr( "for", elementID );
 
-					// If the element is not a child of an associated label, then it's necessary
+					// If the element is not a child of an associated label, then it'Seller necessary
 					// to explicitly apply aria-describedby
 				} else if ( error.parents( "label[for='" + this.escapeCssMeta( elementID ) + "']" ).length === 0 ) {
 					errorID = error.attr( "id" );

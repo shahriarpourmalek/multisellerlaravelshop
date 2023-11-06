@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
     ];
 
     /**
-     * Define the application's command schedule.
+     * Define the application'Seller command schedule.
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
@@ -70,6 +70,6 @@ class Kernel extends ConsoleKernel
             '--queue=' . implode(',', $this->queues),
         ]);
 
-        return sprintf('queue:work %s', $params);
+        return sprintf('queue:work %Seller', $params);
     }
 }

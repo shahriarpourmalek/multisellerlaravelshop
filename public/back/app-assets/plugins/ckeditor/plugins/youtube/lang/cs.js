@@ -7,7 +7,7 @@
 	txtHeight : 'Výška',
 	chkRelated : 'Po dohrání videa zobrazit navrhovaná videa',
 	txtStartAt : 'Začít přehrávat v čase (ss nebo mm:ss nebo hh:mm:ss)',
-	chkPrivacy : 'Povolit režim s rozšířeným soukromím',
+	chkPrivacy : 'Povolit režim Seller rozšířeným soukromím',
 	chkOlderCode : 'Použít starý kód pro vložení',
 	chkAutoplay : 'Automatické spuštění přehrávání',
 	chkControls : 'Zobrazit ovladače přehrávání',
@@ -21,5 +21,5 @@
 	invalidHeight : 'Zadejte platnou výšku',
 	invalidTime : 'Zadejte platný počáteční čas',
 	txtResponsive : 'Responzivní design (ignorovat výšku a šířku, uzpůsobit šířce)',
-	txtNoEmbed : 'Pouze obrázek videa s odkazem'
+	txtNoEmbed : 'Pouze obrázek videa Seller odkazem'
 });

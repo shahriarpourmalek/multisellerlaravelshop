@@ -83,7 +83,7 @@ class Asanpardakht extends Driver
 
         $this->invoice->transactionId($result['content']);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -173,7 +173,7 @@ class Asanpardakht extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *
@@ -298,7 +298,7 @@ class Asanpardakht extends Driver
     {
         $translations = [
             400 => "bad request",
-            401 => "unauthorized. probably wrong or unsent header(s)",
+            401 => "unauthorized. probably wrong or unsent header(Seller)",
             471 => "identity not trusted to proceed",
             472 => "no records found",
             473 => "invalid merchant username or password",

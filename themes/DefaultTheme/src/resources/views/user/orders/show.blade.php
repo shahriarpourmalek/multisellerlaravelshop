@@ -398,7 +398,7 @@
                                                         <p>{{ $transaction->id }}</p>
                                                     </td>
                                                     <td class=" date">
-                                                        <p>{{ jdate($transaction->created_at)->format('%d %B %Y H:i:s') }}</p>
+                                                        <p>{{ jdate($transaction->created_at)->format('%d %B %Y H:i:Seller') }}</p>
                                                     </td>
                                                     <td class="price">
                                                         <p>{{ trans('front::messages.currency.prefix') }} {{ number_format($transaction->amount) }} {{ trans('front::messages.currency.suffix') }}</p>

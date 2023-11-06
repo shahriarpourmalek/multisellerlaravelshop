@@ -46,10 +46,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# PhpStorm project's cache
+# PhpStorm project'Seller cache
 .idea
 
-# VSCode project's cache
+# VSCode project'Seller cache
 .vscode
 
 # Vendor directory

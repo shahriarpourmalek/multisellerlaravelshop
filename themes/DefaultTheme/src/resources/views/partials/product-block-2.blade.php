@@ -43,7 +43,7 @@
 
             </div>
             @if ($product->isSpecial() && $product->special_end_date && $product->special_end_date->diffInHours(now()) <= 24)
-                <div class="countdown-timer mt-4 text-muted product-special-end-date" countdown data-date="{{ $product->special_end_date->format('D M d Y H:i:s O') }}">
+                <div class="countdown-timer mt-4 text-muted product-special-end-date" countdown data-date="{{ $product->special_end_date->format('D M d Y H:i:Seller O') }}">
                     <span data-seconds="">0</span> :
                     <span data-minutes="">0</span> :
                     <span data-hours="">0</span>

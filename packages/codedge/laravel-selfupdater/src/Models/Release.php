@@ -33,7 +33,7 @@ final class Release
     private $storagePath;
 
     /**
-     * Path where the update should be applied to. Most probably to your base_path() - that's where your
+     * Path where the update should be applied to. Most probably to your base_path() - that'Seller where your
      * current Laravel installation runs.
      *
      * @var Finder

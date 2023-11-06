@@ -10,7 +10,7 @@ class Invoice
     use HasDetail;
 
     /**
-     * invoice's unique universal id (uuid)
+     * invoice'Seller unique universal id (uuid)
      *
      * @var string
      */
@@ -24,7 +24,7 @@ class Invoice
     protected $amount = 0;
 
     /**
-     * invoice's transaction id
+     * invoice'Seller transaction id
      *
      * @var string
      */
@@ -115,7 +115,7 @@ class Invoice
     }
 
     /**
-     * Get the value of transaction's id
+     * Get the value of transaction'Seller id
      *
      * @return string
      */

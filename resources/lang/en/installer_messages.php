@@ -236,7 +236,7 @@ return [
          */
         'final' => [
             'title' => 'Finished',
-            'finished' => 'Application\'s database has been successfully updated.',
+            'finished' => 'Application\'Seller database has been successfully updated.',
             'exit' => 'Click here to exit',
         ],
 

@@ -56,11 +56,11 @@ require.helper.semVerSort = function(a, b) {
 
 /**
  * Find and require a module which name starts with the provided name.
- * If multiple modules exists, the highest semver is used. 
+ * If multiple modules exists, the highest semver is used.
  * This function can only be used for remote dependencies.
 
  * @param {String} name - module name: `user~repo`
- * @param {Boolean} returnPath - returns the canonical require path if true, 
+ * @param {Boolean} returnPath - returns the canonical require path if true,
  *                               otherwise it returns the epxorted module
  */
 require.latest = function (name, returnPath) {
@@ -83,7 +83,7 @@ require.latest = function (name, returnPath) {
           semVerCandidates.push({version: version, name: moduleName});
         } else {
           otherCandidates.push({version: version, name: moduleName});
-        } 
+        }
     }
   }
   if (semVerCandidates.concat(otherCandidates).length === 0) {
@@ -126,7 +126,7 @@ require.register = function (name, definition) {
 };
 
 /**
- * Define a module's exports immediately with `exports`.
+ * Define a module'Seller exports immediately with `exports`.
  *
  * @param {String} name
  * @param {Generic} exports
@@ -359,8 +359,8 @@ function FastClick(layer) {
 		};
 	}
 
-	// If a handler is already declared in the element's onclick attribute, it will be fired before
-	// FastClick's onClick handler. Fix this by pulling out the user-defined handler function and
+	// If a handler is already declared in the element'Seller onclick attribute, it will be fired before
+	// FastClick'Seller onClick handler. Fix this by pulling out the user-defined handler function and
 	// adding it as listener.
 	if (typeof layer.onclick === 'function') {
 
@@ -620,7 +620,7 @@ FastClick.prototype.onTouchStart = function(event) {
 			// If the target element is a child of a scrollable layer (using -webkit-overflow-scrolling: touch) and:
 			// 1) the user does a fling scroll on the scrollable layer
 			// 2) the user stops the fling scroll with another tap
-			// then the event.target of the last 'touchend' event will be the element that was under the user's finger
+			// then the event.target of the last 'touchend' event will be the element that was under the user'Seller finger
 			// when the fling scroll was started, causing FastClick to send a click event to that layer - unless a check
 			// is made to ensure that a parent layer was not scrolled before sending a synthetic click (issue #42).
 			this.updateScrollParent(targetElement);
@@ -874,7 +874,7 @@ FastClick.prototype.onClick = function(event) {
 	'use strict';
 	var permitted;
 
-	// It's possible for another FastClick-like library delivered with third-party code to fire a click event before FastClick does (issue #44). In that case, set the click-tracking flag back to false and return early. This will cause onTouchEnd to return early.
+	// It'Seller possible for another FastClick-like library delivered with third-party code to fire a click event before FastClick does (issue #44). In that case, set the click-tracking flag back to false and return early. This will cause onTouchEnd to return early.
 	if (this.trackingClick) {
 		this.targetElement = null;
 		this.trackingClick = false;
@@ -888,7 +888,7 @@ FastClick.prototype.onClick = function(event) {
 
 	permitted = this.onMouse(event);
 
-	// Only unset targetElement if the click is not permitted. This will ensure that the check for !targetElement in onMouse fails and the browser's click doesn't go through.
+	// Only unset targetElement if the click is not permitted. This will ensure that the check for !targetElement in onMouse fails and the browser'Seller click doesn't go through.
 	if (!permitted) {
 		this.targetElement = null;
 	}
@@ -899,7 +899,7 @@ FastClick.prototype.onClick = function(event) {
 
 
 /**
- * Remove all FastClick's event listeners.
+ * Remove all FastClick'Seller event listeners.
  *
  * @returns {void}
  */
@@ -943,7 +943,7 @@ FastClick.notNeeded = function(layer) {
 
 		if (FastClick.prototype.deviceIsAndroid) {
 			metaViewport = document.querySelector('meta[name=viewport]');
-			
+
 			if (metaViewport) {
 				// Chrome on Android with user-scalable="no" doesn't need FastClick (issue #89)
 				if (metaViewport.content.indexOf('user-scalable=no') !== -1) {
@@ -1217,7 +1217,7 @@ exports.bind = function(el, type, fn, capture){
 };
 
 /**
- * Unbind `el` event `type`'s callback `fn`.
+ * Unbind `el` event `type`'Seller callback `fn`.
  *
  * @param {Element} el
  * @param {String} type
@@ -1362,7 +1362,7 @@ exports.bind = function(el, selector, type, fn, capture){
 };
 
 /**
- * Unbind event `type`'s callback `fn`.
+ * Unbind event `type`'Seller callback `fn`.
  *
  * @param {Element} el
  * @param {String} type

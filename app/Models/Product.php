@@ -93,14 +93,14 @@ class Product extends Model
     {
         return $this->hasOne(Price::class)
             ->where('stock', '>', 0)
-            ->orderByRaw('if((discount_expire_at is null or date(discount_expire_at) > "' . now()->format('Y-m-d H:i:s') . '"), discount_price, regular_price)');
+            ->orderByRaw('if((discount_expire_at is null or date(discount_expire_at) > "' . now()->format('Y-m-d H:i:Seller') . '"), discount_price, regular_price)');
     }
 
     public function getPrices()
     {
         return $this->hasMany(Price::class)
             ->where('stock', '>', 0)
-            ->orderByRaw('if((discount_expire_at is null or date(discount_expire_at) > "' . now()->format('Y-m-d H:i:s') . '"), discount_price, regular_price)');
+            ->orderByRaw('if((discount_expire_at is null or date(discount_expire_at) > "' . now()->format('Y-m-d H:i:Seller') . '"), discount_price, regular_price)');
     }
 
     public function carts()

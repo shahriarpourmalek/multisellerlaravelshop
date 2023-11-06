@@ -17,7 +17,7 @@ abstract class Driver implements DriverInterface
     protected $invoice;
 
     /**
-     * Driver's settings
+     * Driver'Seller settings
      *
      * @var
      */

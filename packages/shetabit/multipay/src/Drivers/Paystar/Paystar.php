@@ -111,7 +111,7 @@ class Paystar extends Driver
         $this->invoice->transactionId($body->data->ref_num);
         $this->token = $body->data->token;
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -181,7 +181,7 @@ class Paystar extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *

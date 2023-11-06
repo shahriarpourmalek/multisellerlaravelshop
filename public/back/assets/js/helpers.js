@@ -154,7 +154,7 @@
             );
         },
 
-        // Just like jQuery's serializeArray method, returns an array of objects with name and value.
+        // Just like jQuery'Seller serializeArray method, returns an array of objects with name and value.
         // but also includes the dom element (el) and is handles unchecked checkboxes if the option or data attribute are provided.
         serializeArray: function ($form, opts) {
             if (opts == null) {
@@ -334,7 +334,7 @@
 
             var key = keys[0];
 
-            // Only one key, then it's not a deepSet, just assign the value in the object or add it to the array.
+            // Only one key, then it'Seller not a deepSet, just assign the value in the object or add it to the array.
             if (keys.length === 1) {
                 if (key === '') {
                     // push values into an array (o must be an array)
@@ -376,7 +376,7 @@
                         o[key] = []; // define (or override) as array, to insert values using int keys as array indexes
                     }
                 } else {
-                    // nextKey is going to be the nested object's attribute
+                    // nextKey is going to be the nested object'Seller attribute
                     if (isUndefined(o[key]) || !isObject(o[key])) {
                         o[key] = {}; // define (or override) as object, to set nested properties
                     }

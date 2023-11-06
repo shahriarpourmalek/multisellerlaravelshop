@@ -135,7 +135,7 @@ return [
     /***************************************************************************
      * ACL rules list - used for default ACL repository (ConfigACLRepository)
      *
-     * 1 it's user ID
+     * 1 it'Seller user ID
      * null - for not authenticated user
      *
      * 'disk' => 'disk-name'

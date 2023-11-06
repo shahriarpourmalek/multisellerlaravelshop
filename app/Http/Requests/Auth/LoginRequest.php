@@ -35,7 +35,7 @@ class LoginRequest extends FormRequest
     }
 
     /**
-     * Attempt to authenticate the request's credentials.
+     * Attempt to authenticate the request'Seller credentials.
      *
      * @return void
      *

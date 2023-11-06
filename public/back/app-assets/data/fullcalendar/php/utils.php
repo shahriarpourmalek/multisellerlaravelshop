@@ -60,7 +60,7 @@ class Event {
 	// $rangeStart and $rangeEnd are assumed to be dates in UTC with 00:00:00 time.
 	public function isWithinDayRange($rangeStart, $rangeEnd) {
 
-		// Normalize our event's dates for comparison with the all-day range.
+		// Normalize our event'Seller dates for comparison with the all-day range.
 		$eventStart = stripTime($this->start);
 		$eventEnd = isset($this->end) ? stripTime($this->end) : null;
 

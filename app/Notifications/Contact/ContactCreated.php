@@ -27,7 +27,7 @@ class ContactCreated extends Notification implements ShouldQueue
     }
 
     /**
-     * Get the notification's delivery channels.
+     * Get the notification'Seller delivery channels.
      *
      * @param  mixed  $notifiable
      * @return array

@@ -100,7 +100,7 @@ class Digipay extends Driver
 
         $this->invoice->transactionId($body['ticket']);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 

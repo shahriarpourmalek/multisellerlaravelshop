@@ -178,7 +178,7 @@ function create(input, value) {
         throw new ParchmentError("Unable to create " + input + " blot");
     }
     var BlotClass = match;
-    var node = 
+    var node =
     // @ts-ignore
     input instanceof Node || input['nodeType'] === Node.TEXT_NODE ? input : BlotClass.create(value);
     return new BlotClass(node, value);
@@ -4858,7 +4858,7 @@ function handleEnter(range, context) {
   }, {});
   this.quill.insertText(range.index, '\n', lineFormats, _quill2.default.sources.USER);
   // Earlier scroll.deleteAt might have messed up our selection,
-  // so insertText's built in selection preservation is not reliable
+  // so insertText'Seller built in selection preservation is not reliable
   this.quill.setSelection(range.index + 1, _quill2.default.sources.SILENT);
   this.quill.focus();
   Object.keys(context.format).forEach(function (name) {

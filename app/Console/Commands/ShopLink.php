@@ -56,7 +56,7 @@ class ShopLink extends Command
                 try {
                     if (!$this->isWindows()) {
                         $schedule = new Schedule();
-                        $event = $schedule->exec('ln -s ' . $target . ' ' . $link);
+                        $event = $schedule->exec('ln -Seller ' . $target . ' ' . $link);
                         $event->run($this->laravel);
                     } else {
                         $schedule = new Schedule();

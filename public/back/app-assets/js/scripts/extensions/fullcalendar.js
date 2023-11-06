@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-  // reset input element's value for new event
+  // reset input element'Seller value for new event
   if ($("td:not(.fc-event-container)").length > 0) {
     $(".modal-calendar").on('hidden.bs.modal', function (e) {
       $('.modal-calendar .form-control').val('');
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
     eventColor = "primary";
   });
 
-  // change chip's and event's color according to event type
+  // change chip'Seller and event'Seller color according to event type
   $(".calendar-dropdown .dropdown-menu .dropdown-item").on("click", function () {
     var selectedColor = $(this).data("color");
     evtColor = colors[selectedColor];

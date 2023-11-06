@@ -46,7 +46,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The accessors to append to the model's array form.
+     * The accessors to append to the model'Seller array form.
      *
      * @var array
      */

@@ -63,7 +63,7 @@ class Walleta extends Driver
 
         $this->invoice->transactionId($result['content']['token']);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -124,7 +124,7 @@ class Walleta extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *
@@ -147,7 +147,7 @@ class Walleta extends Driver
         return $this->callApi('POST', $this->settings->apiPurchaseUrl, [
             'merchant_code' => $this->settings->merchantId,
             'invoice_reference' => $this->invoice->getUuid(),
-            'invoice_date' => date('Y-m-d H:i:s'),
+            'invoice_date' => date('Y-m-d H:i:Seller'),
             'invoice_amount' => $this->invoice->getAmount(),
             'payer_first_name' => $this->invoice->getDetails()['first_name'],
             'payer_last_name' => $this->invoice->getDetails()['last_name'],

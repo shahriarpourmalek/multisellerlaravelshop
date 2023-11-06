@@ -84,7 +84,7 @@ class Sizpay extends Driver
 
         $this->invoice->transactionId($result->Token);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -147,7 +147,7 @@ class Sizpay extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $resCode
      *

@@ -7,7 +7,7 @@ use Carbon\Carbon;
 interface ReceiptInterface
 {
     /**
-     * Retrieve driver's name
+     * Retrieve driver'Seller name
      *
      * @return string
      */

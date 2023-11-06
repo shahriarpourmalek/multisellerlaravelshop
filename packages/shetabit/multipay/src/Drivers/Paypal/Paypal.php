@@ -75,7 +75,7 @@ class Paypal extends Driver
 
         $this->invoice->transactionId($result->Authority);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -133,7 +133,7 @@ class Paypal extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *

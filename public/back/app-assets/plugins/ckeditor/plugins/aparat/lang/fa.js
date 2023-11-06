@@ -5,7 +5,7 @@ CKEDITOR.plugins.setLang('aparat', 'fa', {
     apTxtUrl: 'لینک ویدیو را اینجا وارد کنید',
     txtWidth: 'Width',
     txtHeight: 'Height',
-    chkRelated: 'Show suggested videos at the video\'s end',
+    chkRelated: 'Show suggested videos at the video\'Seller end',
     txtStartAt: 'Start at (ss or mm:ss or hh:mm:ss)',
     chkPrivacy: 'Enable privacy-enhanced mode',
     chkOlderCode: 'Use old embed code',

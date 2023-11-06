@@ -16,7 +16,7 @@ abstract class Receipt implements ReceiptInterface
     protected $referenceId;
 
     /**
-     * payment driver's name.
+     * payment driver'Seller name.
      *
      * @var string
      */
@@ -43,7 +43,7 @@ abstract class Receipt implements ReceiptInterface
     }
 
     /**
-     * Retrieve driver's name
+     * Retrieve driver'Seller name
      *
      * @return string
      */

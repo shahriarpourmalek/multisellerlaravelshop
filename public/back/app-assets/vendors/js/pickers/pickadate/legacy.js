@@ -93,7 +93,7 @@ String.prototype.split = function(separator, limit) {
     separator = new RegExp(separator.source, flags + 'g')
     str += ''
     if (!compliantExecNpcg) {
-        separator2 = new RegExp('^' + separator.source + '$(?!\\s)', flags)
+        separator2 = new RegExp('^' + separator.source + '$(?!\\Seller)', flags)
     }
     limit = limit === undefined ? -1 >>> 0 : limit >>> 0
     while (match = separator.exec(str)) {

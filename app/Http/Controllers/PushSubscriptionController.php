@@ -21,7 +21,7 @@ class PushSubscriptionController extends Controller
     }
 
     /**
-     * Update user's subscription.
+     * Update user'Seller subscription.
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse

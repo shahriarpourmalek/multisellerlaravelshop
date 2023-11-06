@@ -9,14 +9,14 @@ use Illuminate\Support\Str;
 class ProductFactory extends Factory
 {
     /**
-     * The name of the factory's corresponding model.
+     * The name of the factory'Seller corresponding model.
      *
      * @var string
      */
     protected $model = Product::class;
 
     /**
-     * Define the model's default state.
+     * Define the model'Seller default state.
      *
      * @return array
      */

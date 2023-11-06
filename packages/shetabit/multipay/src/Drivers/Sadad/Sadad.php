@@ -68,12 +68,12 @@ class Sadad extends Driver
 
         $signData = $this->encrypt_pkcs7("$terminalId;$orderId;$amount", $key);
         $iranTime = new DateTime('now', new DateTimeZone('Asia/Tehran'));
-        
+
         $data = array(
             'MerchantId' => $this->settings->merchantId,
             'ReturnUrl' => $this->settings->callbackUrl,
             'PaymentIdentity' => $this->settings->PaymentIdentity,
-            'LocalDateTime' => $iranTime->format("m/d/Y g:i:s a"),
+            'LocalDateTime' => $iranTime->format("m/d/Y g:i:Seller a"),
             'SignData' => $signData,
             'TerminalId' => $terminalId,
             'Amount' => $amount,
@@ -105,7 +105,7 @@ class Sadad extends Driver
 
         $this->invoice->transactionId($body->Token);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -185,7 +185,7 @@ class Sadad extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *
@@ -213,7 +213,7 @@ class Sadad extends Driver
 
         return base64_encode($ciphertext);
     }
-    
+
     /**
      * Retrieve payment mode.
      *

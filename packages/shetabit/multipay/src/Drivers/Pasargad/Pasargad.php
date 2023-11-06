@@ -38,7 +38,7 @@ class Pasargad extends Driver
     protected $settings;
 
     /**
-     * Prepared invoice's data
+     * Prepared invoice'Seller data
      *
      * @var array
      */
@@ -69,7 +69,7 @@ class Pasargad extends Driver
 
         $this->invoice->transactionId($invoiceData['InvoiceNumber']);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -114,7 +114,7 @@ class Pasargad extends Driver
             'InvoiceNumber' => $invoiceDetails['InvoiceNumber'],
             'InvoiceDate' => $invoiceDetails['InvoiceDate'],
             'Amount' => $invoiceDetails['Amount'],
-            'Timestamp' => $iranTime->format("Y/m/d H:i:s"),
+            'Timestamp' => $iranTime->format("Y/m/d H:i:Seller"),
         ];
 
         $verifyResult = $this->request($this->settings->apiVerificationUrl, $fields);
@@ -123,7 +123,7 @@ class Pasargad extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *
@@ -173,7 +173,7 @@ class Pasargad extends Driver
     }
 
     /**
-     * Retrieve prepared invoice's data
+     * Retrieve prepared invoice'Seller data
      *
      * @return array
      */
@@ -201,8 +201,8 @@ class Pasargad extends Driver
         $invoiceNumber = crc32($this->invoice->getUuid()) . rand(0, time());
 
         $iranTime = new DateTime('now', new DateTimeZone('Asia/Tehran'));
-        $timeStamp = $iranTime->format("Y/m/d H:i:s");
-        $invoiceDate = $iranTime->format("Y/m/d H:i:s");
+        $timeStamp = $iranTime->format("Y/m/d H:i:Seller");
+        $invoiceDate = $iranTime->format("Y/m/d H:i:Seller");
 
         if (!empty($this->invoice->getDetails()['date'])) {
             $invoiceDate = $this->invoice->getDetails()['date'];
@@ -232,7 +232,7 @@ class Pasargad extends Driver
     }
 
     /**
-     * Make request to pasargad's Api
+     * Make request to pasargad'Seller Api
      *
      * @param string $url
      * @param array $body

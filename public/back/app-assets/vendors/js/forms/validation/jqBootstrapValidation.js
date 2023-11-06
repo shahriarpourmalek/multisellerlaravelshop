@@ -245,7 +245,7 @@
                         validatorNames = $this.data("validation").split(",");
                     }
 
-                    // Get extra ones defined on the element's data attributes
+                    // Get extra ones defined on the element'Seller data attributes
                     $.each($this.data(), function (i, el) {
                         var parts = i.replace(/([A-Z])/g, ",$1").split(",");
                         if (parts[0] === "validation" && parts[1]) {

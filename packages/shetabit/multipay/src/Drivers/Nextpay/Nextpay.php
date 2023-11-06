@@ -90,7 +90,7 @@ class Nextpay extends Driver
 
         $this->invoice->transactionId($body['trans_id']);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -148,7 +148,7 @@ class Nextpay extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *

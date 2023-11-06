@@ -1207,8 +1207,8 @@
       /**
        * @memberof Graphics
        * @param {object}
-       *  i = series's index
-       *  realIndex = realIndex is series's actual index when it was drawn time. After several redraws, the iterating "i" may change in loops, but realIndex doesn't
+       *  i = series'Seller index
+       *  realIndex = realIndex is series'Seller actual index when it was drawn time. After several redraws, the iterating "i" may change in loops, but realIndex doesn't
        *  pathFrom = existing pathFrom to animateTo
        *  pathTo = new Path to which d attr will be animated from pathFrom to pathTo
        *  stroke = line Color
@@ -4761,7 +4761,7 @@
 
         if (opts.yaxis.constructor !== Array && window.Apex.yaxis && window.Apex.yaxis.constructor !== Array) {
           opts.yaxis = Utils.extend(opts.yaxis, window.Apex.yaxis);
-        } // as we can't extend nested object's array with extend, we need to do it first
+        } // as we can't extend nested object'Seller array with extend, we need to do it first
         // user can provide either an array or object in yaxis config
 
 
@@ -5090,16 +5090,16 @@
           // timeout function to make a small delay before
           // drawing when user resized
           comboCharts: false,
-          // bool: whether it's a combination of line/column
+          // bool: whether it'Seller a combination of line/column
           comboChartsHasBars: false,
-          // bool: whether it's a combination of line/column
+          // bool: whether it'Seller a combination of line/column
           dataChanged: false,
           // bool: has data changed dynamically
           previousPaths: [],
           // array: when data is changed, it will animate from
           // previous paths
           seriesXvalues: [],
-          // we will need this in tooltip (it's x position)
+          // we will need this in tooltip (it'Seller x position)
           // when we will have unequal x values, we will need
           // some way to get x value depending on mouse pointer
           seriesYvalues: [],
@@ -6604,7 +6604,7 @@
       /** getPathFrom is a common function for bars/columns which is used to get previous paths when data changes.
        * @memberof Bar
        * @param {int} realIndex - current iterating i
-       * @param {int} j - current iterating series's j index
+       * @param {int} j - current iterating series'Seller j index
        * @return {string} pathFrom is the string which will be appended in animations
        **/
 
@@ -6627,7 +6627,7 @@
         return pathFrom;
       }
       /** calculateBarDataLabels is used to calculate the positions for the data-labels
-       * It also sets the element's data attr for bars and calls drawCalculatedBarDataLabels()
+       * It also sets the element'Seller data attr for bars and calls drawCalculatedBarDataLabels()
        * @memberof Bar
        * @param {object} {barProps} most of the bar properties used throughout the bar
        * drawing function
@@ -6969,11 +6969,11 @@
        * @param {object} w - chart context
        * @param {object} opts - consists several properties like barHeight/barWidth
        * @param {array} series - global primary series
-       * @param {int} i - current iterating series's index
-       * @param {int} j - series's j of i
+       * @param {int} i - current iterating series'Seller index
+       * @param {int} j - series'Seller j of i
        * @return {object} path - ending shape whether round/arrow
        *         ending_p_from - similar to pathFrom
-       *         newY - which is calculated from existing y and new shape's top
+       *         newY - which is calculated from existing y and new shape'Seller top
        **/
 
     }, {
@@ -7105,15 +7105,15 @@
 
         this.xArrj = []; // xj indicates x position on graph in bars
 
-        this.xArrjF = []; // xjF indicates bar's x position + endingshape's positions in bars
+        this.xArrjF = []; // xjF indicates bar'Seller x position + endingshape'Seller positions in bars
 
-        this.xArrjVal = []; // x val means the actual series's y values in horizontal/bars
+        this.xArrjVal = []; // x val means the actual series'Seller y values in horizontal/bars
 
         this.yArrj = []; // yj indicates y position on graph in columns
 
-        this.yArrjF = []; // yjF indicates bar's y position + endingshape's positions in columns
+        this.yArrjF = []; // yjF indicates bar'Seller y position + endingshape'Seller positions in columns
 
-        this.yArrjVal = []; // y val means the actual series's y values in columns
+        this.yArrjVal = []; // y val means the actual series'Seller y values in columns
 
         for (var sl = 0; sl < series.length; sl++) {
           if (series[sl].length > 0) {
@@ -7468,7 +7468,7 @@
 
           barYPosition = bYP;
         } else {
-          // the first series will not have prevY values, also if the prev index's series X doesn't matches the current index's series X, then start from zero
+          // the first series will not have prevY values, also if the prev index'Seller series X doesn't matches the current index'Seller series X, then start from zero
           barYPosition = w.globals.gridHeight - zeroH;
         }
 
@@ -12124,7 +12124,7 @@
                 w.globals.collapsedSeriesIndices.push(realIndex);
                 var removeIndexOfRising = w.globals.risingSeries.indexOf(realIndex);
                 w.globals.risingSeries.splice(removeIndexOfRising, 1);
-              } // TODO: AVOID mutating the user's config object below
+              } // TODO: AVOID mutating the user'Seller config object below
 
 
               w.config.series[realIndex].data = [];
@@ -12401,7 +12401,7 @@
             } // push current X
 
 
-            xArrj.push(x); // push current Y that will be used as next series's bottom position
+            xArrj.push(x); // push current Y that will be used as next series'Seller bottom position
 
             yArrj.push(y);
             var calculatedPaths = this.createPaths({
@@ -12671,7 +12671,7 @@
 
         if (j === 0) {
           var xPT1st = categoryAxisCorrection + w.config.markers.offsetX; // the first point for line series
-          // we need to check whether it's not a time series, because a time series may
+          // we need to check whether it'Seller not a time series, because a time series may
           // start from the middle of the x axis
 
           if (w.globals.isXNumeric) {
@@ -13722,7 +13722,7 @@
         lowestYInAllSeries = minYMaxY.lowestY;
 
         if (cnf.chart.stacked) {
-          // for stacked charts, we calculate each series's parallel values. i.e, series[0][j] + series[1][j] .... [series[i.length][j]] and get the max out of it
+          // for stacked charts, we calculate each series'Seller parallel values. i.e, series[0][j] + series[1][j] .... [series[i.length][j]] and get the max out of it
           var stackedPoss = [];
           var stackedNegs = [];
 
@@ -14425,7 +14425,7 @@
 
           var _month = Utils.monthMod(firstTickValue);
 
-          var value = firstTickValue; // it's Jan, so update the year
+          var value = firstTickValue; // it'Seller Jan, so update the year
 
           if (firstTickValue === 0) {
             unit = 'year';
@@ -17494,7 +17494,7 @@
      * This will move the crosshair (the vertical/horz line that moves along with mouse)
      * Along with this, this function also calls the xaxisMove function
      * @memberof Position
-     * @param {int} - cx = point's x position, wherever point's x is, you need to move crosshair
+     * @param {int} - cx = point'Seller x position, wherever point'Seller x is, you need to move crosshair
      */
 
 
@@ -17552,7 +17552,7 @@
        * This will move the crosshair (the vertical/horz line that moves along with mouse)
        * Along with this, this function also calls the xaxisMove function
        * @memberof Position
-       * @param {int} - cx = point's x position, wherever point's x is, you need to move crosshair
+       * @param {int} - cx = point'Seller x position, wherever point'Seller x is, you need to move crosshair
        */
 
     }, {
@@ -17574,7 +17574,7 @@
       /**
        ** AxisTooltip is the small rectangle which appears on x axis with x value, when user moves
        * @memberof Position
-       * @param {int} - cx = point's x position, wherever point's x is, you need to move
+       * @param {int} - cx = point'Seller x position, wherever point'Seller x is, you need to move
        */
 
     }, {
@@ -17634,9 +17634,9 @@
       /**
        ** moves the whole tooltip by changing x, y attrs
        * @memberof Position
-       * @param {int} - cx = point's x position, wherever point's x is, you need to move tooltip
-       * @param {int} - cy = point's y position, wherever point's y is, you need to move tooltip
-       * @param {int} - r = point's radius
+       * @param {int} - cx = point'Seller x position, wherever point'Seller x is, you need to move tooltip
+       * @param {int} - cy = point'Seller y position, wherever point'Seller y is, you need to move tooltip
+       * @param {int} - r = point'Seller radius
        */
 
     }, {
@@ -21154,7 +21154,7 @@
       },
       // Absolutize and parse path to array
       parse: function parse(array) {
-        // if it's already a patharray, no need to parse it
+        // if it'Seller already a patharray, no need to parse it
         if (array instanceof SVG.PathArray) return array.valueOf(); // prepare for parsing
 
         var s,
@@ -21765,8 +21765,8 @@
 
             if (!Array.isArray(s.animations[i])) {
               s.animations[i] = [s.animations[i]];
-            } // if(s.animations[i].length > source.length) {
-            //  source.concat = source.concat(s.animations[i].slice(source.length, s.animations[i].length))
+            } // if(Seller.animations[i].length > source.length) {
+            //  source.concat = source.concat(Seller.animations[i].slice(source.length, Seller.animations[i].length))
             // }
 
 
@@ -27163,7 +27163,7 @@
 
               // Right-Top
               case 'rt':
-                  // s.a.
+                  // Seller.a.
                   this.calc = function (diffX, diffY) {
                       var snap = this.snapToGrid(diffX, diffY, 1 << 1);
                       if (this.parameters.box.width + snap[0] > 0 && this.parameters.box.height - snap[1] > 0) {
@@ -27182,7 +27182,7 @@
 
               // Right-Bottom
               case 'rb':
-                  // s.a.
+                  // Seller.a.
                   this.calc = function (diffX, diffY) {
                       var snap = this.snapToGrid(diffX, diffY, 0);
                       if (this.parameters.box.width + snap[0] > 0 && this.parameters.box.height + snap[1] > 0) {
@@ -27201,7 +27201,7 @@
 
               // Left-Bottom
               case 'lb':
-                  // s.a.
+                  // Seller.a.
                   this.calc = function (diffX, diffY) {
                       var snap = this.snapToGrid(diffX, diffY, 1);
                       if (this.parameters.box.width - snap[0] > 0 && this.parameters.box.height + snap[1] > 0) {
@@ -27220,7 +27220,7 @@
 
               // Top
               case 't':
-                  // s.a.
+                  // Seller.a.
                   this.calc = function (diffX, diffY) {
                       var snap = this.snapToGrid(diffX, diffY, 1 << 1);
                       if (this.parameters.box.height - snap[1] > 0) {
@@ -27236,7 +27236,7 @@
 
               // Right
               case 'r':
-                  // s.a.
+                  // Seller.a.
                   this.calc = function (diffX, diffY) {
                       var snap = this.snapToGrid(diffX, diffY, 0);
                       if (this.parameters.box.width + snap[0] > 0) {
@@ -27251,7 +27251,7 @@
 
               // Bottom
               case 'b':
-                  // s.a.
+                  // Seller.a.
                   this.calc = function (diffX, diffY) {
                       var snap = this.snapToGrid(diffX, diffY, 0);
                       if (this.parameters.box.height + snap[1] > 0) {
@@ -27266,7 +27266,7 @@
 
               // Left
               case 'l':
-                  // s.a.
+                  // Seller.a.
                   this.calc = function (diffX, diffY) {
                       var snap = this.snapToGrid(diffX, diffY, 1);
                       if (this.parameters.box.width - snap[0] > 0) {
@@ -27281,7 +27281,7 @@
 
               // Rotation
               case 'rot':
-                  // s.a.
+                  // Seller.a.
                   this.calc = function (diffX, diffY) {
 
                       // yes this is kinda stupid but we need the mouse coords back...
@@ -27383,7 +27383,7 @@
 
           var temp;
 
-          // If `pointCoordsY` is given, a single Point has to be snapped (deepSelect). That's why we need a different temp-value
+          // If `pointCoordsY` is given, a single Point has to be snapped (deepSelect). That'Seller why we need a different temp-value
           if (typeof pointCoordsY !== 'undefined') {
               // Note that flag = pointCoordsX in this case
               temp = [(flag + diffX) % this.options.snapToGrid, (pointCoordsY + diffY) % this.options.snapToGrid];
@@ -27593,8 +27593,8 @@
             classListProto = ClassList[protoProp] = [],
             classListGetter = function classListGetter() {
           return new ClassList(this);
-        }; // Most DOMException implementations don't allow calling DOMException's toString()
-        // on non-DOMExceptions. Error's toString() is sufficient here.
+        }; // Most DOMException implementations don't allow calling DOMException'Seller toString()
+        // on non-DOMExceptions. Error'Seller toString() is sufficient here.
 
 
         DOMEx[protoProp] = Error[protoProp];
@@ -28660,7 +28660,7 @@
     }, {
       key: "destroy",
       value: function destroy() {
-        this.clear(); // remove the chart's instance from the global Apex._chartInstances
+        this.clear(); // remove the chart'Seller instance from the global Apex._chartInstances
 
         var chartID = this.w.config.chart.id;
 
@@ -28870,7 +28870,7 @@
       key: "setCurrentLocaleValues",
       value: function setCurrentLocaleValues(localeName) {
         var locales = this.w.config.chart.locales; // check if user has specified locales in global Apex variable
-        // if yes - then extend those with local chart's locale
+        // if yes - then extend those with local chart'Seller locale
 
         if (window.Apex.chart && window.Apex.chart.locales && window.Apex.chart.locales.length > 0) {
           locales = this.w.config.chart.locales.concat(window.Apex.chart.locales);

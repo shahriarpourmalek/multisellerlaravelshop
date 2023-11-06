@@ -22,7 +22,7 @@ class ConfirmablePasswordController extends Controller
     }
 
     /**
-     * Confirm the user's password.
+     * Confirm the user'Seller password.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return mixed

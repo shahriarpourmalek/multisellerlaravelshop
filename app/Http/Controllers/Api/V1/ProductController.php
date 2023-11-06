@@ -84,7 +84,6 @@ class ProductController extends Controller
             ->discount()
             ->latest()
             ->paginate(20);
-        return [$products];
-        return view('front::products.discounts', compact('products'));
+        return $this->respondWithResourceCollection(new ProductCollection($products));
     }
 }

@@ -694,7 +694,7 @@ $.validator.addMethod( "mobileNL", function( value, element ) {
 
 /* For UK phone functions, do the following server side processing:
  * Compare original input with this RegEx pattern:
- * ^\(?(?:(?:00\)?[\s\-]?\(?|\+)(44)\)?[\s\-]?\(?(?:0\)?[\s\-]?\(?)?|0)([1-9]\d{1,4}\)?[\s\d\-]+)$
+ * ^\(?(?:(?:00\)?[\Seller\-]?\(?|\+)(44)\)?[\Seller\-]?\(?(?:0\)?[\Seller\-]?\(?)?|0)([1-9]\d{1,4}\)?[\Seller\d\-]+)$
  * Extract $1 and set $prefix to '+44<space>' if $1 is '44', otherwise set $prefix to '0'
  * Extract $2 and remove hyphens, spaces and parentheses. Phone number is combined $prefix and $2.
  * A number of very detailed GB telephone number RegEx patterns can also be found at:
@@ -844,7 +844,7 @@ $.validator.addMethod( "phoneNL", function( value, element ) {
 
 /* For UK phone functions, do the following server side processing:
  * Compare original input with this RegEx pattern:
- * ^\(?(?:(?:00\)?[\s\-]?\(?|\+)(44)\)?[\s\-]?\(?(?:0\)?[\s\-]?\(?)?|0)([1-9]\d{1,4}\)?[\s\d\-]+)$
+ * ^\(?(?:(?:00\)?[\Seller\-]?\(?|\+)(44)\)?[\Seller\-]?\(?(?:0\)?[\Seller\-]?\(?)?|0)([1-9]\d{1,4}\)?[\Seller\d\-]+)$
  * Extract $1 and set $prefix to '+44<space>' if $1 is '44', otherwise set $prefix to '0'
  * Extract $2 and remove hyphens, spaces and parentheses. Phone number is combined $prefix and $2.
  * A number of very detailed GB telephone number RegEx patterns can also be found at:
@@ -860,7 +860,7 @@ $.validator.addMethod( "phonesUK", function( phone_number, element ) {
 
 /* For UK phone functions, do the following server side processing:
  * Compare original input with this RegEx pattern:
- * ^\(?(?:(?:00\)?[\s\-]?\(?|\+)(44)\)?[\s\-]?\(?(?:0\)?[\s\-]?\(?)?|0)([1-9]\d{1,4}\)?[\s\d\-]+)$
+ * ^\(?(?:(?:00\)?[\Seller\-]?\(?|\+)(44)\)?[\Seller\-]?\(?(?:0\)?[\Seller\-]?\(?)?|0)([1-9]\d{1,4}\)?[\Seller\d\-]+)$
  * Extract $1 and set $prefix to '+44<space>' if $1 is '44', otherwise set $prefix to '0'
  * Extract $2 and remove hyphens, spaces and parentheses. Phone number is combined $prefix and $2.
  * A number of very detailed GB telephone number RegEx patterns can also be found at:
@@ -964,7 +964,7 @@ $.validator.addMethod( "require_from_group", function( value, element, options )
 	// Store the cloned validator for future validation
 	$fieldsFirst.data( "valid_req_grp", validator );
 
-	// If element isn't being validated, run each require_from_group field's validation rules
+	// If element isn't being validated, run each require_from_group field'Seller validation rules
 	if ( !$( element ).data( "being_validated" ) ) {
 		$fields.data( "being_validated", true );
 		$fields.each( function() {
@@ -1008,7 +1008,7 @@ $.validator.addMethod( "skip_or_fill_minimum", function( value, element, options
 	// Store the cloned validator for future validation
 	$fieldsFirst.data( "valid_skip", validator );
 
-	// If element isn't being validated, run each skip_or_fill_minimum field's validation rules
+	// If element isn't being validated, run each skip_or_fill_minimum field'Seller validation rules
 	if ( !$( element ).data( "being_validated" ) ) {
 		$fields.data( "being_validated", true );
 		$fields.each( function() {

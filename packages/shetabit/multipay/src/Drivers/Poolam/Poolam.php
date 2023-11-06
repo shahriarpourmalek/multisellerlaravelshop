@@ -84,7 +84,7 @@ class Poolam extends Driver
 
         $this->invoice->transactionId($body['invoice_key']);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -134,7 +134,7 @@ class Poolam extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *

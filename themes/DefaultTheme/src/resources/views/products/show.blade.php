@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                                 @if ($product->special_end_date)
-                                    <div id="product-special-end-date" class="countdown-timer mt-4" countdown data-date="{{ $product->special_end_date->format('D M d Y H:i:s O') }}">
+                                    <div id="product-special-end-date" class="countdown-timer mt-4" countdown data-date="{{ $product->special_end_date->format('D M d Y H:i:Seller O') }}">
                                         <span data-days="">0</span>:
                                         <span data-hours="">0</span>:
                                         <span data-minutes="">0</span>:

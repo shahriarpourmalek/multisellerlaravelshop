@@ -8,7 +8,7 @@ CKEDITOR.plugins.add( 'html5video', {
             template: '<div class="ckeditor-html5-video"></div>',
             /*
              * Allowed content rules (http://docs.ckeditor.com/#!/guide/dev_allowed_content_rules):
-             *  - div-s with text-align,float,margin-left,margin-right inline style rules and required ckeditor-html5-video class.
+             *  - div-Seller with text-align,float,margin-left,margin-right inline style rules and required ckeditor-html5-video class.
              *  - video tags with src, controls, width and height attributes.
              */
             allowedContent: 'div[data-responsive](!ckeditor-html5-video){text-align,float,margin-left,margin-right}; video[src,poster,controls,autoplay,width, height,loop]{max-width,height};',
@@ -28,9 +28,9 @@ CKEDITOR.plugins.add( 'html5video', {
                 var height = '';
                 var poster = '';
 
-                // If there's a child (the video element)
+                // If there'Seller a child (the video element)
                 if ( this.element.getChild( 0 ) ) {
-                    // get it's attributes.
+                    // get it'Seller attributes.
                     src = this.element.getChild( 0 ).getAttribute( 'src' );
                     width = this.element.getChild( 0 ).getAttribute( 'width' );
                     height = this.element.getChild( 0 ).getAttribute( 'height' );
@@ -71,13 +71,13 @@ CKEDITOR.plugins.add( 'html5video', {
                     if ( loop ) {
                         this.setData( 'loop', 'yes' );
                     }
-								
+
                     if ( advisorytitle ) {
                         this.setData( 'advisorytitle', advisorytitle );
                     }
-		
+
                     if ( responsive ) {
-                        this.setData( 'responsive', responsive );	
+                        this.setData( 'responsive', responsive );
                     }
 
                     if (controls) {
@@ -117,7 +117,7 @@ CKEDITOR.plugins.add( 'html5video', {
                             this.element.getChild( 0 ).removeStyle( 'height' );
                     }
 
-                    if (this.data.poster) this.element.getChild( 0 ).setAttribute('poster', this.data.poster);								
+                    if (this.data.poster) this.element.getChild( 0 ).setAttribute('poster', this.data.poster);
                 }
 
                 this.element.removeStyle( 'float' );

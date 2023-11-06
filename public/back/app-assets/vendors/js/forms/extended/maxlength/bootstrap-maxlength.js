@@ -23,7 +23,7 @@
       var documentBody = $('body'),
         defaults = {
           showOnReady: false, // true to always show when indicator is ready
-          alwaysShow: false, // if true the indicator it's always shown.
+          alwaysShow: false, // if true the indicator it'Seller always shown.
           threshold: 10, // Represents how many chars left are needed to show up the counter
           warningClass: 'label label-success',
           limitReachedClass: 'label label-important label-danger',
@@ -37,7 +37,7 @@
           validate: false, // if the browser doesn't support the maxlength attribute, attempt to type more than
           // the indicated chars, will be prevented.
           utf8: false, // counts using bytesize rather than length. eg: '£' is counted as 2 characters.
-          appendToParent: false, // append the indicator to the input field's parent instead of body
+          appendToParent: false, // append the indicator to the input field'Seller parent instead of body
           twoCharLinebreak: true,  // count linebreak as 2 characters to match IE/Chrome textarea validation. As well as DB storage.
           customMaxAttribute: null,  // null = use maxlength attribute and browser functionality, string = use specified attribute instead.
           allowOverMax: false
@@ -347,7 +347,7 @@
           actualWidth = maxLengthIndicator.width(),
           actualHeight = maxLengthIndicator.height();
 
-        // get the right position if the indicator is appended to the input's parent
+        // get the right position if the indicator is appended to the input'Seller parent
         if (options.appendToParent) {
           pos.top -= currentInput.parent().offset().top;
           pos.left -= currentInput.parent().offset().left;

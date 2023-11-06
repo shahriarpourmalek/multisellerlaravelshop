@@ -118,7 +118,7 @@ class Idpay extends Driver
 
         $this->invoice->transactionId($body['id']);
 
-        // return the transaction's id
+        // return the transaction'Seller id
         return $this->invoice->getTransactionId();
     }
 
@@ -181,7 +181,7 @@ class Idpay extends Driver
     }
 
     /**
-     * Generate the payment's receipt
+     * Generate the payment'Seller receipt
      *
      * @param $referenceId
      *

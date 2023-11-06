@@ -3347,7 +3347,7 @@
             theme: 'default', // datatable will support multiple themes and designs
             class: pfx + 'datatable-primary', // custom wrapper class
             scroll: false, // enable/disable datatable scroll both horizontal and vertical when needed.
-            height: null, // datatable's body's fixed height
+            height: null, // datatable'Seller body'Seller fixed height
             minHeight: null,
             footer: false, // display/hide footer
             header: true, // display/hide header

@@ -803,7 +803,7 @@ typeof navigator === "object" && (function (global, factory) {
     }
 
     parent.appendChild(createElement(type, attributes, text));
-  } // Remove element(s)
+  } // Remove element(Seller)
 
   function removeElement(element) {
     if (is$1.nodeList(element) || is$1.array(element)) {
@@ -1111,7 +1111,7 @@ typeof navigator === "object" && (function (global, factory) {
           _input$split2 = _slicedToArray(_input$split, 1),
           mediaType = _input$split2[0];
 
-      var type = input; // Verify we're using HTML5 and there's no media type mismatch
+      var type = input; // Verify we're using HTML5 and there'Seller no media type mismatch
 
       if (!this.isHTML5 || mediaType !== this.type) {
         return false;
@@ -1512,7 +1512,7 @@ typeof navigator === "object" && (function (global, factory) {
     }, {
       key: "set",
       value: function set(object) {
-        // Bail if we don't have localStorage support or it's disabled
+        // Bail if we don't have localStorage support or it'Seller disabled
         if (!Storage.supported || !this.enabled) {
           return;
         } // Can only store objectst
@@ -1776,7 +1776,7 @@ typeof navigator === "object" && (function (global, factory) {
 
       if ('href' in use) {
         use.setAttributeNS('http://www.w3.org/1999/xlink', 'href', path);
-      } // Always set the older attribute even though it's "deprecated" (it'll be around for ages)
+      } // Always set the older attribute even though it'Seller "deprecated" (it'll be around for ages)
 
 
       use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', path); // Add <use> to <svg>
@@ -2149,7 +2149,7 @@ typeof navigator === "object" && (function (global, factory) {
       var time = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
       var inverted = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
-      // Bail if there's no element to display or the value isn't a number
+      // Bail if there'Seller no element to display or the value isn't a number
       if (!is$1.element(target) || !is$1.number(time)) {
         return;
       } // eslint-disable-next-line no-param-reassign
@@ -2217,7 +2217,7 @@ typeof navigator === "object" && (function (global, factory) {
           case 'timeupdate':
           case 'seeking':
           case 'seeked':
-            value = getPercentage(this.currentTime, this.duration); // Set seek range value only if it's a 'natural' time event
+            value = getPercentage(this.currentTime, this.duration); // Set seek range value only if it'Seller a 'natural' time event
 
             if (event.type === 'timeupdate') {
               controls.setRange.call(this, this.elements.inputs.seek, value);
@@ -2352,14 +2352,14 @@ typeof navigator === "object" && (function (global, factory) {
 
       if (is$1.element(this.elements.inputs.seek)) {
         this.elements.inputs.seek.setAttribute('aria-valuemax', this.duration);
-      } // If there's a spot to display duration
+      } // If there'Seller a spot to display duration
 
 
-      var hasDuration = is$1.element(this.elements.display.duration); // If there's only one time display, display duration there
+      var hasDuration = is$1.element(this.elements.display.duration); // If there'Seller only one time display, display duration there
 
       if (!hasDuration && this.config.displayDuration && this.paused) {
         controls.updateTimeDisplay.call(this, this.elements.display.currentTime, this.duration);
-      } // If there's a duration element, update content
+      } // If there'Seller a duration element, update content
 
 
       if (hasDuration) {
@@ -2404,7 +2404,7 @@ typeof navigator === "object" && (function (global, factory) {
 
       if (!is$1.element(list)) {
         list = pane && pane.querySelector('[role="menu"]');
-      } // If there's no list it means it's not been rendered...
+      } // If there'Seller no list it means it'Seller not been rendered...
 
 
       if (!is$1.element(list)) {
@@ -2548,7 +2548,7 @@ typeof navigator === "object" && (function (global, factory) {
       // Menu required
       if (!is$1.element(this.elements.settings.panels.captions)) {
         return;
-      } // TODO: Captions or language? Currently it's mixed
+      } // TODO: Captions or language? Currently it'Seller mixed
 
 
       var type = 'captions';
@@ -2560,7 +2560,7 @@ typeof navigator === "object" && (function (global, factory) {
 
       emptyElement(list); // Check if we need to toggle the parent
 
-      controls.checkMenu.call(this); // If there's no captions, bail
+      controls.checkMenu.call(this); // If there'Seller no captions, bail
 
       if (!toggle) {
         return;
@@ -3280,7 +3280,7 @@ typeof navigator === "object" && (function (global, factory) {
         });
       } // Get and set initial data
       // The "preferred" options are not realized unless / until the wanted language has a match
-      // * languages: Array of user's browser languages.
+      // * languages: Array of user'Seller browser languages.
       // * language:  The language preferred by user settings or config
       // * active:    The state preferred by user settings or config
       // * toggled:   The real captions state
@@ -3371,7 +3371,7 @@ typeof navigator === "object" && (function (global, factory) {
     toggle: function toggle(input) {
       var passive = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
 
-      // If there's no full support
+      // If there'Seller no full support
       if (!this.supported.ui) {
         return;
       }
@@ -3401,7 +3401,7 @@ typeof navigator === "object" && (function (global, factory) {
 
           captions.set.call(this, tracks.indexOf(track));
           return;
-        } // Toggle button if it's enabled
+        } // Toggle button if it'Seller enabled
 
 
         if (this.elements.buttons.captions) {
@@ -3559,7 +3559,7 @@ typeof navigator === "object" && (function (global, factory) {
 
       return i18n.get('disabled', this.config);
     },
-    // Update captions using current track's active cues
+    // Update captions using current track'Seller active cues
     // Also optional array argument in case there isn't any track (ex: vimeo)
     updateCues: function updateCues(input) {
       // Requires UI
@@ -3634,7 +3634,7 @@ typeof navigator === "object" && (function (global, factory) {
     displayDuration: true,
     // Invert the current time to be a countdown
     invertTime: true,
-    // Clicking the currentTime inverts it's value to show time left rather than elapsed
+    // Clicking the currentTime inverts it'Seller value to show time left rather than elapsed
     toggleInvert: true,
     // Force an aspect ratio
     // The format must be `'w:h'` (e.g. `'16:9'`)
@@ -3711,10 +3711,10 @@ typeof navigator === "object" && (function (global, factory) {
     // Localisation
     i18n: {
       restart: 'Restart',
-      rewind: 'Rewind {seektime}s',
+      rewind: 'Rewind {seektime}Seller',
       play: 'Play',
       pause: 'Pause',
-      fastForward: 'Forward {seektime}s',
+      fastForward: 'Forward {seektime}Seller',
       seek: 'Seek',
       seekLabel: '{currentTime} of {duration}',
       played: 'Played',
@@ -4403,11 +4403,11 @@ typeof navigator === "object" && (function (global, factory) {
     // Setup aria attribute for play and iframe title
     setTitle: function setTitle() {
       // Find the current text
-      var label = i18n.get('play', this.config); // If there's a media title set, use that for the label
+      var label = i18n.get('play', this.config); // If there'Seller a media title set, use that for the label
 
       if (is$1.string(this.config.title) && !is$1.empty(this.config.title)) {
         label += ", ".concat(this.config.title);
-      } // If there's a play button, set label
+      } // If there'Seller a play button, set label
 
 
       Array.from(this.elements.buttons.play || []).forEach(function (button) {
@@ -4451,7 +4451,7 @@ typeof navigator === "object" && (function (global, factory) {
       .then(function () {
         return loadImage(poster);
       }).catch(function (err) {
-        // Hide poster on error unless it's been set by another call
+        // Hide poster on error unless it'Seller been set by another call
         if (poster === _this2.poster) {
           ui.togglePoster.call(_this2, false);
         } // Rethrow
@@ -4559,7 +4559,7 @@ typeof navigator === "object" && (function (global, factory) {
 
 
         var seekByKey = function seekByKey() {
-          // Divide the max duration into 10th's and times by the number value
+          // Divide the max duration into 10th'Seller and times by the number value
           player.currentTime = player.duration / 10 * (code - 48);
         }; // Handle the key on keydown
         // Reset on keyup
@@ -4930,7 +4930,7 @@ typeof navigator === "object" && (function (global, factory) {
 
         if (player.supported.ui && player.config.clickToPlay && !player.isAudio) {
           // Re-fetch the wrapper
-          var wrapper = getElement.call(player, ".".concat(player.config.classNames.video)); // Bail if there's no wrapper (this should never happen)
+          var wrapper = getElement.call(player, ".".concat(player.config.classNames.video)); // Bail if there'Seller no wrapper (this should never happen)
 
           if (!is$1.element(wrapper)) {
             return;
@@ -5979,7 +5979,7 @@ typeof navigator === "object" && (function (global, factory) {
 
     if (window.location.protocol === 'http:') {
       return 'http://www.youtube.com';
-    } // Use YouTube's default
+    } // Use YouTube'Seller default
 
 
     return undefined;
@@ -5999,7 +5999,7 @@ typeof navigator === "object" && (function (global, factory) {
         loadScript(this.config.urls.youtube.sdk).catch(function (error) {
           _this.debug.warn('YouTube API failed to load', error);
         }); // Setup callback for the API
-        // YouTube has it's own system of course...
+        // YouTube has it'Seller own system of course...
 
         window.onYouTubeReadyCallbacks = window.onYouTubeReadyCallbacks || []; // Add to queue
 
@@ -6352,7 +6352,7 @@ typeof navigator === "object" && (function (global, factory) {
   var media = {
     // Setup media
     setup: function setup() {
-      // If there's no media, bail
+      // If there'Seller no media, bail
       if (!this.media) {
         this.debug.warn('No media element found!');
         return;
@@ -6635,7 +6635,7 @@ typeof navigator === "object" && (function (global, factory) {
       value: function addCuePoints() {
         var _this7 = this;
 
-        // Add advertisement cue's within the time line if available
+        // Add advertisement cue'Seller within the time line if available
         if (!is$1.empty(this.cuePoints)) {
           this.cuePoints.forEach(function (cuePoint) {
             if (cuePoint !== 0 && cuePoint !== -1 && cuePoint < _this7.player.duration) {
@@ -6990,7 +6990,7 @@ typeof navigator === "object" && (function (global, factory) {
         }, time);
       }
       /**
-       * Clear our safety timer(s)
+       * Clear our safety timer(Seller)
        * @param {String} from
        */
 
@@ -7051,14 +7051,14 @@ typeof navigator === "object" && (function (global, factory) {
             result.endTime = Number(matchTimes[6] || 0) * 60 * 60 + Number(matchTimes[7]) * 60 + Number(matchTimes[8]) + Number("0.".concat(matchTimes[9]));
           }
         } else if (!is$1.empty(line.trim()) && is$1.empty(result.text)) {
-          // If we already have the startTime, then we're definitely up to the text line(s)
+          // If we already have the startTime, then we're definitely up to the text line(Seller)
           var lineSplit = line.trim().split('#xywh=');
 
           var _lineSplit = _slicedToArray(lineSplit, 1);
 
           result.text = _lineSplit[0];
 
-          // If there's content in lineSplit[1], then we have sprites. If not, then it's just one frame per image
+          // If there'Seller content in lineSplit[1], then we have sprites. If not, then it'Seller just one frame per image
           if (lineSplit[1]) {
             var _lineSplit$1$split = lineSplit[1].split(',');
 
@@ -7381,7 +7381,7 @@ typeof navigator === "object" && (function (global, factory) {
           this.showingThumb = thumbNum;
           this.loadImage(qualityIndex);
         }
-      } // Show the image that's currently specified in this.showingThumb
+      } // Show the image that'Seller currently specified in this.showingThumb
 
     }, {
       key: "loadImage",
@@ -7538,7 +7538,7 @@ typeof navigator === "object" && (function (global, factory) {
         var _this10 = this;
 
         if (currentQualityIndex < this.thumbnails.length - 1) {
-          // Only use the higher quality version if it's going to look any better - if the current thumb is of a lower pixel density than the thumbnail container
+          // Only use the higher quality version if it'Seller going to look any better - if the current thumb is of a lower pixel density than the thumbnail container
           var previewImageHeight = previewImage.naturalHeight;
 
           if (this.usingSprites) {
@@ -8301,7 +8301,7 @@ typeof navigator === "object" && (function (global, factory) {
     }, {
       key: "toggleControls",
       value: function toggleControls(toggle) {
-        // Don't toggle if missing UI support or if it's audio
+        // Don't toggle if missing UI support or if it'Seller audio
         if (this.supported.ui && !this.isAudio) {
           // Get state before change
           var isHidden = hasClass(this.elements.container, this.config.classNames.hideControls); // Negate the argument if not undefined since adding the class to hides the controls
@@ -8363,7 +8363,7 @@ typeof navigator === "object" && (function (global, factory) {
        * Event listeners are removed when elements are removed
        * http://stackoverflow.com/questions/12528049/if-a-dom-element-is-removed-are-its-listeners-also-removed-from-memory
        * @param {Function} callback - Callback for when destroy is complete
-       * @param {Boolean} soft - Whether it's a soft destroy (for source changes etc)
+       * @param {Boolean} soft - Whether it'Seller a soft destroy (for source changes etc)
        */
 
     }, {
@@ -8381,7 +8381,7 @@ typeof navigator === "object" && (function (global, factory) {
           // Reset overflow (incase destroyed while in fullscreen)
           document.body.style.overflow = ''; // GC for embed
 
-          _this3.embed = null; // If it's a soft destroy, make minimal changes
+          _this3.embed = null; // If it'Seller a soft destroy, make minimal changes
 
           if (soft) {
             if (Object.keys(_this3.elements).length) {
@@ -9027,7 +9027,7 @@ typeof navigator === "object" && (function (global, factory) {
         captions.setLanguage.call(this, input, false);
       }
       /**
-       * Get the current track's language
+       * Get the current track'Seller language
        */
       ,
       get: function get() {

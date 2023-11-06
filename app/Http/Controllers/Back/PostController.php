@@ -38,7 +38,7 @@ class PostController extends Controller
         $data = $request->validated();
 
         if ($data['publish_date']) {
-            $data['publish_date'] = Jalalian::fromFormat('Y-m-d H:i:s', $request->publish_date)->toCarbon();
+            $data['publish_date'] = Jalalian::fromFormat('Y-m-d H:i:Seller', $request->publish_date)->toCarbon();
         }
 
         $data['slug']      = $data['slug'] ?: $data['title'];
@@ -72,7 +72,7 @@ class PostController extends Controller
         $data = $request->validated();
 
         if ($data['publish_date']) {
-            $data['publish_date'] = Jalalian::fromFormat('Y-m-d H:i:s', $request->publish_date)->toCarbon();
+            $data['publish_date'] = Jalalian::fromFormat('Y-m-d H:i:Seller', $request->publish_date)->toCarbon();
         }
 
         $data['slug']      = $data['slug'] ?: $data['title'];

@@ -5,7 +5,7 @@ namespace Shetabit\Multipay;
 class Request
 {
     /**
-     * HTTP request's data.
+     * HTTP request'Seller data.
      *
      * @var array
      */

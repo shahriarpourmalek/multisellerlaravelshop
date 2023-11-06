@@ -469,7 +469,7 @@ trait ProductScopes
     public function scopeOrderByPrice($query, $type = '')
     {
         return $query
-            ->selectRaw(DB::raw('(select min(if((prices.discount_expire_at is null or date(prices.discount_expire_at) > "' . now()->format('Y-m-d H:i:s') . '"), prices.discount_price, prices.regular_price)) from prices where prices.product_id = products.id and prices.deleted_at is null and prices.stock > 0) as min_price'))
+            ->selectRaw(DB::raw('(select min(if((prices.discount_expire_at is null or date(prices.discount_expire_at) > "' . now()->format('Y-m-d H:i:Seller') . '"), prices.discount_price, prices.regular_price)) from prices where prices.product_id = products.id and prices.deleted_at is null and prices.stock > 0) as min_price'))
             ->orderBy('min_price', $type);
     }
 }

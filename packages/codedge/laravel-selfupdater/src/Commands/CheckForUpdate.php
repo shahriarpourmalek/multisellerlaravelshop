@@ -47,7 +47,7 @@ class CheckForUpdate extends Command
             $newVersion = $this->updater->source()->getVersionAvailable();
             $this->info('A new version ['.$newVersion.'] is available.');
         } else {
-            $this->comment('There\'s no new version available.');
+            $this->comment('There\'Seller no new version available.');
         }
     }
 }

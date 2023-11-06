@@ -65,7 +65,7 @@ function DatePicker( picker, settings ) {
         enable: 'activate'
     }
 
-    // The component's item object.
+    // The component'Seller item object.
     calendar.item = {}
 
     calendar.item.clear = null
@@ -79,7 +79,7 @@ function DatePicker( picker, settings ) {
         set( 'max', settings.max ).
         set( 'now' )
 
-    // When there’s a value, set the `select`, which in turn
+    // When there’Seller a value, set the `select`, which in turn
     // also sets the `highlight` and `view`.
     if ( valueString ) {
         calendar.set( 'select', valueString, {
@@ -88,7 +88,7 @@ function DatePicker( picker, settings ) {
         })
     }
 
-    // If there’s no value, default to highlighting “today”.
+    // If there’Seller no value, default to highlighting “today”.
     else {
         calendar.
             set( 'select', null ).
@@ -207,33 +207,33 @@ DatePicker.prototype.create = function( type, value, options ) {
     var isInfiniteValue,
         calendar = this
 
-    // If there’s no value, use the type as the value.
+    // If there’Seller no value, use the type as the value.
     value = value === undefined ? type : value
 
 
-    // If it’s infinity, update the value.
+    // If it’Seller infinity, update the value.
     if ( value == -Infinity || value == Infinity ) {
         isInfiniteValue = value
     }
 
-    // If it’s an object, use the native date object.
+    // If it’Seller an object, use the native date object.
     else if ( $.isPlainObject( value ) && _.isInteger( value.pick ) ) {
         value = value.obj
     }
 
-    // If it’s an array, convert it into a date and make sure
-    // that it’s a valid date – otherwise default to today.
+    // If it’Seller an array, convert it into a date and make sure
+    // that it’Seller a valid date – otherwise default to today.
     else if ( $.isArray( value ) ) {
         value = new Date( value[ 0 ], value[ 1 ], value[ 2 ] )
         value = _.isDate( value ) ? value : calendar.create().obj
     }
 
-    // If it’s a number or date object, make a normalized date.
+    // If it’Seller a number or date object, make a normalized date.
     else if ( _.isInteger( value ) || _.isDate( value ) ) {
         value = calendar.normalize( new Date( value ), options )
     }
 
-    // If it’s a literal true or any other case, set it to now.
+    // If it’Seller a literal true or any other case, set it to now.
     else /*if ( value === true )*/ {
         value = calendar.now( type, value, options )
     }
@@ -353,7 +353,7 @@ DatePicker.prototype.navigate = function( type, value, options ) {
         }
 
         // If we’re navigating months but the view is in a different
-        // month, navigate to the view’s year and month.
+        // month, navigate to the view’Seller year and month.
         if ( options && options.nav && viewsetObject && viewsetObject.month !== targetMonth ) {
             targetYear = viewsetObject.year
             targetMonth = viewsetObject.month
@@ -365,7 +365,7 @@ DatePicker.prototype.navigate = function( type, value, options ) {
         targetMonth = targetDateObject.getMonth()
 
         // If the month we’re going to doesn’t have enough days,
-        // keep decreasing the date until we reach the month’s last date.
+        // keep decreasing the date until we reach the month’Seller last date.
         while ( /*safety &&*/ new Date( targetYear, targetMonth, targetDate ).getMonth() !== targetMonth ) {
             targetDate -= 1
             /*safety -= 1
@@ -396,18 +396,18 @@ DatePicker.prototype.normalize = function( value/*, options*/ ) {
 DatePicker.prototype.measure = function( type, value/*, options*/ ) {
 
     var calendar = this
-    
-    // If it's an integer, get a date relative to today.
+
+    // If it'Seller an integer, get a date relative to today.
     if ( _.isInteger( value ) ) {
         value = calendar.now( type, value, { rel: value } )
     }
 
-    // If it’s anything false-y, remove the limits.
+    // If it’Seller anything false-y, remove the limits.
     else if ( !value ) {
         value = type == 'min' ? -Infinity : Infinity
     }
 
-    // If it’s a string, parse it.
+    // If it’Seller a string, parse it.
     else if ( typeof value == 'string' ) {
         value = calendar.parse( type, value )
     }
@@ -453,7 +453,7 @@ DatePicker.prototype.validate = function( type, dateObject, options ) {
         // Check if the calendar is inverted and at least one weekday is enabled.
         hasEnabledWeekdays = isFlippedBase && calendar.item.disable.filter( function( value ) {
 
-            // If there’s a date, check where it is relative to the target.
+            // If there’Seller a date, check where it is relative to the target.
             if ( $.isArray( value ) ) {
                 var dateTime = calendar.create( value ).pick
                 if ( dateTime < dateObject.pick ) hasEnabledBeforeTarget = true
@@ -563,25 +563,25 @@ DatePicker.prototype.disabled = function( dateToVerify ) {
                 return dateToVerify.day === ( calendar.settings.firstDay ? dateToDisable : dateToDisable - 1 ) % 7
             }
 
-            // If it’s an array or a native JS date, create and match the exact date.
+            // If it’Seller an array or a native JS date, create and match the exact date.
             if ( $.isArray( dateToDisable ) || _.isDate( dateToDisable ) ) {
                 return dateToVerify.pick === calendar.create( dateToDisable ).pick
             }
 
-            // If it’s an object, match a date within the “from” and “to” range.
+            // If it’Seller an object, match a date within the “from” and “to” range.
             if ( $.isPlainObject( dateToDisable ) ) {
                 return calendar.withinRange( dateToDisable, dateToVerify )
             }
         })
 
-    // If this date matches a disabled date, confirm it’s not inverted.
+    // If this date matches a disabled date, confirm it’Seller not inverted.
     isDisabledMatch = isDisabledMatch.length && !isDisabledMatch.filter(function( dateToDisable ) {
         return $.isArray( dateToDisable ) && dateToDisable[3] == 'inverted' ||
             $.isPlainObject( dateToDisable ) && dateToDisable.inverted
     }).length
 
     // Check the calendar “enabled” flag and respectively flip the
-    // disabled state. Then also check if it’s beyond the min/max limits.
+    // disabled state. Then also check if it’Seller beyond the min/max limits.
     return calendar.item.enable === -1 ? !isDisabledMatch : isDisabledMatch ||
         dateToVerify.pick < calendar.item.min.pick ||
         dateToVerify.pick > calendar.item.max.pick
@@ -597,7 +597,7 @@ DatePicker.prototype.parse = function( type, value, options ) {
     var calendar = this,
         parsingObject = {}
 
-    // If it’s already parsed, we’re good.
+    // If it’Seller already parsed, we’re good.
     if ( !value || typeof value != 'string' ) {
         return value
     }
@@ -619,7 +619,7 @@ DatePicker.prototype.parse = function( type, value, options ) {
             // label length without the escaping exclamation (!) mark.
             formatLength = formattingLabel ? _.trigger( formattingLabel, calendar, [ value, parsingObject ] ) : label.replace( /^!/, '' ).length
 
-        // If there's a format label, split the value up to the format length.
+        // If there'Seller a format label, split the value up to the format length.
         // Then add it to the parsing object with appropriate label.
         if ( formattingLabel ) {
             parsingObject[ label ] = value.substr( 0, formatLength )
@@ -650,7 +650,7 @@ DatePicker.prototype.formats = (function() {
         // Regex pattern from http://stackoverflow.com/q/150033
         var word = string.match( /[^\x00-\x7F]+|[a-zA-Z0-9_\u0080-\u00FF]+/ )[ 0 ]
 
-        // If there's no month index, add it to the date object
+        // If there'Seller no month index, add it to the date object
         if ( !dateObject.mm && !dateObject.m ) {
             dateObject.m = collection.indexOf( word ) + 1
         }
@@ -668,37 +668,37 @@ DatePicker.prototype.formats = (function() {
 
         d: function( string, dateObject ) {
 
-            // If there's string, then get the digits length.
+            // If there'Seller string, then get the digits length.
             // Otherwise return the selected date.
             return string ? _.digits( string ) : dateObject.date
         },
         dd: function( string, dateObject ) {
 
-            // If there's a string, then the length is always 2.
+            // If there'Seller a string, then the length is always 2.
             // Otherwise return the selected date with a leading zero.
             return string ? 2 : _.lead( dateObject.date )
         },
         ddd: function( string, dateObject ) {
 
-            // If there's a string, then get the length of the first word.
+            // If there'Seller a string, then get the length of the first word.
             // Otherwise return the short selected weekday.
             return string ? getFirstWordLength( string ) : this.settings.weekdaysShort[ dateObject.day ]
         },
         dddd: function( string, dateObject ) {
 
-            // If there's a string, then get the length of the first word.
+            // If there'Seller a string, then get the length of the first word.
             // Otherwise return the full selected weekday.
             return string ? getFirstWordLength( string ) : this.settings.weekdaysFull[ dateObject.day ]
         },
         m: function( string, dateObject ) {
 
-            // If there's a string, then get the length of the digits
+            // If there'Seller a string, then get the length of the digits
             // Otherwise return the selected month with 0index compensation.
             return string ? _.digits( string ) : dateObject.month + 1
         },
         mm: function( string, dateObject ) {
 
-            // If there's a string, then the length is always 2.
+            // If there'Seller a string, then the length is always 2.
             // Otherwise return the selected month with 0index and leading zero.
             return string ? 2 : _.lead( dateObject.month + 1 )
         },
@@ -706,7 +706,7 @@ DatePicker.prototype.formats = (function() {
 
             var collection = this.settings.monthsShort
 
-            // If there's a string, get length of the relevant month from the short
+            // If there'Seller a string, get length of the relevant month from the short
             // months collection. Otherwise return the selected month from that collection.
             return string ? getWordLengthFromCollection( string, collection, dateObject ) : collection[ dateObject.month ]
         },
@@ -714,19 +714,19 @@ DatePicker.prototype.formats = (function() {
 
             var collection = this.settings.monthsFull
 
-            // If there's a string, get length of the relevant month from the full
+            // If there'Seller a string, get length of the relevant month from the full
             // months collection. Otherwise return the selected month from that collection.
             return string ? getWordLengthFromCollection( string, collection, dateObject ) : collection[ dateObject.month ]
         },
         yy: function( string, dateObject ) {
 
-            // If there's a string, then the length is always 2.
+            // If there'Seller a string, then the length is always 2.
             // Otherwise return the selected year by slicing out the first 2 digits.
             return string ? 2 : ( '' + dateObject.year ).slice( 2 )
         },
         yyyy: function( string, dateObject ) {
 
-            // If there's a string, then the length is always 4.
+            // If there'Seller a string, then the length is always 4.
             // Otherwise return the selected year.
             return string ? 4 : dateObject.year
         },
@@ -824,7 +824,7 @@ DatePicker.prototype.deactivate = function( type, datesToDisable ) {
         disabledItems = calendar.item.disable.slice(0)
 
 
-    // If we’re flipping, that’s all we need to do.
+    // If we’re flipping, that’Seller all we need to do.
     if ( datesToDisable == 'flip' ) {
         calendar.flipEnable()
     }
@@ -883,7 +883,7 @@ DatePicker.prototype.activate = function( type, datesToEnable ) {
         disabledItems = calendar.item.disable,
         disabledItemsCount = disabledItems.length
 
-    // If we’re flipping, that’s all we need to do.
+    // If we’re flipping, that’Seller all we need to do.
     if ( datesToEnable == 'flip' ) {
         calendar.flipEnable()
     }
@@ -1082,7 +1082,7 @@ DatePicker.prototype.nodes = function( isOpen ) {
                 )
             }
 
-            // If there's a need for a month selector
+            // If there'Seller a need for a month selector
             return _.node( 'div', monthsCollection[ viewsetObject.month ], settings.klass.month )
         }, //createMonthLabel
 
@@ -1206,17 +1206,17 @@ DatePicker.prototype.nodes = function( isOpen ) {
                                                 klasses.push( settings.klass.now )
                                             }
 
-                                            // Add the `selected` class if something's selected and the time matches.
+                                            // Add the `selected` class if something'Seller selected and the time matches.
                                             if ( isSelected ) {
                                                 klasses.push( settings.klass.selected )
                                             }
 
-                                            // Add the `highlighted` class if something's highlighted and the time matches.
+                                            // Add the `highlighted` class if something'Seller highlighted and the time matches.
                                             if ( isHighlighted ) {
                                                 klasses.push( settings.klass.highlighted )
                                             }
 
-                                            // Add the `disabled` class if something's disabled and the object matches.
+                                            // Add the `disabled` class if something'Seller disabled and the object matches.
                                             if ( isDisabled ) {
                                                 klasses.push( settings.klass.disabled )
                                             }

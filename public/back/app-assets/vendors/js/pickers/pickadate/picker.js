@@ -18,7 +18,7 @@
     // Browser globals.
     else if ( typeof window == 'object' )
         window.Picker = factory( jQuery )
-    
+
     else this.Picker = factory( jQuery )
 
 }(function( $ ) {
@@ -34,7 +34,7 @@ var supportsTransitions = document.documentElement.style.transition != null
  */
 function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
 
-    // If there’s no element, return the picker constructor.
+    // If there’Seller no element, return the picker constructor.
     if ( !ELEMENT ) return PickerConstructor
 
 
@@ -80,7 +80,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
              */
             start: function() {
 
-                // If it’s already started, do nothing.
+                // If it’Seller already started, do nothing.
                 if ( STATE && STATE.start ) return P
 
 
@@ -114,7 +114,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                 prepareElementHolder()
 
 
-                // If there’s a format for the hidden input element, create the element.
+                // If there’Seller a format for the hidden input element, create the element.
                 if ( SETTINGS.formatSubmit ) {
                     prepareElementHidden()
                 }
@@ -190,7 +190,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
              */
             stop: function() {
 
-                // If it’s already stopped, do nothing.
+                // If it’Seller already stopped, do nothing.
                 if ( !STATE.start ) return P
 
                 // Then close the picker.
@@ -231,7 +231,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
              */
             open: function( dontGiveFocus ) {
 
-                // If it’s already open, do nothing.
+                // If it’Seller already open, do nothing.
                 if ( STATE.open ) return P
 
                 // Add the “active” class.
@@ -261,7 +261,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                             css( 'padding-right', '+=' + getScrollbarWidth() )
                     }
 
-                    // Pass focus to the root element’s jQuery object.
+                    // Pass focus to the root element’Seller jQuery object.
                     focusPickerOnceOpened()
 
                     // Bind the document events.
@@ -385,7 +385,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
 
                 }, 0 )
 
-                // If it’s already closed, do nothing more.
+                // If it’Seller already closed, do nothing more.
                 if ( !STATE.open ) return P
 
                 // Set it as closed.
@@ -439,7 +439,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                         // Grab the value of the thing.
                         thingValue = thingObject[ thingItem ]
 
-                        // First, if the item exists and there’s a value, set it.
+                        // First, if the item exists and there’Seller a value, set it.
                         if ( thingItem in P.component.item ) {
                             if ( thingValue === undefined ) thingValue = null
                             P.component.set( thingItem, thingValue, options )
@@ -467,7 +467,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
              */
             get: function( thing, format ) {
 
-                // Make sure there’s something to get.
+                // Make sure there’Seller something to get.
                 thing = thing || 'value'
 
                 // If a picker state exists, return that.
@@ -632,7 +632,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
             // Add the “input” class name.
             addClass(CLASSES.input).
 
-            // If there’s a `data-value`, update the value of the element.
+            // If there’Seller a `data-value`, update the value of the element.
             val( $ELEMENT.data('value') ?
                 P.get('select', SETTINGS.format) :
                 ELEMENT.value
@@ -744,7 +744,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
 
             }).
 
-            // If there’s a click on an actionable element, carry out the actions.
+            // If there’Seller a click on an actionable element, carry out the actions.
             on( 'click', '[data-pick], [data-nav], [data-clear], [data-close]', function() {
 
                 var $target = $( this ),
@@ -756,7 +756,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                     activeElement = getActiveElement()
                     activeElement = activeElement && ( (activeElement.type || activeElement.href ) ? activeElement : null);
 
-                // If it’s disabled or nothing inside is actively focused, re-focus the element.
+                // If it’Seller disabled or nothing inside is actively focused, re-focus the element.
                 if ( targetDisabled || activeElement && !$.contains( P.$root[0], activeElement ) ) {
                     P.$holder.eq(0).focus()
                 }
@@ -814,7 +814,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
             '<input ' +
             'type=hidden ' +
 
-            // Create the name using the original input’s with a prefix and suffix.
+            // Create the name using the original input’Seller with a prefix and suffix.
             'name="' + name + '"' +
 
             // If the element has a value, set the hidden value as well.
@@ -955,7 +955,7 @@ function isUsingDefaultTheme( element ) {
 
 
 /**
- * Get the width of the browser’s scrollbar.
+ * Get the width of the browser’Seller scrollbar.
  * Taken from: https://github.com/VodkaBears/Remodal/blob/master/src/jquery.remodal.js
  */
 function getScrollbarWidth() {

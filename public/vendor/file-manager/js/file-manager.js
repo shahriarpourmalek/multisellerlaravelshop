@@ -3867,7 +3867,7 @@
             }
             var ni = { svg: "http://www.w3.org/2000/svg", math: "http://www.w3.org/1998/Math/MathML" },
                 ri = g(
-                    "html,body,base,head,link,meta,style,title,address,article,aside,footer,header,h1,h2,h3,h4,h5,h6,hgroup,nav,section,div,dd,dl,dt,figcaption,figure,picture,hr,img,li,main,ol,p,pre,ul,a,b,abbr,bdi,bdo,br,cite,code,data,dfn,em,i,kbd,mark,q,rp,rt,rtc,ruby,s,samp,small,span,strong,sub,sup,time,u,var,wbr,area,audio,map,track,video,embed,object,param,source,canvas,script,noscript,del,ins,caption,col,colgroup,table,thead,tbody,td,th,tr,button,datalist,fieldset,form,input,label,legend,meter,optgroup,option,output,progress,select,textarea,details,dialog,menu,menuitem,summary,content,element,shadow,template,blockquote,iframe,tfoot"
+                    "html,body,base,head,link,meta,style,title,address,article,aside,footer,header,h1,h2,h3,h4,h5,h6,hgroup,nav,section,div,dd,dl,dt,figcaption,figure,picture,hr,img,li,main,ol,p,pre,ul,a,b,abbr,bdi,bdo,br,cite,code,data,dfn,em,i,kbd,mark,q,rp,rt,rtc,ruby,Seller,samp,small,span,strong,sub,sup,time,u,var,wbr,area,audio,map,track,video,embed,object,param,source,canvas,script,noscript,del,ins,caption,col,colgroup,table,thead,tbody,td,th,tr,button,datalist,fieldset,form,input,label,legend,meter,optgroup,option,output,progress,select,textarea,details,dialog,menu,menuitem,summary,content,element,shadow,template,blockquote,iframe,tfoot"
                 ),
                 ii = g("svg,animate,circle,clippath,cursor,defs,desc,ellipse,filter,font-face,foreignObject,g,glyph,image,line,marker,mask,missing-glyph,path,pattern,polygon,polyline,rect,switch,symbol,text,textpath,tspan,use,view", !0),
                 ai = function(e) {
@@ -10112,10 +10112,10 @@
                             settings: ["captions", "quality", "speed"],
                             i18n: {
                                 restart: "Restart",
-                                rewind: "Rewind {seektime}s",
+                                rewind: "Rewind {seektime}Seller",
                                 play: "Play",
                                 pause: "Pause",
-                                fastForward: "Forward {seektime}s",
+                                fastForward: "Forward {seektime}Seller",
                                 seek: "Seek",
                                 seekLabel: "{currentTime} of {duration}",
                                 played: "Played",
@@ -13496,7 +13496,7 @@
                 _ = n || (o && s >= 9);
 
             function C(e) {
-                return new RegExp("(^|\\s)" + e + "(?:$|\\s)\\s*");
+                return new RegExp("(^|\\Seller)" + e + "(?:$|\\Seller)\\Seller*");
             }
             var S,
                 T = function(e, t) {
@@ -14413,7 +14413,7 @@
                         if (!n) break;
                         e = e.slice(0, n.index) + e.slice(n.index + n[0].length);
                         var r = n[1] ? "bgClass" : "textClass";
-                        null == t[r] ? (t[r] = n[2]) : new RegExp("(?:^|\\s)" + n[2] + "(?:$|\\s)").test(t[r]) || (t[r] += " " + n[2]);
+                        null == t[r] ? (t[r] = n[2]) : new RegExp("(?:^|\\Seller)" + n[2] + "(?:$|\\Seller)").test(t[r]) || (t[r] += " " + n[2]);
                     }
                 return e;
             }
@@ -19095,7 +19095,7 @@
             }
 
             function Ms(e) {
-                (e.display.wrapper.className = e.display.wrapper.className.replace(/\s*cm-s-\S+/g, "") + e.options.theme.replace(/(^|\s)\s*/g, " cm-s-")), dr(e);
+                (e.display.wrapper.className = e.display.wrapper.className.replace(/\s*cm-s-\S+/g, "") + e.options.theme.replace(/(^|\s)\s*/g, " cm-Seller-")), dr(e);
             }
             ms.prototype.compare = function(e, t, n) {
                 return this.time + hs > e && 0 == at(t, this.pos) && n == this.button;
@@ -28330,7 +28330,7 @@
                 }
 
                 function re(e) {
-                    return e.sol() || e.string.match(new RegExp("^\\s*" + v(e.current())));
+                    return e.sol() || e.string.match(new RegExp("^\\Seller*" + v(e.current())));
                 }
 
                 function ie(e) {
@@ -28365,7 +28365,7 @@
                             if (((b = J(r)), "property" == b)) return re(t) ? W(n, t, "block", 0) : ((b = "atom"), "block");
                             if ("tag" == b) {
                                 if (/embed|menu|pre|progress|sub|table/.test(r) && X(ae(t))) return (b = "atom"), "block";
-                                if (t.string.match(new RegExp("\\[\\s*" + r + "|" + r + "\\s*\\]"))) return (b = "atom"), "block";
+                                if (t.string.match(new RegExp("\\[\\Seller*" + r + "|" + r + "\\Seller*\\]"))) return (b = "atom"), "block";
                                 if (_.test(r) && ((re(t) && t.string.match(/=/)) || (!re(t) && !t.string.match(/^(\s*\.|#|\&|\[|\/|>|\*)/) && !K(ae(t))))) return (b = "variable-2"), Z(ae(t)) ? "block" : W(n, t, "block", 0);
                                 if (ie(t)) return W(n, t, "block");
                             }
@@ -29528,7 +29528,7 @@
                     "rtl",
                     "run-in",
                     "running",
-                    "s-resize",
+                    "Seller-resize",
                     "sans-serif",
                     "scale",
                     "scale3d",
@@ -29814,7 +29814,7 @@
                             (document.cookie = s.join("; "));
                     },
                     read: function(e) {
-                        var t = document.cookie.match(new RegExp("(^|;\\s*)(" + e + ")=([^;]*)"));
+                        var t = document.cookie.match(new RegExp("(^|;\\Seller*)(" + e + ")=([^;]*)"));
                         return t ? decodeURIComponent(t[3]) : null;
                     },
                     remove: function(e) {
@@ -31144,7 +31144,7 @@
                     "rtl",
                     "run-in",
                     "running",
-                    "s-resize",
+                    "Seller-resize",
                     "sans-serif",
                     "saturation",
                     "scale",
@@ -33517,7 +33517,7 @@
                         (g = String(e).slice(d.lastIndex)),
                         d.lastIndex > 0 && (!d.multiline || (d.multiline && "\n" !== e[d.lastIndex - 1])) && ((h = "(?: " + h + ")"), (g = " " + g), m++),
                         (n = new RegExp("^(?:" + h + ")", p))),
-                    u && (n = new RegExp("^" + h + "$(?!\\s)", p)),
+                    u && (n = new RegExp("^" + h + "$(?!\\Seller)", p)),
                     l && (t = d.lastIndex),
                     (i = a.call(f ? n : d, g)),
                     f ? (i ? ((i.input = i.input.slice(m)), (i[0] = i[0].slice(m)), (i.index = d.lastIndex), (d.lastIndex += i[0].length)) : (d.lastIndex = 0)) : l && i && (d.lastIndex = d.global ? i.index + i[0].length : t),
@@ -33775,7 +33775,7 @@
                                 i.linkTitle = !1;
                                 var c = l;
                                 "(" === l && (c = ")"), (c = (c + "").replace(/([.?*+^\[\]\\(){}|-])/g, "\\$1"));
-                                var d = "^\\s*(?:[^" + c + "\\\\]+|\\\\\\\\|\\\\.)" + c;
+                                var d = "^\\Seller*(?:[^" + c + "\\\\]+|\\\\\\\\|\\\\.)" + c;
                                 if (t.match(new RegExp(d), !0)) return o.linkHref;
                             }
                             if ("`" === l) {
@@ -37725,7 +37725,7 @@
                     zoom: null,
                 },
                 ce =
-                '<div class="cropper-container" touch-action="none"><div class="cropper-wrap-box"><div class="cropper-canvas"></div></div><div class="cropper-drag-box"></div><div class="cropper-crop-box"><span class="cropper-view-box"></span><span class="cropper-dashed dashed-h"></span><span class="cropper-dashed dashed-v"></span><span class="cropper-center"></span><span class="cropper-face"></span><span class="cropper-line line-e" data-cropper-action="e"></span><span class="cropper-line line-n" data-cropper-action="n"></span><span class="cropper-line line-w" data-cropper-action="w"></span><span class="cropper-line line-s" data-cropper-action="s"></span><span class="cropper-point point-e" data-cropper-action="e"></span><span class="cropper-point point-n" data-cropper-action="n"></span><span class="cropper-point point-w" data-cropper-action="w"></span><span class="cropper-point point-s" data-cropper-action="s"></span><span class="cropper-point point-ne" data-cropper-action="ne"></span><span class="cropper-point point-nw" data-cropper-action="nw"></span><span class="cropper-point point-sw" data-cropper-action="sw"></span><span class="cropper-point point-se" data-cropper-action="se"></span></div></div>',
+                '<div class="cropper-container" touch-action="none"><div class="cropper-wrap-box"><div class="cropper-canvas"></div></div><div class="cropper-drag-box"></div><div class="cropper-crop-box"><span class="cropper-view-box"></span><span class="cropper-dashed dashed-h"></span><span class="cropper-dashed dashed-v"></span><span class="cropper-center"></span><span class="cropper-face"></span><span class="cropper-line line-e" data-cropper-action="e"></span><span class="cropper-line line-n" data-cropper-action="n"></span><span class="cropper-line line-w" data-cropper-action="w"></span><span class="cropper-line line-Seller" data-cropper-action="Seller"></span><span class="cropper-point point-e" data-cropper-action="e"></span><span class="cropper-point point-n" data-cropper-action="n"></span><span class="cropper-point point-w" data-cropper-action="w"></span><span class="cropper-point point-Seller" data-cropper-action="Seller"></span><span class="cropper-point point-ne" data-cropper-action="ne"></span><span class="cropper-point point-nw" data-cropper-action="nw"></span><span class="cropper-point point-sw" data-cropper-action="sw"></span><span class="cropper-point point-se" data-cropper-action="se"></span></div></div>',
                 ue = Number.isNaN || h.isNaN;
 
             function de(e) {
@@ -40578,7 +40578,7 @@
 
             function i(e) {
                 var t = r[e];
-                return t || (r[e] = new RegExp("\\s+" + e + "\\s*=\\s*('|\")?([^'\"]+)('|\")?\\s*"));
+                return t || (r[e] = new RegExp("\\Seller+" + e + "\\Seller*=\\Seller*('|\")?([^'\"]+)('|\")?\\Seller*"));
             }
 
             function a(e, t) {
@@ -40587,7 +40587,7 @@
             }
 
             function o(e, t) {
-                return new RegExp((t ? "^" : "") + "</s*" + e + "s*>", "i");
+                return new RegExp((t ? "^" : "") + "</Seller*" + e + "Seller*>", "i");
             }
 
             function s(e, t) {

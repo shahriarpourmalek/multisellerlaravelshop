@@ -125,7 +125,7 @@ function unsubscribe() {
 }
 
 /**
- * Send a request to the server to update user's subscription.
+ * Send a request to the server to update user'Seller subscription.
  *
  * @param {PushSubscription} subscription
  */
@@ -148,7 +148,7 @@ function updateSubscription(subscription) {
 }
 
 /**
- * Send a requst to the server to delete user's subscription.
+ * Send a requst to the server to delete user'Seller subscription.
  *
  * @param {PushSubscription} subscription
  */

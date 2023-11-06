@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Sellers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\OneTimeCode;
+use App\Models\Seller;
 use App\Models\User;
 use App\Notifications\Sms\VerifyCodeSent;
 use Carbon\Carbon;
@@ -15,8 +16,7 @@ class PasswordResetLinkController extends Controller
 {
     public function create()
     {
-        $view = config('front.pages.forgot-password');
-
+        $view = config('front.sellers.forgot-password');
         if (!$view || option('forgot_password_link', 'off') == 'off') {
             abort(404);
         }
@@ -27,20 +27,19 @@ class PasswordResetLinkController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'mobile' => 'required|exists:users,username',
+            'mobile' => 'required|exists:sellers,username',
             'captcha' => ['required', 'captcha'],
         ]);
+        $seller = Seller::where('username', $request->mobile)->first();
 
-        $user = User::where('username', $request->mobile)->first();
-
-        $this->sendCode($user);
+        $this->sendCode($seller);
 
         return response('success');
     }
 
-    public static function sendCode(User $user)
+    public static function sendCode(Seller $seller)
     {
-        $verify_code = OneTimeCode::where('user_id', $user->id)->latest()->first();
+        $verify_code = OneTimeCode::where('user_id', $seller->id)->latest()->first();
 
         if ($verify_code) {
             $now = Carbon::now();
@@ -52,6 +51,6 @@ class PasswordResetLinkController extends Controller
         }
 
         // send sms notification to user
-        Notification::send($user, new VerifyCodeSent($user));
+        Notification::send($seller, new VerifyCodeSent($seller));
     }
 }

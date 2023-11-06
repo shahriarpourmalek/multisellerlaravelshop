@@ -22,14 +22,14 @@ class NewPasswordController extends Controller
             'password' => 'required|string|confirmed|min:8',
         ]);
 
-        auth()->user()->update([
+        auth('sellers')->user()->update([
             'password' => Hash::make($request->password),
             'remember_token' => Str::random(60),
             'force_to_password_change' => false,
         ]);
 
-        DB::table('sessions')->where('user_id', auth()->user()->id)->delete();
-        Auth::loginUsingId(auth()->user()->id);
+        DB::table('sessions')->where('user_id', auth('sellers')->user()->id)->delete();
+        Auth::guard('sellers')->loginUsingId(auth('sellers')->user()->id);
 
         return response('success');
     }

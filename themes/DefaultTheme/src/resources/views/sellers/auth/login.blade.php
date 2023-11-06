@@ -1,4 +1,4 @@
-@extends('front::auth.layouts.master', ['title' => trans('front::messages.auth.sign-in-to-site') ])
+@extends('front::auth.layouts.master', ['title' => trans('front::messages.auth_sellers.sign-in-to-site') ])
 
 @php
     $redirect_url = request("redirect") ?: Redirect::intended()->getTargetUrl();
@@ -44,7 +44,6 @@
                                     {{ trans('front::messages.auth_sellers.sign-in-to-site') }}
                                 </button>
                             </div>
-
                             <div class="row mt-2">
                                 @if (option('forgot_password_link', 'off') == 'on')
                                     <div class="col-md-6">

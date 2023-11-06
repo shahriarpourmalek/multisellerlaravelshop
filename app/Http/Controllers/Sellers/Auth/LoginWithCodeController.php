@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Sellers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\OneTimeCode;
+use App\Models\Seller;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -26,13 +27,13 @@ class LoginWithCodeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'mobile' => 'required|exists:users,username',
+            'mobile' => 'required|exists:seller,username',
             'captcha' => ['required', 'captcha'],
         ], [
             'mobile.exists' => 'حساب کاربری با شماره موبایل ' . $request->mobile . ' وجود ندارد. لطفا ثبت نام کنید'
         ]);
 
-        $user = User::where('username', $request->mobile)->first();
+        $user = Seller::where('username', $request->mobile)->first();
 
         PasswordResetLinkController::sendCode($user);
 
@@ -42,10 +43,10 @@ class LoginWithCodeController extends Controller
     public function confirm(Request $request)
     {
         $request->validate([
-            'mobile' => 'required|exists:users,username',
+            'mobile' => 'required|exists:sellers,username',
         ]);
 
-        $user = User::where('username', $request->mobile)->first();
+        $user = Seller::where('username', $request->mobile)->first();
         $time = Carbon::now()->subMinutes(15);
 
         $request->validate([
@@ -59,7 +60,7 @@ class LoginWithCodeController extends Controller
             'verify_code.exists' => 'کد وارد شده اشتباه است'
         ]);
 
-        Auth::loginUsingId($user->id, true);
+        Auth::guard('sellers')->loginUsingId($user->id, true);
         OneTimeCode::where('user_id', $user->id)->delete();
 
         return response('success');

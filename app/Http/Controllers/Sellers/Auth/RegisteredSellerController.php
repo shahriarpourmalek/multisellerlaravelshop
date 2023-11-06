@@ -37,11 +37,11 @@ class RegisteredSellerController extends Controller
     {
         $data = $request->validated();
         $data['password'] = Hash::make($data['password']);
-//        $data['referral_code'] = Referral::generateCode();
-//
-//        if ($request->referral_code && option('user_refrral_enable', 0) == 1) {
-//            $data['referral_id'] = Seller::where('referral_code', $request->referral_code)->first()->id;
-//        }
+        $data['referral_code'] = Referral::generateCode();
+
+        if ($request->referral_code && option('user_refrral_enable', 0) == 1) {
+            $data['referral_id'] = Seller::where('referral_code', $request->referral_code)->first()->id;
+        }
 
         $seller = Seller::create($data);
         event(new Registered($seller));

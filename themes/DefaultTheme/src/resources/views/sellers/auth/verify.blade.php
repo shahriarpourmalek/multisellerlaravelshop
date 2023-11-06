@@ -1,4 +1,4 @@
-@extends('front::auth.layouts.master', ['title' =>  trans('front::messages.auth.confirm-mobile-number') ])
+@extends('front::sellers.auth.layouts.master', ['title' =>  trans('front::messages.auth_sellers.confirm-mobile-number') ])
 
 @php
     $redirect_url = Redirect::intended()->getTargetUrl();
@@ -14,10 +14,10 @@
                 <div class="col-xl-4 col-lg-5 col-md-7 col-12 mx-auto">
                     <div class="form-ui dt-sl dt-sn pt-4">
                         <div class="section-title title-wide mb-1 no-after-title-wide">
-                            <h2 class="font-weight-bold">{{ trans('front::messages.auth.confirm-mobile-number') }}</h2>
+                            <h2 class="font-weight-bold">{{ trans('front::messages.auth_sellers.confirm-mobile-number') }}</h2>
                         </div>
                         <div class="message-light">
-                            {{ trans('front::messages.auth.for-mobile-number') }} {{ auth()->user()->username }} {{ trans('front::messages.auth.confirmation-code-sent') }}
+                            {{ trans('front::messages.auth_sellers.for-mobile-number') }} {{ auth('sellers')->->user()->username }} {{ trans('front::messages.auth.confirmation-code-sent') }}
                             <a href="{{ route('front.verify.showChangeUsername') }}" class="btn-link-border">
                                 {{ trans('front::messages.auth.edit-number') }}
                             </a>
@@ -27,16 +27,16 @@
 
                             <div class="form-row">
                                 <div class="numbers-verify form-content form-content1">
-                                    <input name="verify_code" class="activation-code-input" placeholder="{{ trans('front::messages.auth.enter-auth-code') }}">
+                                    <input name="verify_code" class="activation-code-input" placeholder="{{ trans('front::messages.auth_sellers.enter-auth-code') }}">
                                 </div>
                             </div>
                             <div class="form-row mt-2">
-                                <span class="text-primary">{{ trans('front::messages.auth.retrieve-verification-code') }}</span> (<p id="countdown-verify-end"></p>)
+                                <span class="text-primary">{{ trans('front::messages.auth_sellers.retrieve-verification-code') }}</span> (<p id="countdown-verify-end"></p>)
                             </div>
                             <div class="form-row mt-3">
                                 <button type="submit" class="btn-primary-cm btn-with-icon mx-auto w-100">
                                     <i class="mdi mdi-check"></i>
-                                    {{ trans('front::messages.auth.confirm-mobile-number') }}
+                                    {{ trans('front::messages.auth_sellers.confirm-mobile-number') }}
                                 </button>
                             </div>
                         </form>

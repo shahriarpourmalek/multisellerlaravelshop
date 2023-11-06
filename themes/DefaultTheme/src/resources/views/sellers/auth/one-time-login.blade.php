@@ -1,4 +1,4 @@
-@extends('front::auth.layouts.master', ['title' => trans('front::messages.auth.login-with-confirmation-code') ])
+@extends('front::sellers.auth.layouts.master', ['title' => trans('front::messages.auth_sellers.login-with-confirmation-code') ])
 
 @php
     $redirect_url = Redirect::intended()->getTargetUrl();

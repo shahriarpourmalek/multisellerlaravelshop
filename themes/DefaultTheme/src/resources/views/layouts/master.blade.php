@@ -71,7 +71,6 @@
 
         <!-- Start header -->
         <header class="main-header dt-sl">
-
             <!-- Start topbar -->
             <div class="container main-container">
                 <div class="topbar dt-sl">

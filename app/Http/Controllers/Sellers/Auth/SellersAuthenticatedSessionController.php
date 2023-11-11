@@ -39,7 +39,6 @@ class SellersAuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
         $request->session()->put('auth.password_confirmed_at', time());
-
         return response('success');
     }
 
@@ -51,7 +50,6 @@ class SellersAuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
-        dd('kose nane doruq go');
         Auth::guard('sellers')->logout();
 
         $request->session()->invalidate();

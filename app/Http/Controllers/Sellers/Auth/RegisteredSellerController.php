@@ -47,6 +47,7 @@ class RegisteredSellerController extends Controller
         event(new Registered($seller));
 
         Auth::guard('sellers')->login($seller);
+
         return response('success');
     }
 }

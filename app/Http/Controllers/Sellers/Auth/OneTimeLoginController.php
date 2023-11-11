@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Sellers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\OneTimeCode;
+use App\Models\Seller;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class OneTimeLoginController extends Controller
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'mobile' => 'required|exists:users,username'
+            'mobile' => 'required|exists:sellers,username'
         ]);
 
         $view = config('front.pages.one-time-login');
@@ -25,7 +26,7 @@ class OneTimeLoginController extends Controller
             abort(404);
         }
 
-        $user = User::where('username', $request->mobile)->first();
+        $user = Seller::where('username', $request->mobile)->first();
         $verify_code = OneTimeCode::where('user_id', $user->id)->latest()->first();
 
         if (!$verify_code) {
@@ -40,10 +41,10 @@ class OneTimeLoginController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'mobile' => 'required|exists:users,username',
+            'mobile' => 'required|exists:sellers,username',
         ]);
 
-        $user = User::where('username', $request->mobile)->first();
+        $user = Seller::where('username', $request->mobile)->first();
         $time = Carbon::now()->subMinutes(15);
 
         $request->validate([
@@ -61,7 +62,7 @@ class OneTimeLoginController extends Controller
             'force_to_password_change' => true,
         ]);
 
-        Auth::loginUsingId($user->id, true);
+        Auth::guard('sellers')->loginUsingId($user->id, true);
         OneTimeCode::where('user_id', $user->id)->delete();
 
         return response('success');

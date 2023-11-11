@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Auth\ConfirmablePasswordController;
+use App\Http\Controllers\Sellers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Sellers\Auth\LoginWithCodeController;
 use App\Http\Controllers\Sellers\Auth\NewPasswordController;
 use App\Http\Controllers\Sellers\Auth\OneTimeLoginController;
@@ -28,18 +28,18 @@ Route::group(['prefix' => 'sellers'], function () {
         ->middleware(['guest']);
 
     Route::post('/logout', [SellersAuthenticatedSessionController::class, 'destroy'])
-        ->middleware('auth');
+        ->middleware('auth:sellers');
 
     Route::get('/logout', [SellersAuthenticatedSessionController::class, 'destroy'])
-        ->middleware('auth')
+        ->middleware('auth:sellers')
         ->name('sellers.logout');
 
     Route::get('/change-password', [NewPasswordController::class, 'show'])
-        ->middleware(['auth', 'EnsureForceChange'])
+        ->middleware(['auth:sellers', 'EnsureForceChange'])
         ->name('sellers.change-password');
 
     Route::post('/change-password', [NewPasswordController::class, 'store'])
-        ->middleware(['auth', 'EnsureForceChange']);
+        ->middleware(['auth:sellers', 'EnsureForceChange']);
 
     Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
         ->middleware('guest')
@@ -73,6 +73,6 @@ Route::group(['prefix' => 'sellers'], function () {
         ->name('sellers.password.confirm');
 
     Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
-        ->middleware('auth');
+        ->middleware('auth:sellers');
 
 });

@@ -11,7 +11,7 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-            <li class="{{ active_class('admin.dashboard') }} nav-item"><a href="{{ route('admin.dashboard') }}">
+            <li class="{{ active_class('sellers.dashboard') }} nav-item"><a href="{{ route('sellers.dashboard') }}">
                     <i class="feather icon-home"></i>
                     <span class="menu-title">داشبورد</span>
                 </a>

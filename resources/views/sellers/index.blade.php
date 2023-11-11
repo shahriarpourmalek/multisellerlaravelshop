@@ -154,27 +154,27 @@
     $help_videos = config('general.video-helpes');
 @endphp
 
-{{--@push('scripts')--}}
-{{--    <script src="{{ asset('back/app-assets/vendors/js/charts/apexcharts.min.js') }}"></script>--}}
+@push('scripts')
+    <script src="{{ asset('back/app-assets/vendors/js/charts/apexcharts.min.js') }}"></script>
 
-{{--    <script>--}}
-{{--        @php--}}
-{{--            $data   = viewers_data(7);--}}
-{{--            $labels = array_keys($data);--}}
-{{--            $views  = array_values($data);--}}
-{{--        @endphp--}}
+    <script>
+        @php
+            $data   = viewers_data(7);
+            $labels = array_keys($data);
+            $views  = array_values($data);
+        @endphp
 
-{{--        var viewerChartLabels = [{!! array_to_string($labels) !!}];--}}
-{{--        var ViewerChartData   = [{!! array_to_string($views) !!}];--}}
+        var viewerChartLabels = [{!! array_to_string($labels) !!}];
+        var ViewerChartData   = [{!! array_to_string($views) !!}];
 
-{{--        @php--}}
-{{--            $data   = ip_data(7);--}}
-{{--            $labels = array_keys($data);--}}
-{{--            $views  = array_values($data);--}}
-{{--        @endphp--}}
+        @php
+            $data   = ip_data(7);
+            $labels = array_keys($data);
+            $views  = array_values($data);
+        @endphp
 
-{{--        var ipChartLabels = [{!! array_to_string($labels) !!}];--}}
-{{--        var ipChartData   = [{!! array_to_string($views) !!}];--}}
-{{--    </script>--}}
-{{--    <script src="{{ asset('back/assets/js/pages/dashboard-ecommerce.js') }}"></script>--}}
-{{--@endpush--}}
+        var ipChartLabels = [{!! array_to_string($labels) !!}];
+        var ipChartData   = [{!! array_to_string($views) !!}];
+    </script>
+    <script src="{{ asset('back/assets/js/pages/dashboard-ecommerce.js') }}"></script>
+@endpush

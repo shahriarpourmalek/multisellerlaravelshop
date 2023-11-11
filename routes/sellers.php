@@ -8,6 +8,7 @@ use App\Http\Controllers\Sellers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Sellers\Auth\RegisteredSellerController;
 use App\Http\Controllers\Sellers\Auth\SellersAuthenticatedSessionController;
 use App\Http\Controllers\Sellers\Dashboard\Maincontroller;
+use App\Http\Controllers\Sellers\Dashboard\SellerController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -80,6 +81,7 @@ Route::group(['prefix' => 'sellers'], function () {
 
 Route::group([ 'prefix' => 'sellers/' , 'middleware' => 'auth:sellers'], function () {
     Route::get('/', [MainController::class, 'index'])->name('sellers.dashboard');
-
+    Route::get('/profile', [SellerController::class, 'showProfile'])->name('sellers.profile.show');
+    Route::put('/profile', [SellerController::class, 'updateProfile'])->name('sellers.profile.update');
 });
 

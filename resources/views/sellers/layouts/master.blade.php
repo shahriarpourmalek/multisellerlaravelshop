@@ -39,17 +39,17 @@
     @include('back.partials.global-css')
 
     <!-- Scripts -->
-    <script>
-        window.Laravel = {!! json_encode([
-            'user' => auth()->user(),
-            'csrfToken' => csrf_token(),
-            'vapidPublicKey' => config('webpush.vapid.public_key'),
-            'pusher' => [
-                'key' => config('broadcasting.connections.pusher.key'),
-                'cluster' => config('broadcasting.connections.pusher.options.cluster'),
-            ],
-        ]) !!};
-    </script>
+{{--    <script>--}}
+{{--        window.Laravel = {!! json_encode([--}}
+{{--            'user' => auth('sellers')->user(),--}}
+{{--            'csrfToken' => csrf_token(),--}}
+{{--            'vapidPublicKey' => config('webpush.vapid.public_key'),--}}
+{{--            'pusher' => [--}}
+{{--                'key' => config('broadcasting.connections.pusher.key'),--}}
+{{--                'cluster' => config('broadcasting.connections.pusher.options.cluster'),--}}
+{{--            ],--}}
+{{--        ]) !!};--}}
+{{--    </script>--}}
 
 </head>
 <!-- END: Head-->

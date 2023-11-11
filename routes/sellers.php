@@ -7,6 +7,7 @@ use App\Http\Controllers\Sellers\Auth\OneTimeLoginController;
 use App\Http\Controllers\Sellers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Sellers\Auth\RegisteredSellerController;
 use App\Http\Controllers\Sellers\Auth\SellersAuthenticatedSessionController;
+use App\Http\Controllers\Sellers\Dashboard\Maincontroller;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,7 +26,7 @@ Route::group(['prefix' => 'sellers'], function () {
         ->name('sellers.login');
 
     Route::post('/login', [SellersAuthenticatedSessionController::class, 'store'])
-        ->middleware(['guest']);
+        ->middleware(['guest'])->name('sellers.login');
 
     Route::post('/logout', [SellersAuthenticatedSessionController::class, 'destroy'])
         ->middleware('auth:sellers');
@@ -49,30 +50,36 @@ Route::group(['prefix' => 'sellers'], function () {
         ->middleware(['guest', 'throttle:10,1'])
         ->name('sellers.password.send');
 
-    Route::get('/login-with-code', [LoginWithCodeController::class, 'create'])
-        ->middleware('guest')
-        ->name('sellers.login-with-code.request');
-
-    Route::post('/login-with-code', [LoginWithCodeController::class, 'store'])
-        ->middleware(['guest', 'throttle:10,1'])
-        ->name('sellers.login-with-code.send');
-
-    Route::post('/login-with-code/confirm', [LoginWithCodeController::class, 'confirm'])
-        ->middleware(['guest'])
-        ->name('sellers.login-with-code.confirm');
-
-    Route::get('/one-time-login', [OneTimeLoginController::class, 'create'])
-        ->middleware(['guest'])
-        ->name('sellers.one-time-login');
-
-    Route::post('/one-time-login', [OneTimeLoginController::class, 'store'])
-        ->middleware(['guest']);
-
-    Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
-        ->middleware('auth')
-        ->name('sellers.password.confirm');
-
-    Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
-        ->middleware('auth:sellers');
+//    Route::get('/login-with-code', [LoginWithCodeController::class, 'create'])
+//        ->middleware('guest')
+//        ->name('sellers.login-with-code.request');
+//
+//    Route::post('/login-with-code', [LoginWithCodeController::class, 'store'])
+//        ->middleware(['guest', 'throttle:10,1'])
+//        ->name('sellers.login-with-code.send');
+//
+//    Route::post('/login-with-code/confirm', [LoginWithCodeController::class, 'confirm'])
+//        ->middleware(['guest'])
+//        ->name('sellers.login-with-code.confirm');
+//
+//    Route::get('/one-time-login', [OneTimeLoginController::class, 'create'])
+//        ->middleware(['guest'])
+//        ->name('sellers.one-time-login');
+//
+//    Route::post('/one-time-login', [OneTimeLoginController::class, 'store'])
+//        ->middleware(['guest']);
+//
+//    Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
+//        ->middleware('auth')
+//        ->name('sellers.password.confirm');
+//
+//    Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
+//        ->middleware('auth:sellers');
 
 });
+
+Route::group([ 'prefix' => 'sellers/' , 'middleware' => 'auth:sellers'], function () {
+    Route::get('/', [MainController::class, 'index'])->name('sellers.dashboard');
+
+});
+

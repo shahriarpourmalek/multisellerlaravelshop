@@ -2,8 +2,8 @@
 
 namespace App\Services\Sms;
 
-use App\Contracts\SmsContract;
-use App\Contracts\SmsNotificationContract;
+use App\Events\Contracts\SmsContract;
+use App\Events\Contracts\SmsNotificationContract;
 use Illuminate\Support\Facades\Config;
 use Kavenegar;
 

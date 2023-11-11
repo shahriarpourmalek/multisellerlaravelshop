@@ -2,8 +2,8 @@
 
 namespace App\Services\Sms;
 
-use App\Contracts\SmsContract;
-use App\Contracts\SmsNotificationContract;
+use App\Events\Contracts\SmsContract;
+use App\Events\Contracts\SmsNotificationContract;
 
 class IppanelSms extends SmsService implements SmsContract, SmsNotificationContract {
     public function send()

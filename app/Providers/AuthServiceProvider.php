@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Models\Permission;
+use App\Models\Seller;
+use App\Policies\sellers\SellersOrderPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -15,6 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+//        'App\Models\Seller' => 'App\Policies\sellers\SellersOrderPolicy'
     ];
 
     /**
@@ -33,6 +36,8 @@ class AuthServiceProvider extends ServiceProvider
                 });
             }
         }
+
+
     }
 
     protected function getPermissions()

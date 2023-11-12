@@ -42,7 +42,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="card">
                                 <div class="card-header d-flex flex-column align-items-center pb-0">
@@ -106,8 +105,7 @@
                                 </div>
                             </div>
                         </div>
-
-{{--                    @can('sellers.orders.index')--}}
+                    @can('seller_orders.index')
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="card text-center">
                                     <div class="card-content">
@@ -138,7 +136,7 @@
                                     </div>
                                 </div>
                             </div>
-{{--                        @endcan--}}
+                        @endcan
 
                     </div>
 

@@ -398,7 +398,7 @@ function convert2english($string)
 
 function carbon($string)
 {
-    return Carbon::createFromFormat('Y-m-d H:i:Seller', $string, 'Asia/Tehran')->timestamp;
+    return Carbon::createFromFormat('Y-m-d H:i:s', $string, 'Asia/Tehran')->timestamp;
 }
 
 function datatable($request, $query)
@@ -508,7 +508,7 @@ function change_env($key, $value)
     foreach ($env as $env_key => $env_value) {
 
         // Turn the value into an array and stop after the first split
-        // So it'Seller not possible to split e.g. the App-Key by accident
+        // So it's not possible to split e.g. the App-Key by accident
         $entry = explode("=", $env_value, 2);
 
         // Check, if new key fits the actual .env-key
@@ -583,7 +583,7 @@ function get_svg_contents($path, $default = '')
 
 function to_sql($query)
 {
-    return vsprintf(str_replace(['?'], ['\'%Seller\''], $query->toSql()), $query->getBindings());
+    return vsprintf(str_replace(['?'], ['\'%s\''], $query->toSql()), $query->getBindings());
 }
 
 function store_user_cart(User $user)
@@ -744,7 +744,7 @@ function sluggable_helper_function($string, $separator = '-')
         "/Ź|Ż|Ž/" => "",
         "/ź|ż|ž/" => "",
         "/Æ|Ǽ/" => "E",
-        "/ß/" => "Seller",
+        "/ß/" => "s",
         "/Ĳ/" => "J",
         "/ĳ/" => "j",
         "/Œ/" => "E",
@@ -754,7 +754,7 @@ function sluggable_helper_function($string, $separator = '-')
     $merge = [
         '/[^\s\p{Zs}\p{Ll}\p{Lm}\p{Lo}\p{Lt}\p{Lu}\p{Nd}]/mu' => ' ',
         '/[\s\p{Zs}]+/mu' => $separator,
-        sprintf('/^[%Seller]+|[%Seller]+$/', $quotedReplacement, $quotedReplacement) => '',
+        sprintf('/^[%s]+|[%s]+$/', $quotedReplacement, $quotedReplacement) => '',
     ];
     $map = $_transliteration + $merge;
     unset($_transliteration);

@@ -8,7 +8,9 @@ use App\Http\Controllers\Sellers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Sellers\Auth\RegisteredSellerController;
 use App\Http\Controllers\Sellers\Auth\SellersAuthenticatedSessionController;
 use App\Http\Controllers\Sellers\Dashboard\Maincontroller;
+use App\Http\Controllers\Sellers\Dashboard\ProductController;
 use App\Http\Controllers\Sellers\Dashboard\SellerController;
+use App\Http\Controllers\Sellers\Dashboard\SellersProductController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -83,5 +85,19 @@ Route::group([ 'prefix' => 'sellers/' , 'middleware' => 'auth:sellers'], functio
     Route::get('/', [MainController::class, 'index'])->name('sellers.dashboard');
     Route::get('/profile', [SellerController::class, 'showProfile'])->name('sellers.profile.show');
     Route::put('/profile', [SellerController::class, 'updateProfile'])->name('sellers.profile.update');
+    // ------------------ products
+    Route::resource('products', SellersProductController::class)->except('show');
+    Route::post('products/api/index', [SellersProductController::class, 'apiIndex'])->name('sellers.products.apiIndex');
+    Route::delete('products/api/multipleDestroy', [SellersProductController::class, 'multipleDestroy'])->name('sellers.products.multipleDestroy');
+    Route::post('products/image-store', [SellersProductController::class, 'image_store']);
+    Route::post('products/image-delete', [SellersProductController::class, 'image_delete']);
+    Route::get('product/categories', [SellersProductController::class, 'categories'])->name('sellers.products.categories.index');
+    Route::post('product/slug', [SellersProductController::class, 'generate_slug']);
+
+    Route::get('products/export/create', [SellersProductController::class, 'export'])->name('sellers.products.export');
+
+    Route::get('product/prices', [SellersProductController::class, 'indexPrices'])->name('sellers.product.prices.index');
+    Route::put('product/prices', [SellersProductController::class, 'updatePrices'])->name('sellers.product.prices.update');
+
 });
 

@@ -36,20 +36,8 @@ class AuthServiceProvider extends ServiceProvider
                 });
             }
         }
-        if (!$this->app->runningInConsole() && application_installed()) {
-            foreach ($this->getPermissions() as $permission) {
-                Gate::define($permission->name, function ($user) use ($permission) {
-                    return true;
-                });
-            }
-        }
     }
-    protected function getSellersPermissions()
-    {
-        return Permission::where('active', true)
-            ->where('name', 'like', 'seller_%')
-            ->get();
-    }
+
     protected function getPermissions()
     {
         return Permission::where('active', true)->with('roles')->get();

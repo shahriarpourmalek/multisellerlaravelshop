@@ -18,11 +18,7 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         $permissions = config('general.permissions');
-        $seller_permissions = config('general.seller_permissions');
         foreach ($permissions as $name => $value) {
-            $this->create($name, $value);
-        }
-        foreach ($seller_permissions as $name => $value) {
             $this->create($name, $value);
         }
 

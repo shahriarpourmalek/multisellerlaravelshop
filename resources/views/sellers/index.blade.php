@@ -105,7 +105,7 @@
                                 </div>
                             </div>
                         </div>
-                    @can('seller_orders.index')
+                        @if(auth('sellers')->user())
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="card text-center">
                                     <div class="card-content">
@@ -136,8 +136,7 @@
                                     </div>
                                 </div>
                             </div>
-                        @endcan
-
+                        @endif
                     </div>
 
                 </section>

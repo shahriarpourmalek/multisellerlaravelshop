@@ -22,6 +22,7 @@ use App\Models\SpecType;
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
@@ -46,8 +47,7 @@ class SellersProductController extends Controller
     {
         $this->authorize('sellers.products.index');
 
-        $products = Product::detectLang()->datatableFilter($request);
-
+       $products = Product::detectLang()->datatableFilter($request)->where('seller_id', \auth('sellers')->id());
         $products = datatable($request, $products);
 
         return new ProductCollection($products);
@@ -57,7 +57,7 @@ class SellersProductController extends Controller
     {
 
         $this->authorize('sellers.products.prices');
-        $products = Product::detectLang()->filter($request)->customPaginate($request);
+        $products = Product::detectLang()->filter($request)->where('seller_id', \auth('sellers')->id())->customPaginate($request);
 
         return view('sellers.products.prices', compact('products'));
     }
@@ -142,7 +142,7 @@ class SellersProductController extends Controller
         $data['publish_date'] = $request->publish_date ? Jalalian::fromFormat('Y-m-d H:i:Seller', $request->publish_date)->toCarbon() : null;
         $data['special_end_date'] = $request->special_end_date ? Jalalian::fromFormat('Y-m-d H:i:Seller', $request->special_end_date)->toCarbon() : null;
         $data['lang'] = app()->getLocale();
-
+        $data['seller_id'] = auth('sellers')->user()->id;
         $product = Product::create($data);
         // update product brand
         $this->updateProductBrand($product, $request);
@@ -168,7 +168,7 @@ class SellersProductController extends Controller
         $this->updateProductSizes($product, $request);
         toastr()->success('محصول با موفقیت ایجاد شد.');
 
-        return  response('success');
+        return response('success');
     }
 
     public function create(Request $request)
@@ -199,7 +199,7 @@ class SellersProductController extends Controller
         $attributeGroups = AttributeGroup::detectLang()->orderBy('ordering')->get();
         $currencies = Currency::whereNull('deleted_at')->orWhere('id', $product->currency_id)->latest()->get();
 
-        return view('back.products.edit', compact(
+        return view('sellers.products.edit', compact(
             'product',
             'categories',
             'specTypes',
@@ -346,7 +346,7 @@ class SellersProductController extends Controller
 
     public function export(Request $request)
     {
-        $this->authorize('products.export');
+        $this->authorize('sellers.products.export');
 
         $products = Product::detectLang()->datatableFilter($request)->get();
 
@@ -365,17 +365,6 @@ class SellersProductController extends Controller
 
     //------------- Category methods
 
-    public function categories()
-    {
-        $this->authorize('products.category');
-
-        $categories = Category::detectLang()->where('type', 'productcat')->whereNull('category_id')
-            ->with('childrenCategories')
-            ->orderBy('ordering')
-            ->get();
-
-        return view('back.products.categories', compact('categories'));
-    }
 
     private function updateProductPrices(Product $product, Request $request)
     {

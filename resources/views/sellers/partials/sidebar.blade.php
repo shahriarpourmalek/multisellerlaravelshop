@@ -28,28 +28,21 @@
                             <a href="{{ route('products.index') }}"><i class="feather icon-circle"></i><span class="menu-item"> لیست محصولات شما</span></a>
                         </li>
 
-                        <li class="{{ active_class('admin.products.create') }}">
+                        <li class="{{ active_class('sellers.products.create') }}">
                             <a href="{{ route('products.create') }}"><i class="feather icon-circle"></i><span class="menu-item">ایجاد محصول</span></a>
                         </li>
 
-                        <li class="{{ active_class('admin.products.categories.index') }}">
-                            <a href="{{ route('sellers.products.categories.index') }}"><i class="feather icon-circle"></i><span class="menu-item">دسته بندی ها</span></a>
-                        </li>
 
-                        <li class="{{ active_class('admin.sizetypes.index') }}">
-                            <a href="{{ route('admin.sizetypes.index') }}"><i class="feather icon-circle"></i><span class="menu-item">راهنمای سایز</span></a>
-                        </li>
 
-                        <li class="{{ active_class('admin.spectypes.index') }}">
-                            <a href="{{ route('admin.spectypes.index') }}"><i class="feather icon-circle"></i><span class="menu-item">نوع مشخصات</span></a>
-                        </li>
 
-                        <li class="{{ active_class('admin.stock-notifies.index') }}">
-                            <a href="{{ route('admin.stock-notifies.index') }}"><i class="feather icon-circle"></i><span class="menu-item">لیست اطلاع از موجودی</span></a>
-                        </li>
 
-                        <li class="{{ active_class('admin.product.prices.index') }}">
-                            <a href="{{ route('admin.product.prices.index') }}"><i class="feather icon-circle"></i><span class="menu-item">قیمت ها</span></a>
+
+{{--                        <li class="{{ active_class('admin.stock-notifies.index') }}">--}}
+{{--                            <a href="{{ route('admin.stock-notifies.index') }}"><i class="feather icon-circle"></i><span class="menu-item">لیست اطلاع از موجودی</span></a>--}}
+{{--                        </li>--}}
+
+                        <li class="{{ active_class('sellers.product.prices.index') }}">
+                            <a href="{{ route('sellers.product.prices.index') }}"><i class="feather icon-circle"></i><span class="menu-item">قیمت ها</span></a>
                         </li>
 
                         <li class="{{ open_class(['admin.brands.*']) }}">
@@ -64,32 +57,32 @@
                             </ul>
                         </li>
 
-                        <li class="{{ open_class(['admin.attributeGroups.*']) }}">
-                            <a href="#"><i class="feather icon-circle"></i><span class="menu-item"> ویژگی ها</span></a>
-                            <ul class="menu-content">
-                                <li class="{{ active_class('admin.attributeGroups.index') }}">
-                                    <a class="{{ active_class('admin.attributeGroups.index') }}" href="{{ route('admin.attributeGroups.index') }}"><i class="feather icon-circle"></i><span class="menu-item">لیست گروه ویژگی ها</span></a>
-                                </li>
-                                <li class="{{ active_class('admin.attributeGroups.create') }}">
-                                    <a class="{{ active_class('admin.attributeGroups.create') }}" href="{{ route('admin.attributeGroups.create') }}"><i class="feather icon-circle"></i><span class="menu-item">ایجاد گروه ویژگی</span></a>
-                                </li>
-                                <li class="{{ active_class('admin.attributes.create') }}">
-                                    <a class="{{ active_class('admin.attributes.create') }}" href="{{ route('admin.attributes.create') }}"><i class="feather icon-circle"></i><span class="menu-item">ایجاد ویژگی</span></a>
-                                </li>
-                            </ul>
-                        </li>
+{{--                        <li class="{{ open_class(['admin.attributeGroups.*']) }}">--}}
+{{--                            <a href="#"><i class="feather icon-circle"></i><span class="menu-item"> ویژگی ها</span></a>--}}
+{{--                            <ul class="menu-content">--}}
+{{--                                <li class="{{ active_class('admin.attributeGroups.index') }}">--}}
+{{--                                    <a class="{{ active_class('admin.attributeGroups.index') }}" href="{{ route('admin.attributeGroups.index') }}"><i class="feather icon-circle"></i><span class="menu-item">لیست گروه ویژگی ها</span></a>--}}
+{{--                                </li>--}}
+{{--                                <li class="{{ active_class('admin.attributeGroups.create') }}">--}}
+{{--                                    <a class="{{ active_class('admin.attributeGroups.create') }}" href="{{ route('admin.attributeGroups.create') }}"><i class="feather icon-circle"></i><span class="menu-item">ایجاد گروه ویژگی</span></a>--}}
+{{--                                </li>--}}
+{{--                                <li class="{{ active_class('admin.attributes.create') }}">--}}
+{{--                                    <a class="{{ active_class('admin.attributes.create') }}" href="{{ route('admin.attributes.create') }}"><i class="feather icon-circle"></i><span class="menu-item">ایجاد ویژگی</span></a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
 
-                        <li class="{{ open_class(['admin.filters.*']) }}">
-                            <a href="#"><i class="feather icon-circle"></i><span class="menu-item"> فیلترها</span></a>
-                            <ul class="menu-content">
-                                <li class="{{ active_class('admin.filters.index') }}">
-                                    <a class="{{ active_class('admin.filters.index') }}" href="{{ route('admin.filters.index') }}"><i class="feather icon-circle"></i><span class="menu-item">لیست فیلتر ها</span></a>
-                                </li>
-                                <li class="{{ active_class('admin.filters.create') }}">
-                                    <a class="{{ active_class('admin.filters.create') }}" href="{{ route('admin.filters.create') }}"><i class="feather icon-circle"></i><span class="menu-item">ایجاد فیلتر</span></a>
-                                </li>
-                            </ul>
-                        </li>
+{{--                        <li class="{{ open_class(['admin.filters.*']) }}">--}}
+{{--                            <a href="#"><i class="feather icon-circle"></i><span class="menu-item"> فیلترها</span></a>--}}
+{{--                            <ul class="menu-content">--}}
+{{--                                <li class="{{ active_class('admin.filters.index') }}">--}}
+{{--                                    <a class="{{ active_class('admin.filters.index') }}" href="{{ route('admin.filters.index') }}"><i class="feather icon-circle"></i><span class="menu-item">لیست فیلتر ها</span></a>--}}
+{{--                                </li>--}}
+{{--                                <li class="{{ active_class('admin.filters.create') }}">--}}
+{{--                                    <a class="{{ active_class('admin.filters.create') }}" href="{{ route('admin.filters.create') }}"><i class="feather icon-circle"></i><span class="menu-item">ایجاد فیلتر</span></a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
 
                     </ul>
                 </li>

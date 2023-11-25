@@ -292,6 +292,6 @@
     <script src="{{ asset('back/app-assets/plugins/datatable/core.datatable.js') }}"></script>
     <script src="{{ asset('back/app-assets/plugins/datatable/datatable.checkbox.js') }}"></script>
 
-    <script src="{{ asset('back/assets/js/pages/products/index.js') }}?v=4"></script>
-    <script src="{{ asset('back/assets/js/pages/products/filters.js') }}?v=2"></script>
+    <script src="{{ asset('back/assets/js/pages/sellers-products/index.js') }}?v=4"></script>
+    <script src="{{ asset('back/assets/js/pages/sellers-products/filters.js') }}?v=2"></script>
 @endpush

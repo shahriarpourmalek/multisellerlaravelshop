@@ -1,4 +1,4 @@
-@extends('back.layouts.master')
+@extends('sellers.layouts.master')
 
 @push('styles')
     <!-- Page JS Plugins CSS -->
@@ -50,7 +50,7 @@
                             <!-- Categories -->
                             <div class="col-12 offset-xl-2">
 
-                                <form id="create-category" action="{{ route('admin.categories.store') }}" method="POST">
+                                <form id="create-category" action="{{ route('sellers.categories.store') }}" method="POST">
                                     <div class="form-group">
                                         <div class="row">
                                             <input type="hidden" name="type" value="productcat">

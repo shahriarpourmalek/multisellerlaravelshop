@@ -34,7 +34,7 @@ var imageDropzone = new Dropzone('div#product-images', {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 type: 'POST',
-                url: BASE_URL + '/products/image-delete',
+                url: SELLERS_URL + '/products/image-delete',
                 data: {filename: name, product: product},
                 success: function (data) {
                     // console.log("File has been successfully removed!!");

@@ -1,4 +1,4 @@
-@extends('back.layouts.master')
+@extends('sellers.layouts.master')
 
 @section('content')
 
@@ -27,7 +27,7 @@
             </div>
 
             <div id="main-card" class="content-body">
-                <form class="form" id="product-edit-form" action="{{ route('admin.products.update', ['product' => $product]) }}" data-redirect="{{ route('admin.products.index') }}" method="post">
+                <form class="form" id="product-edit-form" action="{{ route('products.update', ['product' => $product]) }}" data-redirect="{{ route('products.index') }}" method="post">
                     @csrf
                     @method('put')
 
@@ -148,7 +148,7 @@
                                                                 <div class="col-md-6">
                                                                     <fieldset class="form-group">
                                                                         <label>برچسب</label>
-                                                                        <input type="text" name="labels" class="form-control labels" data-action="{{ route('admin.get-labels') }}" value="{{ $product->getLabels() }}">
+                                                                        <input type="text" name="labels" class="form-control labels" data-action="{{ route('sellers.get-labels') }}" value="{{ $product->getLabels() }}">
                                                                     </fieldset>
                                                                 </div>
 
@@ -221,7 +221,7 @@
                                                             <div id="product-prices-div" class="product-prices-div">
                                                                 @if ($product->isPhysical())
                                                                     @foreach ($product->prices as $price)
-                                                                        @include('back.products.partials.prices-include', ['price' => $price])
+                                                                        @include('sellers.products.partials.prices-include', ['price' => $price])
                                                                     @endforeach
                                                                 @endif
                                                             </div>
@@ -242,7 +242,7 @@
                                                         <div id="product-files-area">
                                                             @if ($product->isDownload())
                                                                 @foreach ($product->prices()->orderBy('ordering')->get() as $price)
-                                                                    @include('back.products.partials.files-include', ['price' => $price])
+                                                                    @include('sellers.products.partials.files-include', ['price' => $price])
                                                                 @endforeach
                                                             @endif
                                                         </div>
@@ -374,7 +374,7 @@
                                                                 <div class="col-md-6">
                                                                     <fieldset class="form-group">
                                                                         <label>کلمات کلیدی</label>
-                                                                        <input type="text" name="tags" class="form-control tags" data-action="{{ route('admin.get-tags') }}" value="{{ $product->getTags }}">
+                                                                        <input type="text" name="tags" class="form-control tags" data-action="{{ route('sellers.get-tags') }}" value="{{ $product->getTags }}">
                                                                     </fieldset>
                                                                 </div>
 
@@ -384,7 +384,7 @@
                                                     </div>
                                                 </div>
 
-                                                @include('back.products.partials.sizes-tab')
+                                                @include('sellers.products.partials.sizes-tab')
 
                                                 <div class="tab-pane overflow-hidden" id="tabProductImage" role="tabpanel" aria-labelledby="productImageTab">
                                                     <div class="col-md-12">
@@ -513,13 +513,13 @@
         </div>
     </div>
 
-    @include('back.products.partials.specification-template')
-    @include('back.products.partials.prices-template')
-    @include('back.products.partials.files-template')
+    @include('sellers.products.partials.specification-template')
+    @include('sellers.products.partials.prices-template')
+    @include('sellers.products.partials.files-template')
 
 @endsection
 
-@include('back.partials.plugins', ['plugins' => ['ckeditor', 'jquery-tagsinput', 'jquery.validate', 'jquery-ui', 'jquery-ui-sortable', 'dropzone', 'persian-datepicker']])
+@include('sellers.partials.plugins', ['plugins' => ['ckeditor', 'jquery-tagsinput', 'jquery.validate', 'jquery-ui', 'jquery-ui-sortable', 'dropzone', 'persian-datepicker']])
 
 @php
     $help_videos = [
@@ -565,6 +565,6 @@
 
     </script>
 
-    <script src="{{ asset('back/assets/js/pages/products/all.js') }}?v=9"></script>
-    <script src="{{ asset('back/assets/js/pages/products/edit.js') }}?v=4"></script>
+    <script src="{{ asset('back/assets/js/pages/sellers-products/all.js') }}?v=9"></script>
+    <script src="{{ asset('back/assets/js/pages/sellers-products/edit.js') }}?v=4"></script>
 @endpush

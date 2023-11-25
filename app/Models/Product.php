@@ -439,4 +439,9 @@ class Product extends Model
             ->orderBy('group')
             ->orderBy('ordering');
     }
+
+    public function seller()
+    {
+        return $this->belongsTo(Seller::class);
+    }
 }

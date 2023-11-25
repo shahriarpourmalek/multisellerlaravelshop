@@ -47,6 +47,7 @@ class Seller extends Authenticatable
     {
         return $this->image ? asset($this->image) : asset('back/app-assets/images/portrait/small/default.jpg');
     }
+
     public function getImageUrlAttribute()
     {
         return $this->imageUrl();
@@ -57,4 +58,8 @@ class Seller extends Authenticatable
         return $this->image ? asset($this->image) : asset('/back/app-assets/images/portrait/small/default.jpg');
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

@@ -1,4 +1,4 @@
-@extends('back.layouts.master')
+@extends('sellers.layouts.master')
 
 @section('content')
 
@@ -27,11 +27,11 @@
             <div class="content-body">
 
                 <!-- filter start -->
-                @include('back.products.partials.filters', ['filter_action' => route('admin.product.prices.index')])
+                @include('sellers.products.partials.filters', ['filter_action' => route('sellers.product.prices.index')])
                 <!-- filter end -->
 
                 @if ($products->count())
-                    <form id="prices-update-form" action="{{ route('admin.product.prices.update') }}">
+                    <form id="prices-update-form" action="{{ route('sellers.product.prices.update') }}">
                         @method('put')
                         <section class="card" id="main-card">
                             <div class="card-header">

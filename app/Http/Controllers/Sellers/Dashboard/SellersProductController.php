@@ -33,6 +33,8 @@ class SellersProductController extends Controller
     public function __construct()
     {
         $this->authorizeResource(Product::class, 'product');
+        $this->middleware(['auth:sellers']);
+
     }
 
     public function index()
@@ -42,7 +44,7 @@ class SellersProductController extends Controller
 
     public function apiIndex(Request $request)
     {
-        $this->authorize('products.index');
+        $this->authorize('sellers.products.index');
 
         $products = Product::detectLang()->datatableFilter($request);
 
@@ -53,23 +55,23 @@ class SellersProductController extends Controller
 
     public function indexPrices(Request $request)
     {
-        $this->authorize('products.prices');
 
+        $this->authorize('sellers.products.prices');
         $products = Product::detectLang()->filter($request)->customPaginate($request);
 
-        return view('back.products.prices', compact('products'));
+        return view('sellers.products.prices', compact('products'));
     }
 
     public function updatePrices(Request $request)
     {
-        $this->authorize('products.prices');
+        $this->authorize('sellers.products.prices');
 
         $request->validate([
-            'products'        => 'required|array',
+            'products' => 'required|array',
         ]);
 
-        $products_id    = array_keys($request->products);
-        $prices_count   = Price::whereIn('product_id', $products_id)->count() * 2;
+        $products_id = array_keys($request->products);
+        $prices_count = Price::whereIn('product_id', $products_id)->count() * 2;
         $max_input_vars = ini_get('max_input_vars');
 
         if ($prices_count + 5 > $max_input_vars) {
@@ -95,10 +97,10 @@ class SellersProductController extends Controller
                 if (isset($request_price['price']) && isset($request_price['stock']) && ($request_price['price'] != $price->price || $request_price['stock'] != $price->stock)) {
 
                     $price->update([
-                        'price'          => $request_price['price'],
-                        'stock'          => $request_price['stock'],
+                        'price' => $request_price['price'],
+                        'stock' => $request_price['stock'],
                         'discount_price' => get_discount_price($request_price['price'], $price->discount, $product),
-                        'regular_price'  => get_discount_price($request_price['price'], 0, $product),
+                        'regular_price' => get_discount_price($request_price['price'], 0, $product),
                     ]);
                 }
             }
@@ -134,18 +136,16 @@ class SellersProductController extends Controller
             'rounding_type',
         ]);
 
-        $data['spec_type_id']     = spec_type($request);
-        $data['price_type']       = "multiple-price";
-        $data['slug']             = $request->slug ?: $request->title;
-        $data['publish_date']     = $request->publish_date ? Jalalian::fromFormat('Y-m-d H:i:Seller', $request->publish_date)->toCarbon() : null;
+        $data['spec_type_id'] = spec_type($request);
+        $data['price_type'] = "multiple-price";
+        $data['slug'] = $request->slug ?: $request->title;
+        $data['publish_date'] = $request->publish_date ? Jalalian::fromFormat('Y-m-d H:i:Seller', $request->publish_date)->toCarbon() : null;
         $data['special_end_date'] = $request->special_end_date ? Jalalian::fromFormat('Y-m-d H:i:Seller', $request->special_end_date)->toCarbon() : null;
-        $data['lang']             = app()->getLocale();
+        $data['lang'] = app()->getLocale();
 
         $product = Product::create($data);
-
         // update product brand
         $this->updateProductBrand($product, $request);
-
         // update product prices
         $this->updateProductPrices($product, $request);
 
@@ -163,26 +163,25 @@ class SellersProductController extends Controller
 
         // update product labels
         $this->updateProductLabels($product, $request);
-
         // update product sizes
-        $this->updateProductSizes($product, $request);
 
+        $this->updateProductSizes($product, $request);
         toastr()->success('محصول با موفقیت ایجاد شد.');
 
-        return response("success");
+        return  response('success');
     }
 
     public function create(Request $request)
     {
-        $categories      = Category::detectLang()->where('type', 'productcat')->orderBy('ordering')->get();
-        $specTypes       = SpecType::detectLang()->get();
-        $sizetypes       = SizeType::detectLang()->get();
+        $categories = Category::detectLang()->where('type', 'productcat')->orderBy('ordering')->get();
+        $specTypes = SpecType::detectLang()->get();
+        $sizetypes = SizeType::detectLang()->get();
         $attributeGroups = AttributeGroup::detectLang()->orderBy('ordering')->get();
-        $currencies      = Currency::latest()->get();
+        $currencies = Currency::latest()->get();
 
         $copy_product = $request->product ? Product::where('slug', $request->product)->first() : null;
 
-        return view('back.products.create', compact(
+        return view('sellers.products.create', compact(
             'categories',
             'specTypes',
             'sizetypes',
@@ -194,11 +193,11 @@ class SellersProductController extends Controller
 
     public function edit(Product $product)
     {
-        $categories      = Category::detectLang()->where('type', 'productcat')->orderBy('ordering')->get();
-        $specTypes       = SpecType::detectLang()->get();
-        $sizetypes       = SizeType::detectLang()->get();
+        $categories = Category::detectLang()->where('type', 'productcat')->orderBy('ordering')->get();
+        $specTypes = SpecType::detectLang()->get();
+        $sizetypes = SizeType::detectLang()->get();
         $attributeGroups = AttributeGroup::detectLang()->orderBy('ordering')->get();
-        $currencies      = Currency::whereNull('deleted_at')->orWhere('id', $product->currency_id)->latest()->get();
+        $currencies = Currency::whereNull('deleted_at')->orWhere('id', $product->currency_id)->latest()->get();
 
         return view('back.products.edit', compact(
             'product',
@@ -232,10 +231,10 @@ class SellersProductController extends Controller
             'rounding_type',
         ]);
 
-        $data['spec_type_id']     = spec_type($request);
-        $data['price_type']       = "multiple-price";
-        $data['slug']             = $request->slug ?: $request->title;
-        $data['publish_date']     = $request->publish_date ? Jalalian::fromFormat('Y-m-d H:i:Seller', $request->publish_date)->toCarbon() : null;
+        $data['spec_type_id'] = spec_type($request);
+        $data['price_type'] = "multiple-price";
+        $data['slug'] = $request->slug ?: $request->title;
+        $data['publish_date'] = $request->publish_date ? Jalalian::fromFormat('Y-m-d H:i:Seller', $request->publish_date)->toCarbon() : null;
         $data['special_end_date'] = $request->special_end_date ? Jalalian::fromFormat('Y-m-d H:i:Seller', $request->special_end_date)->toCarbon() : null;
 
         $product->update($data);
@@ -263,7 +262,6 @@ class SellersProductController extends Controller
 
         // update product sizes
         $this->updateProductSizes($product, $request);
-
         toastr()->success('محصول با موفقیت ویرایش شد.');
 
         return response("success");
@@ -320,10 +318,10 @@ class SellersProductController extends Controller
 
     public function multipleDestroy(Request $request)
     {
-        $this->authorize('products.delete');
+        $this->authorize('sellers.products.delete');
 
         $request->validate([
-            'ids'   => 'required|array',
+            'ids' => 'required|array',
             'ids.*' => 'exists:products,id',
         ]);
 
@@ -353,11 +351,13 @@ class SellersProductController extends Controller
         $products = Product::detectLang()->datatableFilter($request)->get();
 
         switch ($request->export_type) {
-            case 'excel': {
+            case 'excel':
+            {
                 return $this->exportExcel($products, $request);
                 break;
             }
-            default: {
+            default:
+            {
                 return $this->exportPrint($products, $request);
             }
         }
@@ -406,15 +406,15 @@ class SellersProductController extends Controller
             if ($update_price) {
 
                 $update_price->update([
-                    "price"              => $price["price"],
-                    "discount"           => $price["discount"],
-                    "discount_price"     => get_discount_price($price["price"], $price["discount"], $product),
-                    "regular_price"      => get_discount_price($price["price"], 0, $product),
-                    "stock"              => $price["stock"],
-                    "cart_max"           => $price["cart_max"],
-                    "cart_min"           => $price["cart_min"],
+                    "price" => $price["price"],
+                    "discount" => $price["discount"],
+                    "discount_price" => get_discount_price($price["price"], $price["discount"], $product),
+                    "regular_price" => get_discount_price($price["price"], 0, $product),
+                    "stock" => $price["stock"],
+                    "cart_max" => $price["cart_max"],
+                    "cart_min" => $price["cart_min"],
                     "discount_expire_at" => $price["discount_expire_at"] ? Jalalian::fromFormat('Y-m-d H:i:Seller', $price["discount_expire_at"])->toCarbon() : null,
-                    "deleted_at"         => null,
+                    "deleted_at" => null,
                 ]);
 
                 $update_price->get_attributes()->sync($attributes);
@@ -424,13 +424,13 @@ class SellersProductController extends Controller
 
                 $insert_price = $product->prices()->create(
                     [
-                        "price"              => $price["price"],
-                        "discount"           => $price["discount"],
-                        "discount_price"     => get_discount_price($price["price"], $price["discount"], $product),
-                        "regular_price"      => get_discount_price($price["price"], 0, $product),
-                        "stock"              => $price["stock"],
-                        "cart_max"           => $price["cart_max"],
-                        "cart_min"           => $price["cart_min"],
+                        "price" => $price["price"],
+                        "discount" => $price["discount"],
+                        "discount_price" => get_discount_price($price["price"], $price["discount"], $product),
+                        "regular_price" => get_discount_price($price["price"], 0, $product),
+                        "stock" => $price["stock"],
+                        "cart_max" => $price["cart_max"],
+                        "cart_min" => $price["cart_min"],
                         "discount_expire_at" => $price["discount_expire_at"] ? Jalalian::fromFormat('Y-m-d H:i:Seller', $price["discount_expire_at"])->toCarbon() : null,
                     ]
                 );
@@ -474,12 +474,12 @@ class SellersProductController extends Controller
             if ($update_price) {
 
                 $update_price->update([
-                    "price"          => $price["price"],
-                    "discount"       => $price["discount"],
+                    "price" => $price["price"],
+                    "discount" => $price["discount"],
                     "discount_price" => get_discount_price($price["price"], $price["discount"], $product),
-                    "regular_price"  => get_discount_price($price["price"], 0, $product),
-                    "deleted_at"     => null,
-                    "ordering"       => $ordering++
+                    "regular_price" => get_discount_price($price["price"], 0, $product),
+                    "deleted_at" => null,
+                    "ordering" => $ordering++
                 ]);
 
                 $update_price->updateFile($price['title'], $price['file'] ?? null, $price['status']);
@@ -488,11 +488,11 @@ class SellersProductController extends Controller
             } else {
                 $insert_price = $product->prices()->create(
                     [
-                        "price"          => $price["price"],
-                        "discount"       => $price["discount"],
+                        "price" => $price["price"],
+                        "discount" => $price["discount"],
                         "discount_price" => get_discount_price($price["price"], $price["discount"], $product),
-                        "regular_price"  => get_discount_price($price["price"], $price["discount"], $product),
-                        "ordering"       => $ordering++
+                        "regular_price" => get_discount_price($price["price"], $price["discount"], $product),
+                        "ordering" => $ordering++
                     ]
                 );
 
@@ -542,10 +542,10 @@ class SellersProductController extends Controller
                     $product->specifications()->attach([
                         $spec->id => [
                             'specification_group_id' => $spec_group->id,
-                            'group_ordering'         => $group_ordering,
+                            'group_ordering' => $group_ordering,
                             'specification_ordering' => $specification_ordering++,
-                            'value'                  => $specification['value'],
-                            'special'                => isset($specification['special']) ? true : false
+                            'value' => $specification['value'],
+                            'special' => isset($specification['special']) ? true : false
                         ]
                     ]);
                 }
@@ -560,8 +560,8 @@ class SellersProductController extends Controller
         if ($request->brand) {
             $brand = Brand::firstOrCreate(
                 [
-                    'name'    => $request->brand,
-                    'lang'    => app()->getLocale(),
+                    'name' => $request->brand,
+                    'lang' => app()->getLocale(),
                 ],
                 [
                     'slug' => $request->brand,
@@ -590,7 +590,7 @@ class SellersProductController extends Controller
         }
 
         $product_images = $product->gallery()->pluck('image')->toArray();
-        $images         = explode(',', $request->images);
+        $images = explode(',', $request->images);
         $deleted_images = array_diff($product_images, $images);
 
         foreach ($deleted_images as $del_img) {
@@ -618,7 +618,7 @@ class SellersProductController extends Controller
                     Storage::move('tmp/' . $image, 'products/' . $image);
 
                     $product->gallery()->create([
-                        'image'    => '/uploads/products/' . $image,
+                        'image' => '/uploads/products/' . $image,
                         'ordering' => $ordering++,
                     ]);
                 } else {
@@ -648,8 +648,8 @@ class SellersProductController extends Controller
 
             foreach ($labels as $item) {
                 $label = Label::firstOrCreate([
-                    'title'    => $item,
-                    'lang'     => app()->getLocale(),
+                    'title' => $item,
+                    'lang' => app()->getLocale(),
                 ]);
 
                 $label_ids[] = $label->id;
@@ -665,7 +665,7 @@ class SellersProductController extends Controller
 
         if (!$request->sizes) return;
 
-        $ordering      = 1;
+        $ordering = 1;
         $groupOrdering = 1;
 
         foreach ($request->sizes as $group => $sizes) {
@@ -674,8 +674,8 @@ class SellersProductController extends Controller
                 $product->sizes()->attach(
                     [
                         $size_id => [
-                            'group'    => $groupOrdering,
-                            'value'    => $value,
+                            'group' => $groupOrdering,
+                            'value' => $value,
                             'ordering' => $ordering++
                         ]
                     ]

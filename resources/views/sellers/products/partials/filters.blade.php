@@ -24,14 +24,14 @@
                             <div class="form-group">
                                 <label>دسته بندی ها</label>
                                 <select class="form-control product-category" name="category_id[]" multiple>
-                                    @foreach ($categories as $category)
-                                        <option
-                                            class="l{{ $category->parents()->count() + 1 }} {{ $category->categories()->count() ? 'non-leaf' : '' }}"
-                                            data-pup="{{ $category->category_id }}"
-                                            {{ ( request()->input('category_id') && in_array($category->id, request()->input('category_id')) ) ? 'selected' : '' }}
-                                            value="{{ $category->id }}">{{ $category->title }}
-                                        </option>
-                                    @endforeach
+{{--                                    @foreach ($categories as $category)--}}
+{{--                                        <option--}}
+{{--                                            class="l{{ $category->parents()->count() + 1 }} {{ $category->categories()->count() ? 'non-leaf' : '' }}"--}}
+{{--                                            data-pup="{{ $category->category_id }}"--}}
+{{--                                            {{ ( request()->input('category_id') && in_array($category->id, request()->input('category_id')) ) ? 'selected' : '' }}--}}
+{{--                                            value="{{ $category->id }}">{{ $category->title }}--}}
+{{--                                        </option>--}}
+{{--                                    @endforeach--}}
                                 </select>
                             </div>
                         </div>

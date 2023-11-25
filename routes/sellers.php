@@ -99,5 +99,14 @@ Route::group([ 'prefix' => 'sellers/' , 'middleware' => 'auth:sellers'], functio
     Route::get('product/prices', [SellersProductController::class, 'indexPrices'])->name('sellers.product.prices.index');
     Route::put('product/prices', [SellersProductController::class, 'updatePrices'])->name('sellers.product.prices.update');
 
+
+    // ------------------ MainController
+    Route::get('get-tags', [MainController::class, 'get_tags'])->name('sellers.get-tags');
+    Route::get('get-labels', [MainController::class, 'getLabels'])->name('sellers.get-labels');
+
+    Route::get('notifications', [MainController::class, 'notifications'])->name('sellers.notifications');
+
+    Route::get('file-manager', [MainController::class, 'fileManager'])->name('sellers.file-manager');
+    Route::get('file-manager-iframe', [MainController::class, 'fileManagerIframe'])->name('sellers.file-manager-iframe');
 });
 

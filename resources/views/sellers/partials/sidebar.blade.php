@@ -25,7 +25,7 @@
                     <ul class="menu-content">
 
                         <li class="{{ active_class('sellers.products.index') }}">
-                            <a href="{{ route('products.index') }}"><i class="feather icon-circle"></i><span class="menu-item">لیست محصولات</span></a>
+                            <a href="{{ route('products.index') }}"><i class="feather icon-circle"></i><span class="menu-item"> لیست محصولات شما</span></a>
                         </li>
 
                         <li class="{{ active_class('admin.products.create') }}">

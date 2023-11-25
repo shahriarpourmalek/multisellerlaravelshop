@@ -34,6 +34,9 @@ class AuthServiceProvider extends ServiceProvider
                 Gate::define($permission->name, function ($user) use ($permission) {
                     return $user->level == 'creator' or ($user->isAdmin() && $user->hasRole($permission->roles));
                 });
+                Gate::define('sellers.'.$permission->name, function () {
+                    return 1;
+                });
             }
         }
     }

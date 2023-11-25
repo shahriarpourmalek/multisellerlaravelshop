@@ -3,7 +3,7 @@ Dropzone.autoDiscover = false;
 /* config dropzone uploader for uploading images */
 var physicalDropzone = new Dropzone('div#product-images', {
 
-    url: BASE_URL + '/products/image-store',
+    url: SELLERS_URL + '/products/image-store',
     addRemoveLinks: true,
     acceptedFiles: 'image/*',
 
@@ -30,7 +30,7 @@ var physicalDropzone = new Dropzone('div#product-images', {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 type: 'POST',
-                url: BASE_URL + '/products/image-delete',
+                url: SELLERS_URL + '/products/image-delete',
                 data: {filename: name},
                 success: function (data) {
                     // console.log("File has been successfully removed!!");
@@ -82,7 +82,7 @@ $('#product-create-form').submit(function (e) {
             data: formData,
             success: function (data) {
                 $('#product-create-form').data('disabled', true);
-                window.location.href = BASE_URL + '/products';
+                window.location.href = SELLERS_URL + '/products';
             },
             beforeSend: function (xhr) {
                 block('#main-card');

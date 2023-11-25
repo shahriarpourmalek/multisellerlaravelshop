@@ -1,4 +1,4 @@
-@extends('back.layouts.master')
+@extends('sellers.layouts.master')
 
 @push('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('back/app-assets/plugins/datatable/datatable.css') }}">
@@ -31,19 +31,19 @@
             <div class="content-body">
 
                 <!-- filter start -->
-                @include('back.products.partials.index-filters', ['filter_action' => route('admin.products.index')])
+                @include('back.products.partials.index-filters', ['filter_action' => route('products.index')])
                 <!-- filter end -->
 
                 <section id="main-card" class="card">
                     <div class="card-header">
                         <h4 class="card-title">لیست محصولات</h4>
-                        @can('products.export')
+                        @if(auth('sellers')->user())
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
                                     <li><button type="button" data-toggle="modal" data-target="#products-export-modal" class="btn btn-outline-primary waves-effect waves-light"><i class="fa fa-file-excel-o"></i> خروجی گرفتن از لیست</button></li>
                                 </ul>
                             </div>
-                        @endcan
+                        @endif
                     </div>
                     <div class="card-content">
                         <div class="card-body">
@@ -54,7 +54,7 @@
                                     <button class="btn btn-danger mr-2" type="button" data-toggle="modal" data-target="#multiple-delete-modal">حذف همه</button>
                                 </div>
                             </div>
-                            <div class="datatable datatable-bordered datatable-head-custom" id="products_datatable" data-action="{{ route('admin.products.apiIndex') }}"></div>
+                            <div class="datatable datatable-bordered datatable-head-custom" id="products_datatable" data-action="{{ route('sellers.products.apiIndex') }}"></div>
                         </div>
                     </div>
                 </section>
@@ -77,7 +77,7 @@
                     با حذف محصولات دیگر قادر به بازیابی آنها نخواهید بود
                 </div>
                 <div class="modal-footer">
-                    <form action="{{ route('admin.products.multipleDestroy') }}" id="product-multiple-delete-form">
+                    <form action="{{ route('sellers.products.multipleDestroy') }}" id="product-multiple-delete-form">
                         @csrf
                         @method('delete')
                         <button type="button" class="btn btn-success waves-effect waves-light" data-dismiss="modal">خیر</button>
@@ -125,7 +125,7 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form id="products-export-form" action="{{ route('admin.products.export') }}">
+                <form id="products-export-form" action="{{ route('sellers.products.export') }}">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6">

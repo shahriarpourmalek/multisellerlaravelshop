@@ -1,4 +1,4 @@
-@extends('back.layouts.master')
+@extends('sellers.layouts.master')
 
 @section('content')
 
@@ -26,7 +26,7 @@
 
             </div>
             <div id="main-card" class="content-body">
-                <form class="form" id="product-create-form" action="{{ route('admin.products.store') }}" method="post">
+                <form class="form" id="product-create-form" action="{{ route('products.store') }}" method="post">
                     @csrf
 
                     <div class="row match-height">
@@ -131,7 +131,7 @@
                                                                 <div class="col-md-6">
                                                                     <fieldset class="form-group">
                                                                         <label>برچسب</label>
-                                                                        <input type="text" name="labels" class="form-control labels" data-action="{{ route('admin.get-labels') }}" value="{{ $copy_product ? $copy_product->getLabels() : '' }}">
+                                                                        <input type="text" name="labels" class="form-control labels" data-action="{{ route('sellers.get-labels') }}" value="{{ $copy_product ? $copy_product->getLabels() : '' }}">
                                                                     </fieldset>
                                                                 </div>
 
@@ -222,7 +222,7 @@
                                                             <div id="product-prices-div" class="product-prices-div">
                                                                 @if ($copy_product && $copy_product->isPhysical())
                                                                     @foreach ($copy_product->prices as $price)
-                                                                        @include('back.products.partials.prices-include', ['price' => $price])
+                                                                        @include('sellers.products.partials.prices-include', ['price' => $price])
                                                                     @endforeach
                                                                 @endif
                                                             </div>
@@ -373,7 +373,7 @@
                                                                 <div class="col-md-6">
                                                                     <fieldset class="form-group">
                                                                         <label>کلمات کلیدی</label>
-                                                                        <input type="text" name="tags" class="form-control tags" data-action="{{ route('admin.get-tags') }}" value="{{ $copy_product ? $copy_product->getTags : '' }}">
+                                                                        <input type="text" name="tags" class="form-control tags" data-action="{{ route('sellers.get-tags') }}" value="{{ $copy_product ? $copy_product->getTags : '' }}">
                                                                     </fieldset>
                                                                 </div>
 
@@ -512,9 +512,9 @@
         </div>
     </div>
 
-    @include('back.products.partials.specification-template')
-    @include('back.products.partials.prices-template')
-    @include('back.products.partials.files-template')
+    @include('sellers.products.partials.specification-template')
+    @include('sellers.products.partials.prices-template')
+    @include('sellers.products.partials.files-template')
 
 @endsection
 
@@ -545,6 +545,6 @@
         var sizesCount = {{ $copy_product ? $copy_product->sizes()->count() : '0' }};
     </script>
 
-    <script src="{{ asset('back/assets/js/pages/products/all.js') }}?v=9"></script>
-    <script src="{{ asset('back/assets/js/pages/products/create.js') }}?v=3"></script>
+    <script src="{{ asset('back/assets/js/pages/sellers-products/all.js') }}?v=9"></script>
+    <script src="{{ asset('back/assets/js/pages/sellers-products/create.js') }}?v=3"></script>
 @endpush

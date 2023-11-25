@@ -57,7 +57,7 @@
     <script src="{{ asset('back/app-assets/js/scripts/extensions/toastr.js') }}"></script>
 
     <script>
-        var SELLER_URL = "{{ route('sellers.dashboard') }}";
+        var SELLERS_URL = "{{ route('sellers.dashboard') }}";
         var BASE_URL = "{{ route('admin.dashboard') }}";
         var FRONT_URL = "{{ Route::has('front.index') ? route('front.index') : url('/') }}";    </script>
     @stack('scripts')

@@ -156,7 +156,7 @@
 
     <script>
         var BASE_URL = "{{ route('admin.dashboard') }}";
-        var SELLER_URL = "{{ route('sellers.dashboard') }}";
+        var SELLERS_URL = "{{ route('sellers.dashboard') }}";
 
         var FRONT_URL = "{{ Route::has('front.index') ? route('front.index') : url('/') }}";
         var WEB_PUSH_NOTIFICATION = {{ auth()->user()->pushSubscriptions()->first() ? 'true' : 'false' }};

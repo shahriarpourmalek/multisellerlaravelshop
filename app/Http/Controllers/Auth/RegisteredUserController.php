@@ -52,7 +52,7 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Auth::guard('users')->login($user);
+        Auth::login($user);
 
         return response('success');
     }

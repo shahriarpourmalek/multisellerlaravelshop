@@ -24,11 +24,11 @@
                     <a href="#"><i class="feather icon-shopping-cart"></i><span class="menu-title"> محصولات</span></a>
                     <ul class="menu-content">
 
-                        <li class="{{ active_class('sellers.products.index') }}">
+                        <li class="{{ active_class('admin.products.index') }}">
                             <a href="{{ route('products.index') }}"><i class="feather icon-circle"></i><span class="menu-item"> لیست محصولات شما</span></a>
                         </li>
 
-                        <li class="{{ active_class('sellers.products.create') }}">
+                        <li class="{{ active_class('admin.products.create') }}">
                             <a href="{{ route('products.create') }}"><i class="feather icon-circle"></i><span class="menu-item">ایجاد محصول</span></a>
                         </li>
 
@@ -41,7 +41,7 @@
 {{--                            <a href="{{ route('admin.stock-notifies.index') }}"><i class="feather icon-circle"></i><span class="menu-item">لیست اطلاع از موجودی</span></a>--}}
 {{--                        </li>--}}
 
-                        <li class="{{ active_class('sellers.product.prices.index') }}">
+                        <li class="{{ active_class('admin.product.prices.index') }}">
                             <a href="{{ route('sellers.product.prices.index') }}"><i class="feather icon-circle"></i><span class="menu-item">قیمت ها</span></a>
                         </li>
 
@@ -89,26 +89,26 @@
             @endif
 
             @if(auth('sellers')->user())
-                <li class="nav-item has-sub {{ open_class(['admin.orders.*']) }}">
+                <li class="nav-item has-sub {{ open_class(['sellers.orders.*']) }}">
                     <a href="#"><i class="feather icon-briefcase"></i><span class="menu-title" > سفارشات</span></a>
                     <ul class="menu-content">
-                        <li class="{{ active_class('admin.orders.index') }}">
-                            <a href="{{ route('admin.orders.index') }}"><i class="feather icon-circle"></i><span class="menu-item">همه سفارشات</span></a>
+                        <li class="{{ active_class('orders.index') }}">
+                            <a href="{{ route('orders.index') }}"><i class="feather icon-circle"></i><span class="menu-item">همه سفارشات</span></a>
                         </li>
                         <li class="">
-                            <a href="{{ route('admin.orders.index') }}?status=paid&shipping_status=pending"><i class="feather icon-circle"></i><span class="menu-item">سفارشات جدید</span></a>
+                            <a href="{{ route('orders.index') }}?status=paid&shipping_status=pending"><i class="feather icon-circle"></i><span class="menu-item">سفارشات جدید</span></a>
                         </li>
                         <li class="">
-                            <a href="{{ route('admin.orders.index') }}?status=paid"><i class="feather icon-circle"></i><span class="menu-item">سفارشات پرداخت شده</span></a>
+                            <a href="{{ route('orders.index') }}?status=paid"><i class="feather icon-circle"></i><span class="menu-item">سفارشات پرداخت شده</span></a>
                         </li>
                         <li class="">
-                            <a href="{{ route('admin.orders.index') }}?status=paid&shipping_status=reserved"><i class="feather icon-circle"></i><span class="menu-item">سفارشات رزرو شده</span></a>
+                            <a href="{{ route('orders.index') }}?status=paid&shipping_status=reserved"><i class="feather icon-circle"></i><span class="menu-item">سفارشات رزرو شده</span></a>
                         </li>
-                        <li class="{{ active_class('admin.orders.notCompleted') }}">
-                            <a href="{{ route('admin.orders.notCompleted') }}"><i class="feather icon-circle"></i><span class="menu-item"> محصولات منتظر ارسال</span></a>
+                        <li class="{{ active_class('sellers.orders.notCompleted') }}">
+                            <a href="{{ route('sellers.orders.notCompleted') }}"><i class="feather icon-circle"></i><span class="menu-item"> محصولات منتظر ارسال</span></a>
                         </li>
-                        <li class="{{ active_class('admin.orders.create') }}">
-                            <a href="{{ route('admin.orders.create') }}"><i class="feather icon-circle"></i><span class="menu-item"> افزودن سفارش</span></a>
+                        <li class="{{ active_class('sellers.orders.create') }}">
+                            <a href="{{ route('orders.create') }}"><i class="feather icon-circle"></i><span class="menu-item"> افزودن سفارش</span></a>
                         </li>
                     </ul>
                 </li>
@@ -118,21 +118,21 @@
                 <li class="nav-item has-sub">
                     <a href="#"><i class="feather icon-pie-chart"></i><span class="menu-title" >گزارشات</span></a>
                     <ul class="menu-content">
-                        <li class="{{ active_class('admin.statistics.orders') }}">
-                            <a href="{{ route('admin.statistics.orders') }}"><i class="feather icon-circle"></i><span class="menu-item">سفارشات</span></a>
+                        <li class="{{ active_class('sellers.statistics.orders') }}">
+                            <a href="{{ route('sellers.statistics.orders') }}"><i class="feather icon-circle"></i><span class="menu-item">سفارشات</span></a>
                         </li>
-                        <li class="{{ active_class('admin.statistics.views') }}">
-                            <a href="{{ route('admin.statistics.views') }}"><i class="feather icon-circle"></i><span class="menu-item">آمار بازدیدها</span></a>
+                        <li class="{{ active_class('sellers.statistics.views') }}">
+                            <a href="{{ route('sellers.statistics.views') }}"><i class="feather icon-circle"></i><span class="menu-item">آمار بازدیدها</span></a>
                         </li>
-                        <li class="{{ active_class('admin.statistics.viewsList') }}">
-                            <a href="{{ route('admin.statistics.viewsList') }}"><i class="feather icon-circle"></i><span class="menu-item">لیست بازدیدها</span></a>
-                        </li>
-                        <li class="{{ active_class('admin.statistics.viewers') }}">
-                            <a href="{{ route('admin.statistics.viewers') }}"><i class="feather icon-circle"></i><span class="menu-item"> بازدید کنندگان امروز</span></a>
-                        </li>
-                        <li class="{{ active_class('admin.statistics.smsLog') }}">
-                            <a href="{{ route('admin.statistics.smsLog') }}"><i class="feather icon-circle"></i><span class="menu-item"> لاگ پیامک های ارسالی</span></a>
-                        </li>
+{{--                        <li class="{{ active_class('sellers.statistics.viewsList') }}">--}}
+{{--                            <a href="{{ route('sellers.statistics.viewsList') }}"><i class="feather icon-circle"></i><span class="menu-item">لیست بازدیدها</span></a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{ active_class('sellers.statistics.viewers') }}">--}}
+{{--                            <a href="{{ route('sellers.statistics.viewers') }}"><i class="feather icon-circle"></i><span class="menu-item"> بازدید کنندگان امروز</span></a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{ active_class('sellers.statistics.smsLog') }}">--}}
+{{--                            <a href="{{ route('sellers.statistics.smsLog') }}"><i class="feather icon-circle"></i><span class="menu-item"> لاگ پیامک های ارسالی</span></a>--}}
+{{--                        </li>--}}
                     </ul>
                 </li>
             @endif

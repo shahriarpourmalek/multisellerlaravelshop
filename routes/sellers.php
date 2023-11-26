@@ -10,7 +10,9 @@ use App\Http\Controllers\Sellers\Auth\SellersAuthenticatedSessionController;
 use App\Http\Controllers\Sellers\Dashboard\Maincontroller;
 use App\Http\Controllers\Sellers\Dashboard\ProductController;
 use App\Http\Controllers\Sellers\Dashboard\SellerController;
+use App\Http\Controllers\Sellers\Dashboard\SellersOrderController;
 use App\Http\Controllers\Sellers\Dashboard\SellersProductController;
+use App\Http\Controllers\Sellers\Dashboard\SellersStatisticsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -108,5 +110,39 @@ Route::group([ 'prefix' => 'sellers/' , 'middleware' => 'auth:sellers'], functio
 
     Route::get('file-manager', [MainController::class, 'fileManager'])->name('sellers.file-manager');
     Route::get('file-manager-iframe', [MainController::class, 'fileManagerIframe'])->name('sellers.file-manager-iframe');
+    // ------------------ orders
+    Route::resource('orders', SellersOrderController::class);
+    Route::post('orders/api/shippings-status', [SellersOrderController::class, 'shippingsStatus'])->name('sellers.orders.shippings-status');
+    Route::post('orders/{order}/shipping-status', [SellersOrderController::class, 'shipping_status'])->name('sellers.orders.shipping-status');
+    Route::get('orders/{order}/print', [SellersOrderController::class, 'print'])->name('sellers.orders.print');
+    Route::get('orders/{order}/shipping-form', [SellersOrderController::class, 'shippingForm'])->name('sellers.orders.shipping-form');
+    Route::post('orders/api/index', [SellersOrderController::class, 'apiIndex'])->name('sellers.orders.apiIndex');
+    Route::delete('orders/api/multipleDestroy', [SellersOrderController::class, 'multipleDestroy'])->name('sellers.orders.multipleDestroy');
+    Route::get('order/not-completed/products', [SellersOrderController::class, 'notCompleted'])->name('sellers.orders.notCompleted');
+    Route::get('orders/api/userInfo', [SellersOrderController::class, 'userInfo'])->name('sellers.orders.userInfo');
+    Route::get('orders/api/productsList', [SellersOrderController::class, 'productsList'])->name('sellers.orders.productsList');
+    Route::get('orders/api/printAllShippingForms', [SellersOrderController::class, 'printAllShippingForms'])->name('sellers.orders.printAllShippingForms');
+    Route::get('orders/api/printAll', [SellersOrderController::class, 'printAll'])->name('sellers.orders.printAll');
+
+    Route::get('orders/export/create', [SellersOrderController::class, 'export'])->name('sellers.orders.export');
+
+    // ------------------ statistics
+    Route::get('statistics/viewsList', [SellersStatisticsController::class, 'viewsList'])->name('sellers.statistics.viewsList');
+    Route::get('statistics/views', [SellersStatisticsController::class, 'views'])->name('sellers.statistics.views');
+    Route::get('statistics/viewCounts', [SellersStatisticsController::class, 'viewCounts'])->name('sellers.statistics.viewCounts');
+    Route::get('statistics/viewerCounts', [SellersStatisticsController::class, 'viewerCounts'])->name('sellers.statistics.viewerCounts');
+    Route::get('statistics/viewers', [SellersStatisticsController::class, 'viewers'])->name('sellers.statistics.viewers');
+
+    Route::get('statistics/orders', [SellersStatisticsController::class, 'orders'])->name('sellers.statistics.orders');
+    Route::get('statistics/orderValues', [SellersStatisticsController::class, 'orderValues'])->name('sellers.statistics.orderValues');
+    Route::get('statistics/orderCounts', [SellersStatisticsController::class, 'orderCounts'])->name('sellers.statistics.orderCounts');
+    Route::get('statistics/orderUsers', [SellersStatisticsController::class, 'orderUsers'])->name('sellers.statistics.orderUsers');
+    Route::get('statistics/orderProducts', [SellersStatisticsController::class, 'orderProducts'])->name('sellers.statistics.orderProducts');
+
+    Route::get('statistics/users', [SellersStatisticsController::class, 'users'])->name('sellers.statistics.users');
+    Route::get('statistics/userCounts', [SellersStatisticsController::class, 'userCounts'])->name('sellers.statistics.userCounts');
+
+    Route::get('statistics/smsLog', [SellersStatisticsController::class, 'smsLog'])->name('sellers.statistics.smsLog');
+
 });
 

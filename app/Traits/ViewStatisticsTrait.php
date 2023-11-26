@@ -48,7 +48,13 @@ trait ViewStatisticsTrait
 
     protected function viewCounts(Request $request)
     {
-        $this->authorize('statistics.views');
+        if (auth('sellers')->user()){
+            $this->authorize('sellers.statistics.views');
+
+        }else{
+            $this->authorize('statistics.views');
+
+        }
 
         $data = $this->getPeriodData('viewCounts', $request, [$this, "getViewStatisticsData"]);
 
@@ -76,8 +82,13 @@ trait ViewStatisticsTrait
 
     protected function viewerCounts(Request $request)
     {
-        $this->authorize('statistics.views');
+        if (auth('sellers')->user()){
+            $this->authorize('sellers.statistics.views');
 
+        }else{
+            $this->authorize('statistics.views');
+
+        }
         $data = $this->getPeriodData('viewerCounts', $request, [$this, "getViewStatisticsData"]);
 
         $total_count   = 0;

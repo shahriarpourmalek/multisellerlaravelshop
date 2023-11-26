@@ -45,17 +45,17 @@
                             <a href="{{ route('sellers.product.prices.index') }}"><i class="feather icon-circle"></i><span class="menu-item">قیمت ها</span></a>
                         </li>
 
-                        <li class="{{ open_class(['admin.brands.*']) }}">
-                            <a href="#"><i class="feather icon-circle"></i><span class="menu-item"> برندها</span></a>
-                            <ul class="menu-content">
-                                <li class="{{ active_class('admin.brands.index') }}">
-                                    <a class="{{ active_class('admin.brands.index') }}" href="{{ route('admin.brands.index') }}"><i class="feather icon-circle"></i><span class="menu-item">لیست برندها</span></a>
-                                </li>
-                                <li class="{{ active_class('admin.brands.create') }}">
-                                    <a class="{{ active_class('admin.brands.create') }}" href="{{ route('admin.brands.create') }}"><i class="feather icon-circle"></i><span class="menu-item">ایجاد برند</span></a>
-                                </li>
-                            </ul>
-                        </li>
+{{--                        <li class="{{ open_class(['admin.brands.*']) }}">--}}
+{{--                            <a href="#"><i class="feather icon-circle"></i><span class="menu-item"> برندها</span></a>--}}
+{{--                            <ul class="menu-content">--}}
+{{--                                <li class="{{ active_class('admin.brands.index') }}">--}}
+{{--                                    <a class="{{ active_class('admin.brands.index') }}" href="{{ route('admin.brands.index') }}"><i class="feather icon-circle"></i><span class="menu-item">لیست برندها</span></a>--}}
+{{--                                </li>--}}
+{{--                                <li class="{{ active_class('admin.brands.create') }}">--}}
+{{--                                    <a class="{{ active_class('admin.brands.create') }}" href="{{ route('admin.brands.create') }}"><i class="feather icon-circle"></i><span class="menu-item">ایجاد برند</span></a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
 
 {{--                        <li class="{{ open_class(['admin.attributeGroups.*']) }}">--}}
 {{--                            <a href="#"><i class="feather icon-circle"></i><span class="menu-item"> ویژگی ها</span></a>--}}

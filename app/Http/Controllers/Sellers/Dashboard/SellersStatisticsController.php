@@ -14,22 +14,22 @@ class SellersStatisticsController extends Controller
 {
     use OrderStatisticsTrait, UserStatisticsTrait, ViewStatisticsTrait;
 
-    public function viewsList()
-    {
-        $this->authorize('sellers.statistics.viewsList');
-        $views = Viewer::latest();
-        if (auth('sellers')->user()) {
-            $views = $views->whereNull('user_id')->orWhere(function ($query) {
-                $query->whereHas('user', function ($q1) {
-                    $q1->where('level', '!=', 'creator');
-                });
-            });
-        }
-
-        $views = $views->paginate(20);
-
-        return view('sellers.statistics.views.viewsList', compact('views'));
-    }
+//    public function viewsList()
+//    {
+//        $this->authorize('sellers.statistics.viewsList');
+//        $views = Viewer::latest();
+//        if (auth('sellers')->user()) {
+//            $views = $views->whereNull('user_id')->orWhere(function ($query) {
+//                $query->whereHas('user', function ($q1) {
+//                    $q1->where('level', '!=', 'creator');
+//                });
+//            });
+//        }
+//
+//        $views = $views->paginate(20);
+//
+//        return view('sellers.statistics.views.viewsList', compact('views'));
+//    }
 
     public function views()
     {

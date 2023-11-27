@@ -26,67 +26,15 @@
             <div class="content-body">
 
                 <section id="statistics-card">
-                    <div class="row match-height">
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="card">
-                                <div class="card-header d-flex flex-column align-items-center pb-0">
-                                    <div class="avatar bg-rgba-primary p-50 m-0">
-                                        <div class="avatar-content">
-                                            <i class="feather icon-eye text-primary font-medium-5"></i>
-                                        </div>
-                                    </div>
-                                    <p class="mb-0 mt-1">بازدیدهای این هفته</p>
-                                </div>
-                                <div class="card-content">
-                                    <div id="line-area-chart-1"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="card">
-                                <div class="card-header d-flex flex-column align-items-center pb-0">
-                                    <div class="avatar bg-rgba-danger p-50 m-0">
-                                        <div class="avatar-content">
-                                            <i class="feather icon-user text-danger font-medium-5"></i>
-                                        </div>
-                                    </div>
-                                    <p class="mb-0 mt-1">بازدیدکنندگان این هفته</p>
-                                </div>
-                                <div class="card-content">
-                                    <div id="line-area-chart-3"></div>
-                                </div>
-                            </div>
-                        </div>
 
-                        @if (option('enable_help_videos', 'true') == 'true')
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="card text-center">
-                                    <div class="card-content">
-                                        <div class="card-body">
-                                            <h4 class="card-title mt-3">فیلم های آموزشی</h4>
-                                            <p class="card-text">آموزش تصویری بخش های پنل مدیریت</p>
-                                            <button type="button" data-toggle="modal" data-target="#video-helpe-modal" class="btn btn-info">مشاهده</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
 
-                    </div>
+
 
                     <div class="row">
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="card text-center">
                                 <div class="card-content">
-                                    <div class="card-body">
-                                        <div class="avatar bg-rgba-info p-50 m-0 mb-1">
-                                            <div class="avatar-content">
-                                                <i class="feather icon-users text-info font-medium-5"></i>
-                                            </div>
-                                        </div>
-                                        <h2 class="text-bold-700">{{ $users_count }}</h2>
-                                        <p class="mb-0 line-ellipsis">تعداد کاربران</p>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

@@ -5,33 +5,38 @@ namespace App\Http\Controllers\Sellers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Label;
 use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 
 class Maincontroller extends Controller
 {
     public function index()
     {
-        $users_count = Cache::rememberForever('admin.users_count', function () {
-            return User::where('level', '!=', 'creator')->count();
+        $sellerId = Auth::guard('sellers')->user()->id;
+
+        $products_count = Cache::rememberForever("sellers.products_count", function () use ($sellerId) {
+            return Product::where('seller_id', $sellerId)->count();
         });
-        $products_count = Cache::rememberForever('admin.products_count', function () {
-            return Product::count();
-        });
-        $orders_count = Cache::rememberForever('admin.orders_count', function () {
-            return Order::count();
+        $orders_count = Cache::rememberForever("sellers.orders_count", function () use ($sellerId) {
+            return OrderItem::whereHas('product', function ($query) use ($sellerId) {
+                $query->where('seller_id', $sellerId);
+            })->count();
         });
 
-        $total_sell = Cache::rememberForever('admin.total_sell', function () {
-            return Order::where('status', 'paid')->sum('price');
+        $total_sell = Cache::rememberForever("sellers.total_sell", function () use ($sellerId) {
+            return OrderItem::whereHas('product', function ($query) use ($sellerId) {
+                $query->where('seller_id', $sellerId);
+            })->whereHas('order', function ($query) {
+                $query->where('status', 'paid');
+            })->sum('real_price');
         });
-
         return view('sellers.index'
             , compact(
-            'users_count',
             'products_count',
             'orders_count',
             'total_sell'
@@ -72,15 +77,15 @@ class Maincontroller extends Controller
 
     public function fileManager()
     {
-        $this->authorize('file-manager');
+        $this->authorize('sellers.file-manager');
 
-        return view('back.file-manager');
+        return view('sellers.file-manager');
     }
 
     public function fileManagerIframe()
     {
         $this->authorize('file-manager');
 
-        return view('back.file-manager-iframe');
+        return view('sellers.file-manager-iframe');
     }
 }

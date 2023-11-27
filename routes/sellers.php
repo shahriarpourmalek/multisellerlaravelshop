@@ -13,6 +13,7 @@ use App\Http\Controllers\Sellers\Dashboard\SellerController;
 use App\Http\Controllers\Sellers\Dashboard\SellersOrderController;
 use App\Http\Controllers\Sellers\Dashboard\SellersProductController;
 use App\Http\Controllers\Sellers\Dashboard\SellersStatisticsController;
+use App\Http\Controllers\Sellers\Dashboard\SellersTransactionController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -127,11 +128,11 @@ Route::group([ 'prefix' => 'sellers/' , 'middleware' => 'auth:sellers'], functio
     Route::get('orders/export/create', [SellersOrderController::class, 'export'])->name('sellers.orders.export');
 
     // ------------------ statistics
-    Route::get('statistics/viewsList', [SellersStatisticsController::class, 'viewsList'])->name('sellers.statistics.viewsList');
+//    Route::get('statistics/viewsList', [SellersStatisticsController::class, 'viewsList'])->name('sellers.statistics.viewsList');
     Route::get('statistics/views', [SellersStatisticsController::class, 'views'])->name('sellers.statistics.views');
     Route::get('statistics/viewCounts', [SellersStatisticsController::class, 'viewCounts'])->name('sellers.statistics.viewCounts');
     Route::get('statistics/viewerCounts', [SellersStatisticsController::class, 'viewerCounts'])->name('sellers.statistics.viewerCounts');
-    Route::get('statistics/viewers', [SellersStatisticsController::class, 'viewers'])->name('sellers.statistics.viewers');
+//    Route::get('statistics/viewers', [SellersStatisticsController::class, 'viewers'])->name('sellers.statistics.viewers');
 
     Route::get('statistics/orders', [SellersStatisticsController::class, 'orders'])->name('sellers.statistics.orders');
     Route::get('statistics/orderValues', [SellersStatisticsController::class, 'orderValues'])->name('sellers.statistics.orderValues');
@@ -142,7 +143,13 @@ Route::group([ 'prefix' => 'sellers/' , 'middleware' => 'auth:sellers'], functio
     Route::get('statistics/users', [SellersStatisticsController::class, 'users'])->name('sellers.statistics.users');
     Route::get('statistics/userCounts', [SellersStatisticsController::class, 'userCounts'])->name('sellers.statistics.userCounts');
 
-    Route::get('statistics/smsLog', [SellersStatisticsController::class, 'smsLog'])->name('sellers.statistics.smsLog');
+//    Route::get('statistics/smsLog', [SellersStatisticsController::class, 'smsLog'])->name('sellers.statistics.smsLog');
+
+
+    // ------------------ transactions
+    Route::resource('transactions', SellersTransactionController::class)->only(['index', 'show', 'destroy']);
+    Route::post('transactions/api/index', [SellersTransactionController::class, 'apiIndex'])->name('sellers.transactions.apiIndex');
+    Route::delete('transactions/api/multipleDestroy', [SellersTransactionController::class, 'multipleDestroy'])->name('sellers.transactions.multipleDestroy');
 
 });
 

@@ -14,6 +14,24 @@ class Transaction extends JsonResource
      */
     public function toArray($request)
     {
+
+        if (auth('sellers')->user()){
+            return [
+                'id'                => $this->id,
+                'transaction_id'    => $this->id,
+                'fullname'          => $this->user ? htmlspecialchars($this->user->fullname) : '-',
+                'created_at'        => jdate($this->created_at)->format('%d %B %Y'),
+                'amount'            => trans('messages.currency.prefix') . number_format($this->amount) . trans('messages.currency.suffix'),
+                'status'            => $this->status,
+
+                'links' => [
+                    'view'    => route('transactions.show', ['transaction' => $this]),
+                    'destroy' => route('transactions.destroy', ['transaction' => $this]),
+                    'user'    => $this->user ? route('admin.users.show', ['user' => $this->user]) : '#',
+                ]
+            ];
+        }
+        else{
         return [
             'id'                => $this->id,
             'transaction_id'    => $this->id,
@@ -27,6 +45,6 @@ class Transaction extends JsonResource
                 'destroy' => route('admin.transactions.destroy', ['transaction' => $this]),
                 'user'    => $this->user ? route('admin.users.show', ['user' => $this->user]) : '#',
             ]
-        ];
+        ];}
     }
 }

@@ -136,7 +136,59 @@
                     </ul>
                 </li>
             @endif
+            @can(['sellers.payments'])
+                <li class="nav-item has-sub {{ open_class(['sellers.transactions.*', 'sellers.currencies.*']) }}"><a href="#"><i class="feather icon-credit-card"></i><span class="menu-title" > پرداخت</span></a>
+                    <ul class="menu-content">
+                        @can('sellers.payments.transactions.index')
+                            <li class="{{ active_class('admin.transactions.index') }} nav-item">
+                                <a href="{{ route('transactions.index') }}">
+                                    <i class="feather feather icon-circle"></i>
+                                    <span class="menu-title"> لیست تراکنش ها</span>
+                                </a>
+                            </li>
+                        @endcan
 
+{{--                        @can('sellers.payments.wallet-histories.index')--}}
+{{--                            <li class="{{ active_class('admin.wallet-histories.index') }} nav-item">--}}
+{{--                                <a href="{{ route('sellers.wallet-histories.index') }}">--}}
+{{--                                    <i class="feather feather icon-circle"></i>--}}
+{{--                                    <span class="menu-title"> تاریخچه کیف پول</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        @endcan--}}
+
+
+
+                    </ul>
+                </li>
+            @endcan
+
+{{--            @can(['comments'])--}}
+{{--                <li class="nav-item has-sub {{ open_class(['admin.comments.*']) }}"><a href="#"><i class="feather icon-message-circle"></i><span class="menu-title" > نظرات</span></a>--}}
+{{--                    <ul class="menu-content">--}}
+
+{{--                        <li class="{{ active_class('admin.comments.products') }} nav-item">--}}
+{{--                            <a href="{{ route('admin.comments.products') }}">--}}
+{{--                                <i class="feather feather icon-circle"></i>--}}
+{{--                                <span class="menu-title"> پرسش و پاسخ محصولات</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{ active_class('admin.reviews.index') }} nav-item">--}}
+{{--                            <a href="{{ route('admin.reviews.index') }}">--}}
+{{--                                <i class="feather feather icon-circle"></i>--}}
+{{--                                <span class="menu-title"> نظرات محصولات</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="{{ active_class('admin.comments.posts') }} nav-item">--}}
+{{--                            <a href="{{ route('admin.comments.posts') }}">--}}
+{{--                                <i class="feather feather icon-circle"></i>--}}
+{{--                                <span class="menu-title"> نظرات وبلاگ</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--            @endcan--}}
         </ul>
     </div>
 </div>

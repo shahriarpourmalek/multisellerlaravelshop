@@ -42,7 +42,14 @@ trait UserStatisticsTrait
 
     protected function userCounts(Request $request)
     {
-        $this->authorize('statistics.users');
+        if (auth('sellers')->user()){
+            $this->authorize('sellers.statistics.users');
+
+        }
+        else{
+            $this->authorize('statistics.users');
+
+        }
 
         $data = $this->getPeriodData('userCounts', $request, [$this, "getUserStatisticsData"]);
 

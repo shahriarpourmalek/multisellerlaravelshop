@@ -9,8 +9,8 @@
     <main class="main-content dt-sl mt-4 mb-3">
         <div class="container main-container">
             <div class="row">
-                <div class="col-xl-4 col-lg-5 col-md-7 col-12 mx-auto">
-                    <div class="form-ui dt-sl dt-sn pt-4">
+                <div class="col-xl-4 col-lg-5 col-md-7 col-12 mx-auto  ">
+                    <div class="form-ui dt-sl dt-sn pt-4 ">
                         <div class="section-title title-wide mb-1 no-after-title-wide">
                             <h2 class="font-weight-bold">{{ trans('front::messages.auth_sellers.sign-in-to-site') }}</h2>
                         </div>

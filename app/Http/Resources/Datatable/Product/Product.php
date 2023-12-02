@@ -15,6 +15,27 @@ class Product extends JsonResource
      */
     public function toArray($request)
     {
+
+
+        if (auth('sellers')->user()){
+            return [
+                'id'                => $this->id,
+                'image'             => $this->image ? asset($this->image) : asset('/empty.jpg'),
+                'title'             => $this->title,
+                'created_at'        => jdate($this->created_at)->format('%d %B %Y'),
+                'addableToCart'     => $this->addableToCart(),
+                'published'         => $this->isPublished(),
+                'stock_count'       => $this->prices()->sum('stock'),
+
+                'links' => [
+                    'edit'    => route('products.edit', ['product' => $this]),
+                    'destroy' => route('products.destroy', ['product' => $this]),
+                    'copy'    => route('products.create', ['product' => $this]),
+                    'front'   => Route::has('front.products.show') ? route('front.products.show', ['product' => $this]) : '#',
+                ]
+            ];
+        }
+
         return [
             'id'                => $this->id,
             'image'             => $this->image ? asset($this->image) : asset('/empty.jpg'),

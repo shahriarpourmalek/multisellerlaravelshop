@@ -43,5 +43,23 @@ class Seller extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function getProfilePhotoUrlAttribute()
+    {
+        return $this->image ? asset($this->image) : asset('back/app-assets/images/portrait/small/default.jpg');
+    }
 
+    public function getImageUrlAttribute()
+    {
+        return $this->imageUrl();
+    }
+
+    public function imageUrl()
+    {
+        return $this->image ? asset($this->image) : asset('/back/app-assets/images/portrait/small/default.jpg');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

@@ -156,6 +156,7 @@
 
     <script>
         var BASE_URL = "{{ route('admin.dashboard') }}";
+        var SELLERS_URL = "{{ route('sellers.dashboard') }}";
         var FRONT_URL = "{{ Route::has('front.index') ? route('front.index') : url('/') }}";
         var WEB_PUSH_NOTIFICATION = {{ auth()->user()->pushSubscriptions()->first() ? 'true' : 'false' }};
         var APP_FONT_FAMILY = "{{ user_option('theme_font', 'Vazir') }}";

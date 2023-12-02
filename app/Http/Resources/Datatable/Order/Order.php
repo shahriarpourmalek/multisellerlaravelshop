@@ -14,6 +14,21 @@ class Order extends JsonResource
      */
     public function toArray($request)
     {
+        if (auth('sellers')->user()){
+            return [
+                'id'                 => $this->id,
+                'order_id'           => $this->id,
+                'name'               => htmlspecialchars($this->name),
+                'created_at'         => jdate($this->created_at)->format('%d %B %Y'),
+                'price'              => trans('messages.currency.prefix') . number_format($this->price) . trans('messages.currency.suffix'),
+                'status'             => $this->status,
+                'shipping_status'    => $this->shippingStatusText(),
+
+                'links' => [
+                    'view'    => route('orders.show', ['order' => $this]),
+                ]
+            ];
+        }
         return [
             'id'                 => $this->id,
             'order_id'           => $this->id,

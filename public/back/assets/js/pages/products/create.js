@@ -2,6 +2,7 @@ Dropzone.autoDiscover = false;
 
 /* config dropzone uploader for uploading images */
 var physicalDropzone = new Dropzone('div#product-images', {
+
     url: BASE_URL + '/products/image-store',
     addRemoveLinks: true,
     acceptedFiles: 'image/*',

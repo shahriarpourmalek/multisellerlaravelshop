@@ -64,7 +64,13 @@ trait OrderStatisticsTrait
 
     protected function orderValues(Request $request)
     {
-        $this->authorize('statistics.orders');
+        if (auth('sellers')->user()){
+            $this->authorize('sellers.statistics.orders');
+
+        }
+        else{
+            $this->authorize('statistics.orders');
+        }
 
         $data = $this->getPeriodData('orderValues', $request, [$this, "getStatisticsData"]);
 
@@ -98,7 +104,13 @@ trait OrderStatisticsTrait
 
     protected function orderCounts(Request $request)
     {
-        $this->authorize('statistics.orders');
+        if (auth('sellers')->user()){
+            $this->authorize('sellers.statistics.orders');
+
+        }
+        else{
+            $this->authorize('statistics.orders');
+        }
 
         $data = $this->getPeriodData('orderCounts', $request, [$this, "getStatisticsData"]);
 
@@ -132,8 +144,12 @@ trait OrderStatisticsTrait
 
     protected function orderProducts(Request $request)
     {
-        $this->authorize('statistics.orders');
-
+        if (auth('sellers')->user()){
+            $this->authorize('sellers.statistics.orders');
+        }
+        else{
+            $this->authorize('statistics.orders');
+        }
         $data = $this->getPeriodData('orderProducts', $request, [$this, "getStatisticsData"]);
 
         $total_count   = 0;
@@ -166,8 +182,13 @@ trait OrderStatisticsTrait
 
     protected function orderUsers(Request $request)
     {
-        $this->authorize('statistics.orders');
+        if (auth('sellers')->user()){
+            $this->authorize('sellers.statistics.orders');
 
+        }
+        else{
+            $this->authorize('statistics.orders');
+        }
         $data = $this->getPeriodData('orderUsers', $request, [$this, "getStatisticsData"]);
 
         $total_count   = 0;

@@ -163,32 +163,26 @@
                 </li>
             @endcan
 
-{{--            @can(['comments'])--}}
-{{--                <li class="nav-item has-sub {{ open_class(['admin.comments.*']) }}"><a href="#"><i class="feather icon-message-circle"></i><span class="menu-title" > نظرات</span></a>--}}
-{{--                    <ul class="menu-content">--}}
+            @can(['sellers.comments'])
+                <li class="nav-item has-sub {{ open_class(['sellers.admin.comments.*']) }}"><a href="#"><i class="feather icon-message-circle"></i><span class="menu-title" > نظرات</span></a>
+                    <ul class="menu-content">
 
-{{--                        <li class="{{ active_class('admin.comments.products') }} nav-item">--}}
-{{--                            <a href="{{ route('admin.comments.products') }}">--}}
-{{--                                <i class="feather feather icon-circle"></i>--}}
-{{--                                <span class="menu-title"> پرسش و پاسخ محصولات</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="{{ active_class('admin.reviews.index') }} nav-item">--}}
-{{--                            <a href="{{ route('admin.reviews.index') }}">--}}
-{{--                                <i class="feather feather icon-circle"></i>--}}
-{{--                                <span class="menu-title"> نظرات محصولات</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="{{ active_class('admin.comments.posts') }} nav-item">--}}
-{{--                            <a href="{{ route('admin.comments.posts') }}">--}}
-{{--                                <i class="feather feather icon-circle"></i>--}}
-{{--                                <span class="menu-title"> نظرات وبلاگ</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
+                        <li class="{{ active_class('comments.products') }} nav-item">
+                            <a href="{{ route('sellers.comments.products') }}">
+                                <i class="feather feather icon-circle"></i>
+                                <span class="menu-title"> پرسش و پاسخ محصولات</span>
+                            </a>
+                        </li>
+                        <li class="{{ active_class('sellers.reviews.index') }} nav-item">
+                            <a href="{{ route('reviews.index') }}">
+                                <i class="feather feather icon-circle"></i>
+                                <span class="menu-title"> نظرات محصولات</span>
+                            </a>
+                        </li>
 
-{{--                    </ul>--}}
-{{--                </li>--}}
-{{--            @endcan--}}
+                    </ul>
+                </li>
+            @endcan
         </ul>
     </div>
 </div>

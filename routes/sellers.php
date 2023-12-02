@@ -10,8 +10,10 @@ use App\Http\Controllers\Sellers\Auth\SellersAuthenticatedSessionController;
 use App\Http\Controllers\Sellers\Dashboard\Maincontroller;
 use App\Http\Controllers\Sellers\Dashboard\ProductController;
 use App\Http\Controllers\Sellers\Dashboard\SellerController;
+use App\Http\Controllers\Sellers\Dashboard\SellersCommentController;
 use App\Http\Controllers\Sellers\Dashboard\SellersOrderController;
 use App\Http\Controllers\Sellers\Dashboard\SellersProductController;
+use App\Http\Controllers\Sellers\Dashboard\SellersReviewController;
 use App\Http\Controllers\Sellers\Dashboard\SellersStatisticsController;
 use App\Http\Controllers\Sellers\Dashboard\SellersTransactionController;
 use Illuminate\Support\Facades\Route;
@@ -150,6 +152,14 @@ Route::group([ 'prefix' => 'sellers/' , 'middleware' => 'auth:sellers'], functio
     Route::resource('transactions', SellersTransactionController::class)->only(['index', 'show', 'destroy']);
     Route::post('transactions/api/index', [SellersTransactionController::class, 'apiIndex'])->name('sellers.transactions.apiIndex');
     Route::delete('transactions/api/multipleDestroy', [SellersTransactionController::class, 'multipleDestroy'])->name('sellers.transactions.multipleDestroy');
+
+
+    // ------------------ comments
+    Route::resource('comments', SellersCommentController::class)->only(['show', 'destroy', 'update']);
+    Route::get('comments/index/products', [SellersCommentController::class, 'productComments'])->name('sellers.comments.products');
+
+    // ------------------ reviews
+    Route::resource('reviews', SellersReviewController::class)->only(['index', 'show', 'destroy', 'update']);
 
 });
 

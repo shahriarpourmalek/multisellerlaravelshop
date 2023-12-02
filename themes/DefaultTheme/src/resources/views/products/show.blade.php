@@ -9,7 +9,6 @@
 @endpush
 
 @section('content')
-
     <!-- Start main-content -->
     <main class="main-content dt-sl mt-4 mb-3">
         <div class="container main-container">
@@ -39,6 +38,7 @@
                 <div class="row">
                     <!-- Product Gallery-->
                     <div class="col-lg-4 col-md-12 ps-relative">
+
                         @if(!$product->addableToCart())
                             <div class="product-timeout position-relative pt-5 mb-4">
                                 <div class="promotion-badge not-available">
@@ -62,7 +62,6 @@
                                     </div>
                                 @endif
                             </div>
-
                         @endif
 
                         <ul class="gallery-options {{ $product->isSpecial() ? 'special' : '' }}">
@@ -140,6 +139,7 @@
 
                     </div>
                     @include('front::products.partials.product-info')
+
                 </div>
             </div>
             <div class="dt-sn mb-3 px-0 dt-sl pt-0">

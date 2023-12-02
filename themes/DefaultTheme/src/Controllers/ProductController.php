@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Price;
+use App\Models\Seller;
 use App\Models\SpecificationGroup;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -171,7 +172,12 @@ class ProductController extends Controller
         $show_prices_chart = option('dt_show_price_change_chart', 'yes') == 'yes';
 
         $product->increaseViewCount();
-
+if ($product->seller){
+    $seller = $product->seller;
+}
+else{
+    $seller = null;
+}
         return view('front::products.show', compact(
             'product',
             'related_products',
@@ -180,6 +186,7 @@ class ProductController extends Controller
             'selected_price',
             'show_prices_chart',
             'reviews',
+            'seller',
         ));
     }
 
@@ -387,5 +394,13 @@ class ProductController extends Controller
         $product = Product::findOrfail($id);
 
         return redirect()->route('front.products.show', ['product' => $product]);
+    }
+
+    public function sellersProducts(Seller $seller)
+    {
+
+        $products  =Product::orderByStock()->where('seller_id',$seller->id)->paginate(20);
+
+        return view('front::products.sellers-products', compact('products','seller'));
     }
 }

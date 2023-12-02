@@ -120,8 +120,5 @@ class MainController extends Controller
         return response(['captcha' => captcha_src('flat')]);
     }
 
-    public function nakama()
-    {
-        return 'nakama';
-    }
+
 }

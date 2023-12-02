@@ -27,7 +27,9 @@
                     @if ($product->suggestionCount())
                         <div class="col-12 d-flex">
                             <i class="mdi mdi mdi-thumb-up-outline text-success mx-0"></i>
-                            <p class="text-muted commodity mx-2"> <span>{{ $product->suggestionPercent() }}%</span>({{ $product->suggestionCount() }}) نفر از خریداران این کالا را پیشنهاد کردن </p>
+                            <p class="text-muted commodity mx-2">
+                                <span>{{ $product->suggestionPercent() }}%</span>({{ $product->suggestionCount() }}) نفر
+                                از خریداران این کالا را پیشنهاد کردن </p>
                         </div>
                     @endif
                 </div>
@@ -67,14 +69,16 @@
                 @if ($product->brand)
                     <div class="d-block mb-2">
                         <span class="font-weight-bold">{{ trans('front::messages.products.brand') }}:</span>
-                        <a href="{{ route('front.brands.show', ['brand' => $product->brand]) }}" class="link--with-border-bottom">{{ $product->brand->name }}</a>
+                        <a href="{{ route('front.brands.show', ['brand' => $product->brand]) }}"
+                           class="link--with-border-bottom">{{ $product->brand->name }}</a>
                     </div>
                 @endif
 
                 @if ($product->sizeType)
                     <div class="mt-3 size-guide">
                         <img src="{{ theme_asset('img/size.png') }}" alt="size">
-                        <a href="javascript:void(0)" data-toggle="modal" data-target="#size-modal" class="mt-4 link--with-border-bottom">راهنمای سایزبندی</a>
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#size-modal"
+                           class="mt-4 link--with-border-bottom">راهنمای سایزبندی</a>
                     </div>
                 @endif
             </div>
@@ -114,10 +118,13 @@
                                     @endphp
 
 
-                                    <div class="product-variant dt-sl {{ $attributeGroup->type == 'color' ? 'product-variant-color' : '' }}">
-                                        <div class="section-title d-flex align-items-baseline text-sm-title no-after-title-wide mb-1">
+                                    <div
+                                        class="product-variant dt-sl {{ $attributeGroup->type == 'color' ? 'product-variant-color' : '' }}">
+                                        <div
+                                            class="section-title d-flex align-items-baseline text-sm-title no-after-title-wide mb-1">
                                             <span class="mdi mdi-checkbox-blank-circle-outline"></span>
-                                            <h2 class=" mb-0 mx-1 d-block">{{ $attributeGroup->name }}: <span id="attributeGroup-{{ $attributeGroup->id }}"></span></h2>
+                                            <h2 class=" mb-0 mx-1 d-block">{{ $attributeGroup->name }}: <span
+                                                    id="attributeGroup-{{ $attributeGroup->id }}"></span></h2>
                                         </div>
                                         <ul class="product-variants float-right ml-3">
                                             @foreach ($product->get_attributes($attributeGroup, $prev_attribute, $groups, $attributes_id) as $attribute)
@@ -146,21 +153,28 @@
 
                                                 @endphp
 
-                                                <li class="ui-variant product-attribute {{ $has_stock ? '' : 'unavailable' }}" title="{{ $has_stock ? '' : 'ناموجود' }}">
-                                                    <label class="ui-variant mb-0 {{ $attributeGroup->type == 'color' ? 'ui-variant--color' : '' }}">
+                                                <li class="ui-variant product-attribute {{ $has_stock ? '' : 'unavailable' }}"
+                                                    title="{{ $has_stock ? '' : 'ناموجود' }}">
+                                                    <label
+                                                        class="ui-variant mb-0 {{ $attributeGroup->type == 'color' ? 'ui-variant--color' : '' }}">
 
                                                         @if ($attributeGroup->type == 'color')
-                                                            <span data-group-id="attributeGroup-{{ $attributeGroup->id }}" data-name="{{ $attribute->name }}" data-container="body" data-toggle="popover" data-placement="bottom"  data-trigger="hover" class="ui-variant-shape" style="background-color: {{ $attribute->value }}" {{ $checked ? 'checked' : '' }}></span>
+                                                            <span
+                                                                data-group-id="attributeGroup-{{ $attributeGroup->id }}"
+                                                                data-name="{{ $attribute->name }}" data-container="body"
+                                                                data-toggle="popover" data-placement="bottom"
+                                                                data-trigger="hover" class="ui-variant-shape"
+                                                                style="background-color: {{ $attribute->value }}" {{ $checked ? 'checked' : '' }}></span>
                                                         @endif
 
                                                         <input data-product="{{ $product->slug }}" type="radio"
-                                                            value="{{ $attribute->id }}"
-                                                            name="attributes_group[{{ $loop->parent->iteration }}][]"
-                                                            class="variant-selector" {{ $checked ? 'checked' : '' }} {{ $has_stock ? '' : 'disabled' }}>
+                                                               value="{{ $attribute->id }}"
+                                                               name="attributes_group[{{ $loop->parent->iteration }}][]"
+                                                               class="variant-selector" {{ $checked ? 'checked' : '' }} {{ $has_stock ? '' : 'disabled' }}>
 
-                                                            <div class="ui-variant--check" >
-                                                                <span  {{ $attributeGroup->type != 'color' ? 'product-warranty-span' : '' }}>{{ $attributeGroup->type != 'color' ? $attribute->name : '' }}</span>
-                                                            </div>
+                                                        <div class="ui-variant--check">
+                                                            <span  {{ $attributeGroup->type != 'color' ? 'product-warranty-span' : '' }}>{{ $attributeGroup->type != 'color' ? $attribute->name : '' }}</span>
+                                                        </div>
                                                     </label>
                                                 </li>
                                             @endforeach
@@ -182,16 +196,20 @@
 
                         <div class="dt-sl box-Price-number box-margin">
                             @if ($product->addableToCart())
+
                                 <div class="mb-2 d-flex ">
                                     <span class="flex-grow-1 number">{{ $product->getUnit() }}</span>
                                     <div class="flex-grow-1 text-centertext-price d-flex align-items-center">
                                         <div class="number-input">
-                                            <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                            <button type="button"
+                                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
                                             <input id="cart-quantity" class="quantity"
-                                                min="{{ cart_min($selected_price) }}"
-                                                max="{{ cart_max($selected_price) }}"
-                                                value="{{ cart_min($selected_price) }}" type="number" required>
-                                            <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                                                   min="{{ cart_min($selected_price) }}"
+                                                   max="{{ cart_max($selected_price) }}"
+                                                   value="{{ cart_min($selected_price) }}" type="number" required>
+                                            <button type="button"
+                                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                                    class="plus"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -199,30 +217,30 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="d-flex justify-content-between mt-4">
-                                            <div class="text-price d-flex align-items-center">
-                                                {{ trans('front::messages.products.price') }}
+                                                <div class="text-price d-flex align-items-center">
+                                                    {{ trans('front::messages.products.price') }}
                                                 </div>
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-end">
-                                                    @if ($selected_price->hasDiscount())
-                                                        <del>
-                                                            {{ number_format($selected_price->regularPrice()) }}
-                                                        </del>
-                                                        <div class="discount show-discount mr-3 ">
-                                                            <span>{{ $selected_price->discount() }}%</span>
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <div class="col-12 text-left">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex justify-content-end">
+                                                        @if ($selected_price->hasDiscount())
+                                                            <del>
+                                                                {{ number_format($selected_price->regularPrice()) }}
+                                                            </del>
+                                                            <div class="discount show-discount mr-3 ">
+                                                                <span>{{ $selected_price->discount() }}%</span>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                    <div class="col-12 text-left">
                                                     <span class="price text-danger">
                                                         {{ trans('front::messages.currency.prefix') }}
                                                         {{ number_format($selected_price->salePrice()) }}
                                                     </span>
-                                                    <span class="currency">
+                                                        <span class="currency">
                                                         {{ trans('front::messages.currency.suffix') }}
                                                     </span>
+                                                    </div>
                                                 </div>
-                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -230,10 +248,11 @@
                                 </div>
 
                                 <button data-price_id="{{ $selected_price->id }}"
-                                    data-action="{{ route('front.cart.store', ['product' => $product]) }}"
-                                    data-product="{{ $product->slug }}" type="button"
-                                    class=" mt-4 w-100 btn-primary-cm btn-with-icon add-to-cart btn-show-product">
+                                        data-action="{{ route('front.cart.store', ['product' => $product]) }}"
+                                        data-product="{{ $product->slug }}" type="button"
+                                        class=" mt-4 w-100 btn-primary-cm btn-with-icon add-to-cart btn-show-product">
                                     {{ trans('front::messages.products.add-to-cart') }}
+
                                 </button>
                             @elseif (!$product->addableToCart())
                                 <div class="infoSection">
@@ -241,12 +260,14 @@
                                         <div class="unavailable d-flex justify-content-center">
                                             <h5 class="">{{ trans('front::messages.products.unavailable') }}</h5>
                                         </div>
+
                                         <p class="text-justify">{{ trans('front::messages.products.text-unavailable') }}</p>
                                     </div>
                                     <div class="text-center">
-                                        <button id="stock_notify_btn" data-user="{{ auth()->check() ? auth()->user()->id : '' }}"
-                                            data-product="{{ $product->id }}" type="button"
-                                            class="btn-primary-cm bg-secondary btn-with-icon cart-not-available ">
+                                        <button id="stock_notify_btn"
+                                                data-user="{{ auth()->check() ? auth()->user()->id : '' }}"
+                                                data-product="{{ $product->id }}" type="button"
+                                                class="btn-primary-cm bg-secondary btn-with-icon cart-not-available ">
                                             <i class="mdi mdi-information"></i>
                                             {{ trans('front::messages.products.let-me-know') }}
                                         </button>
@@ -256,7 +277,31 @@
                         </div>
 
                     </div>
+
                 @endif
+                @if ($product->isPhysical())
+                    @if ($seller)
+
+                        <div class="card bg-light px-3 pb-3 pt-0">
+                            <div class="box-border"></div>
+                            <div class="dt-sl box-Price-number box-margin">
+                                <div class="mb-2 d-flex ">
+                                    <span class="flex-grow-1 font-weight-bold">فروشنده</span>
+                                    <div class="flex-grow-1 text-center  d-flex align-items-center">
+                                        <div class=" dt-sl mb-2 d-flex justify-content-between">
+                                            <a href="{{ route('front.products.seller-products', $seller) }}" class="font-weight-lighter font-italic text-dark">
+                                                <span>{{ $seller->seller_name }}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    @endif
+
+                @endif
+
             </div>
         </div>
     </div>

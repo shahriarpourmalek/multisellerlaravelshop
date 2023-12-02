@@ -44,6 +44,7 @@ Route::group(['as' => 'front.'], function () {
     Route::post('product/compare', [ProductController::class, 'similarCompare'])->name('products.similar-compare');
     Route::get('products/{price}/priceChart', [ProductController::class, 'priceChart'])->name('products.priceChart');
     Route::get('p/{id}', [ProductController::class, 'shortLink'])->name('products.shortLink');
+    Route::get('products/seller/{seller}', [ProductController::class, 'sellersProducts'])->name('products.seller-products');
 
 
     // ------------------ cart

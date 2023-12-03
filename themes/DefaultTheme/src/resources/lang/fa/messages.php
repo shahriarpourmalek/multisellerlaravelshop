@@ -3,6 +3,7 @@
 return [
     'header' => [
         'account'                => 'حساب کاربری',
+        'seller_account'         => 'حساب کاربری فروشنده',
         'control-panel'          => 'پنل مدیریت',
         'profile'                => 'پروفایل',
         'my-orders'              => 'سفارشات من',

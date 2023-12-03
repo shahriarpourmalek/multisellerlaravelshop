@@ -83,5 +83,26 @@
             </div>
         </li>
     </ul>
+    <ul class="nav float-left mx-2 bg-light">
+        @include('front::partials.language')
+
+        <li class="nav-item account dropdown">
+            <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false">
+                <span class="label-dropdown"> {{ trans('front::messages.header.seller_account') }} </span>
+                <i class="mdi mdi-account-circle-outline"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-left">
+                <a class="dropdown-item" href="{{ route('sellers.login') }}">
+                    <i class="mdi mdi-account-card-details-outline"></i>
+                    {{ trans('front::messages.header.sign-in-to-site') }}
+                </a>
+                <a class="dropdown-item" href="{{ route('sellers.register') }}">
+                    <i class="mdi mdi-account-edit-outline"></i>
+                    {{ trans('front::messages.header.register') }}
+                </a>
+            </div>
+        </li>
+    </ul>
 @endif
 <!--end /.author-author__info-->
